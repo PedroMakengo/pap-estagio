@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+/* Classes */
+.container {
+    width: 75%;
+}

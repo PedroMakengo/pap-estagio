@@ -1,0 +1,51 @@
+/* Menu */
+body {
+    background-image: url(../images/systeme/home.png);
+    background-position: right top;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 100;
+}
+
+header .col-lg-4 h1 {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 1.5rem;
+    padding-top: 20px;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0;
+}
+
+header ul li a {
+    display: block;
+    padding: 20px 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    transition: color 1s;
+}
+
+header ul li a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+main .container {
+    height: 85vh;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+main .container h1 {
+    font-size: 4rem;
+    color: black;
+}
+
+main .container p {
+    font-size: 2rem;
+    color: black;
+}

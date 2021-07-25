@@ -1,0 +1,47 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 100;
+}
+
+.limit-of-line {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.background {
+    height: 100vh;
+    background-image: linear-gradient(#fa5c91, #f65a915e), url(../images/systeme/create-1.jpg);
+    background-size: 110%;
+}
+
+.background-login {
+    height: 100vh;
+    background-image: linear-gradient(#fa5c91, #f65a915e), url(../images/systeme/create-2.jpg);
+    background-size: 115%;
+}
+
+.forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms input {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.forms input::placeholder {
+    font-size: 14px;
+    font-weight: 100;
+    color: #ccc;
+}
+
+.forms input[type="submit"] {
+    background: #fa5c91;
+    color: #fff;
+    border: 1px solid #fa5c91;
+    cursor: pointer;
+    font-weight: 100;
+}
+
