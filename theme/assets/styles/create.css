@@ -10,13 +10,13 @@ body {
 
 .background {
     height: 100vh;
-    background-image: linear-gradient(#fa5c91, #f65a915e), url(../images/systeme/create-1.jpg);
-    background-size: 110%;
+    background-image: linear-gradient(#ff5833da, #ff583380), url(../images/systeme/create-1.jpg);
+    background-size: 115%;
 }
 
 .background-login {
     height: 100vh;
-    background-image: linear-gradient(#fa5c91, #f65a915e), url(../images/systeme/create-2.jpg);
+    background-image: linear-gradient(#ff5833da, #ff583380), url(../images/systeme/create-2.jpg);
     background-size: 115%;
 }
 
@@ -38,9 +38,9 @@ body {
 }
 
 .forms input[type="submit"] {
-    background: #fa5c91;
+    background: #ff5833da;
     color: #fff;
-    border: 1px solid #fa5c91;
+    border: 1px solid #ff5833da;
     cursor: pointer;
     font-weight: 100;
 }
