@@ -1,10 +1,3 @@
-<?php
-    require 'source/Config.php';
-    require 'source/ModelCrudUser.php';
-
-    $search = new ModelCrudUser();
-    $search->EXE_QUERY("SELECT * FROM tb_user");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
