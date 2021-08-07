@@ -90,7 +90,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" <?= $_GET['id'] == 'student' ? 'active' : '' ?> href="students.php?id=student">
+                      <a class="nav-link <?= $_GET['id'] == 'student' ? 'active' : '' ?>" href="students.php?id=student">
                         <i class="fas fa-fw fa-users"></i>Estudantes
                       </a>
                   </li>
