@@ -42,7 +42,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-xl-8 background-login"></div>
+            <div class="col-xl-8 background-login">
+            </div>
         </div>
     </main>
 </body>
