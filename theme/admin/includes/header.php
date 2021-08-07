@@ -90,16 +90,19 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" <?= $_GET['id'] == 'student' ? 'active' : '' ?> href="students.php?id=student"><i class="fas fa-fw fa-chart-pie"></i>Estudantes</a>
-                  </li>
-                  <li class="nav-item ">
-                      <a class="nav-link <?= $_GET['id'] == 'performance' ? 'active' : '' ?>" href="performance-students.php?id=performance"><i class="fab fa-fw fa-wpforms"></i>Performance</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link <?= $_GET['id'] == 'foreigners' ? 'active' : '' ?>" href="foreigners-abroad.php?id=foreigners"><i class="fas fa-fw fa-table"></i>Estagiários</a>
+                      <a class="nav-link" <?= $_GET['id'] == 'student' ? 'active' : '' ?> href="students.php?id=student">
+                        <i class="fas fa-fw fa-users"></i>Estudantes
+                      </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link <?= $_GET['id'] == 'foreigners' ? 'active' : '' ?>" href="#"><i class="fas fa-f fa-folder"></i>Estátisticas</a>
+                      <a class="nav-link <?= $_GET['id'] == 'foreigners' ? 'active' : '' ?>" href="foreigners-abroad.php?id=foreigners">
+                        <i class="fas fa-fw fa-chart-pie"></i>Estagiários
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link <?= $_GET['id'] == 'teste' ? 'active' : '' ?>" href="#">
+                        <i class="fas fa-f fa-chart-pie"></i>Estátisticas
+                     </a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
