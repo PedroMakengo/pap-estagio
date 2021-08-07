@@ -16,7 +16,42 @@
     <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;700&display=swap" rel="stylesheet">
     <title>The end</title>
 
+    <style>
+        body ,td,th,
+        h5.text-muted,
+        .card-header,
+        p, li, a{
+            font-family: 'Roboto Mono', monospace !important;
+            font-size: 16px;
+        }
+        .card-static-1 {
+            background: -webkit-gradient(linear, right top, left bottom,
+            from(#ff5d9381), to(#ff5f93));
+        }
+        .card-static-2 {
+            background: -webkit-gradient(linear, right top, left bottom,
+            from(#ffcb2b), to(#f9940e)) !important;
+        }
+        .card-static-3 {
+            background: -webkit-gradient(linear, right top, left bottom,
+            from(#e559f9db), to(#e559f9)) !important;
+        }
+        .card-static-4 {
+            background: -webkit-gradient(linear, right top, left bottom,
+            from(#1f6febe6), to(#1f6feb)) !important;
+        }
+        .card-static-1 *, .card-static-2 *,
+        .card-static-3 *,  .card-static-4 *,
+        .card-static-1 h5.text-muted, .card-static-2 h5.text-muted,
+        .card-static-3 h5.text-muted, .card-static-4 h5.text-muted {
+            color: #FFF !important;
+        }
+    </style>
 </head>
 <body>
