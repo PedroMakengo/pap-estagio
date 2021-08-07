@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;700&display=swap" rel="stylesheet">
-    <title>The end</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;700&display=swap" rel="stylesheet">
+    <title>Plataforma de Estágio</title>
 
     <style>
         body ,td,th,
+        .navbar-brand,
         h5.text-muted,
         .card-header,
         p, li, a{

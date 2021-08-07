@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 text-left">
-                    <h1>The start Work</h1>
+                    <h1>Pega agora</h1>
                 </div>
                 <div class="col-lg-8 text-right">
                     <ul>
@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h1>The start <span>work</span></h1>
+                    <h1>Plataforma de <span>Estágio</span></h1>
                     <p>Conhece agora a sua plataforma de estagio, uma solução para os estudantes angolanos do 13º ano.</p>
                 </div>
             </div>

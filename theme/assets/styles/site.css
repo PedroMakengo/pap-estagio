@@ -4,12 +4,12 @@ body {
     background-position: right top;
     background-size: 75%;
     background-repeat: no-repeat;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Roboto Mono', monospace !important;
     font-weight: 100;
 }
 
 header .col-lg-4 h1 {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto Mono', monospace !important;
     font-size: 1.5rem;
     padding-top: 20px;
 }
