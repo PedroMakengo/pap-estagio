@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto Mono', monospace !important;
+    font-family: Roboto;
     font-weight: 100;
 }
 
@@ -11,7 +11,7 @@ body {
 .background {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-    from(#ff5f93), to(#ff5d9381)),
+    from(#FE5D92), to(#7d7dffce)),
     url(../images/systeme/create-1.jpg);
     background-size: 115%;
 }
@@ -19,7 +19,7 @@ body {
 .background-login {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-    from(#ff5f93), to(#ff5d9381)),
+    from(#FE5D92), to(#7d7dffce)),
     url(../images/systeme/create-2.jpg);
     background-size: 115%;
 }
@@ -42,9 +42,9 @@ body {
 }
 
 .forms input[type="submit"] {
-    background: #ff5f93;
+    background: #FE5D92;
     color: #fff;
-    border: 1px solid #ff5f93;
+    border: 1px solid #FE5D92;
     cursor: pointer;
     font-weight: 100;
 }

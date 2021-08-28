@@ -4,12 +4,12 @@ body {
     background-position: right top;
     background-size: 75%;
     background-repeat: no-repeat;
-    font-family: 'Roboto Mono', monospace !important;
+    font-family: Roboto !important;
     font-weight: 100;
 }
 
 header .col-lg-4 h1 {
-    font-family: 'Roboto Mono', monospace !important;
+    font-family: Roboto !important;
     font-size: 1.5rem;
     padding-top: 20px;
 }
