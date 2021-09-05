@@ -70,29 +70,23 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="#"><i class="fa fa-fw fa-user-circle"></i>Dashboard
+                            <a class="nav-link active" href="home.php"><i class="fa fa-fw fa-user-circle"></i>Dashboard
                                 <span class="badge badge-success">6</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vaga</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#"><i class="fab fa-fw fa-wpforms"></i>Entrevista</a>
+                            <a class="nav-link" href="vacancy.php"><i class="fas fa-f fa-folder"></i>Vaga</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
+                            <a class="nav-link" href="foreign-accepted.php"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
+                            <a class="nav-link" href="assing-task.php"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-fw fa-table"></i>relatório mensal</a>
+                            <a class="nav-link" href="monthly-report.php"><i class="fas fa-fw fa-table"></i>relatório mensal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vaga</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
+                            <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
                         </li>
                     </ul>
                 </div>
