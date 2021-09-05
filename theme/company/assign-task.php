@@ -22,7 +22,11 @@
                                 <div class="bg-white border p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Olá, Sr(a). <strong>Eduardo Jamba</strong></h1>
+                                            <span>Nesta tela tens a possibilidade de adicionar uma nova tarefa </span>
+                                        </div>
+                                        <div class="col-lg-6 text-right">
+                                            <button class="btn btn-small">Adicionar tarefa</button>
                                         </div>
                                     </div>
                                 </div>
