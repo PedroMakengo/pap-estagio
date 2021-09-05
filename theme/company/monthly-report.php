@@ -13,7 +13,8 @@
 
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="p-4 fundoCompany"></div>
+                <div class="container-fluid dashboard-content manterTop">
                     <div class="ecommerce-widget">
 
                         <div class="row mb-4">
@@ -22,9 +23,6 @@
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
                                             <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
-                                        </div>
-                                        <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Painel Administrativo do sistema</h1>
                                         </div>
                                     </div>
                                 </div>

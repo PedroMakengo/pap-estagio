@@ -13,7 +13,8 @@
 
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="p-4 fundoCompany"></div>
+                <div class="container-fluid dashboard-content manterTop">
                     <div class="ecommerce-widget">
 
                         <div class="row mb-4">
