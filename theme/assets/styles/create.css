@@ -40,9 +40,9 @@ body {
 }
 
 .forms input[type="submit"] {
-    background: #FE5D92;
+    background: #00D8F3;
     color: #fff;
-    border: 1px solid #FE5D92;
+    border: 1px solid #00D8F3;
     cursor: pointer;
     font-weight: 100;
 }
