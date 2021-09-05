@@ -96,39 +96,36 @@
 
                         <div class="row">
                             <!-- ============================================================== -->
-
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <div class="card shadow">
+                                    <h5 class="card-header"><strong>Empresas registradas</strong></h5>
+                                    <div class="card-body p-0">
+                                        <h1>Gráfico</h1>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- ============================================================== -->
 
                             <!-- recent orders  -->
                             <!-- ============================================================== -->
-                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div class="card shadow">
-                                    <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
+                                    <h5 class="card-header"><strong>Empresas registradas</strong></h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
+                                                        <th class="border-0">Nome</th>
+                                                        <th class="border-0">Data</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
                                                         <td>Product #1 </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
+                                                        <td>Product #1 </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

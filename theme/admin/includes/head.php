@@ -28,24 +28,24 @@
         h5.text-muted,
         .card-header,
         p, li, a{
-            font-family: 'Roboto Mono', monospace !important;
+            font-family: Roboto !important;
             font-size: 16px;
         }
         .card-static-1 {
             background: -webkit-gradient(linear, right top, left bottom,
-            from(#ff5d9381), to(#ff5f93));
+            from(#1f6febe6), to(#1f6feb));
         }
         .card-static-2 {
             background: -webkit-gradient(linear, right top, left bottom,
-            from(#ffcb2b), to(#f9940e)) !important;
+            from(#1f6febe6), to(#1f6feb)) !important;
         }
         .card-static-3 {
             background: -webkit-gradient(linear, right top, left bottom,
-            from(#e559f9db), to(#e559f9)) !important;
+            from(#1f6febe6), to(#1f6feb)) !important;
         }
         .card-static-4 {
             background: -webkit-gradient(linear, right top, left bottom,
-            from(#1f6febe6), to(#1f6feb)) !important;
+            from(#13C33B), to(#13C33B)) !important;
         }
         .card-static-1 *, .card-static-2 *,
         .card-static-3 *,  .card-static-4 *,
