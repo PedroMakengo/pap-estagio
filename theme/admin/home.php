@@ -100,7 +100,9 @@
                                 <div class="card shadow">
                                     <h5 class="card-header"><strong>Empresas registradas</strong></h5>
                                     <div class="card-body p-0">
-                                        <h1>Gráfico</h1>
+                                       <div>
+                                            <canvas id="mycompra-chart" style="height: 300px"></canvas>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
