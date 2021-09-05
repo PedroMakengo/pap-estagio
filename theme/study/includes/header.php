@@ -1,6 +1,6 @@
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="index.html">The end</a>
+            <a class="navbar-brand" href="home.php">The end</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -70,29 +70,20 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="#"><i class="fa fa-fw fa-user-circle"></i>Dashboard
+                            <a class="nav-link active" href="#"><i class="fa fa-fw fa-user-circle"></i>Home
                                 <span class="badge badge-success">6</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vaga</a>
+                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vagas Disponíveis</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#"><i class="fab fa-fw fa-wpforms"></i>Entrevista</a>
+                            <a class="nav-link" href="#"><i class="fab fa-fw fa-wpforms"></i>Empresas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
+                            <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Meu estágio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-fw fa-table"></i>relatório mensal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vaga</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
+                            <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
                         </li>
                     </ul>
                 </div>

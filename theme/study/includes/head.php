@@ -18,5 +18,21 @@
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
     <title>The end</title>
 
+    <style>
+        .fundoCompany {
+            background-image: -webkit-gradient(linear, right top, left bottom,
+            from(#ff5f929c), to(#00D8F3)), url(../assets/images/systeme/create-1.jpg) !important;
+            height: 40vh;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .manterTop {
+            margin-top: -12rem
+        }
+
+    </style>
+
 </head>
 <body>
