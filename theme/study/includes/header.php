@@ -56,7 +56,7 @@
         </nav>
     </div>
 
-    <div class="nav-left-sidebar sidebar-dark" style="background-color: #fa5c91;">
+    <div class="nav-left-sidebar sidebar-dark" style="background-color: #00D8F3;">
         <div class="menu-list">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
