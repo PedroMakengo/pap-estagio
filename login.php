@@ -36,7 +36,7 @@
                     <div class="col-lg-12 mt-4">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <p>Já tenho uma conta <a href="#">Logon</a></p>
+                                <p>Já tenho uma conta <a href="create.php">Criar conta</a></p>
                             </div>
                         </div>
                     </div>

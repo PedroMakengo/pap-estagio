@@ -11,16 +11,14 @@ body {
 .background {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-    from(#FE5D92), to(#7d7dffce)),
-    url(../images/systeme/create-1.jpg);
+            from(#fa196071), to(#00D8F3)), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
 .background-login {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-    from(#FE5D92), to(#7d7dffce)),
-    url(../images/systeme/create-2.jpg);
+            from(#fa196071), to(#00D8F3)), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
