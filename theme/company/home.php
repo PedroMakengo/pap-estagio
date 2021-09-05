@@ -13,7 +13,8 @@
 
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="p-4 fundoCompany"></div>
+                <div class="container-fluid dashboard-content manterTop">
                     <div class="ecommerce-widget">
 
                         <div class="row mb-4">
@@ -90,6 +91,15 @@
                                         </div>
                                     </div>
                                     <div id="sparkline-revenue4"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card">
+                                    <div>
+                                        <canvas id="mycompra-chart" style="height: 300px"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>

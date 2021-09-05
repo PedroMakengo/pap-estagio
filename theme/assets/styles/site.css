@@ -48,4 +48,8 @@ main .container h1 {
 main .container p {
     font-size: 2rem;
     color: black;
+
+    background-color: #FF5F93;
 }
+
+

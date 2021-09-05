@@ -56,7 +56,7 @@
         </nav>
     </div>
 
-    <div class="nav-left-sidebar sidebar-dark" style="background-color: #fa5c91;">
+    <div class="nav-left-sidebar sidebar-dark" style="background-color: #00D8F3;">
         <div class="menu-list">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -77,10 +77,10 @@
                             <a class="nav-link" href="vacancy.php"><i class="fas fa-f fa-folder"></i>Vaga</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="foreign-accepted.php"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
+                            <a class="nav-link" href="accepted.php"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="assing-task.php"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
+                            <a class="nav-link" href="assign-task.php"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="monthly-report.php"><i class="fas fa-fw fa-table"></i>relatório mensal</a>
