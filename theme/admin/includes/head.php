@@ -1,3 +1,7 @@
+<!-- Terminar sessão -->
+
+<!-- End sessão -->
+
 <!doctype html>
 <html lang="en">
 

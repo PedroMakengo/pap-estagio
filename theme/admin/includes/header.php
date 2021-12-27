@@ -54,7 +54,7 @@
                               Administrador
                             </span>
                         </div>
-                        <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>
+                        <a class="dropdown-item" href="?logout=true"><i class="fas fa-power-off mr-2"></i>
                           Terminar sessão
                         </a>
                     </div>

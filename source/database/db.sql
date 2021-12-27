@@ -43,6 +43,7 @@ CREATE TABLE tb_aluno(
   foto varchar(220),
   sexo varchar(50),
   contacto int(9),
+  estado_aluno int(2),
   data_registro_aluno datetime
 );
 

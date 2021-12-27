@@ -17,12 +17,12 @@
       // Adicionar a sessão do administrador
     }else {
       // Efectuando o login da company
-      $loginCompany = $login->EXE_QUERY("SELECT * FROM tb_empresa", $parametro);
+      $loginCompany = $login->EXE_QUERY("SELECT * FROM tb_empresa WHERE email_empresa=:email AND senha_empresa=:senha", $parametro);
       if($loginCompany){
         echo "<script>location.href='theme/company/home.php'</script>";
       }else {
         // Efectuando login do usuário
-        $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno", $parametro);
+        $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno WHERE email=:email AND senha=:senha", $parametro);
         if($loginStudy){
           echo "<script>location.href='theme/study/home.php'</script>";
         }else {
