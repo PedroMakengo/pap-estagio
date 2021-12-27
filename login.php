@@ -1,7 +1,7 @@
 <!-- Adicionando configurações -->
 <?php
   require './source/Config.php';
-  require './source/Model.php.php';
+  require './source/Model.php';
   ?>
 <!-- Adicionando configurações -->
 
@@ -25,20 +25,20 @@
     <main>
         <div class="row limit-of-line">
             <div class="col-xl-4 forms">
-                <form action="">
+                <form method="POST">
                     <div class="col-lg-12 mb-5">
                         <h1>MoEstagio</h1>
                         <p>Faça o seu logon dentro da nossa plataforma</p>
                         <hr>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" placeholder="Ex: pedromakengo@gmail.com" class="form-control form-control-lg">
+                        <input type="email" name="email" placeholder="Ex: pedromakengo@gmail.com" class="form-control form-control-lg">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="password" placeholder="Password" class="form-control-lg form-control">
+                        <input type="password" name="password" placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="submit" value="Logon" class="form-control-lg form-control">
+                        <input type="submit" value="Logon" name="login" class="form-control-lg form-control">
                     </div>
 
                     <div class="col-lg-12 mt-4">
@@ -52,7 +52,7 @@
 
                     <!-- Adicionando a configuração do login -->
                     <?php
-                    require './source/controls'
+                      require './source/controls/Login.php';
                     ?>
                     <!-- End Configuração do login -->
                 </form>

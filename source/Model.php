@@ -1,5 +1,5 @@
 <?php
-  class ModelCrudUser {
+  class Model {
     // SELECIONAR DADOS DO BANCO DE DADOS DE ACORDO A REGRA DE NEGÓCIO
     public function EXE_QUERY($query, $parametros = null) {
         // Resultados

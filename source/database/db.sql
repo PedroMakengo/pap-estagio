@@ -7,6 +7,9 @@ CREATE TABLE tb_admin(
   foto_admin varchar(200)
 );
 
+INSERT INTO tb_admin(id_admin, nome_admin, email_admin, senha_admin, foto_admin)
+VALUES (1, "Mauro Bongue", "maurobongue@gmail.com", md5(md5(1234)), 'mauro.png');
+
 -- Toda e qualquer empresa que se inscreve no sistema um o intuito de recrutar jovens de uma escola
 CREATE TABLE tb_empresa(
   id_empresa int(11) primary key auto_increment,

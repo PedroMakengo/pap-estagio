@@ -5,24 +5,28 @@
     $email = $_POST['email'];
     $pass  = $_POST['password'];
 
-    $paramets = [
+    $parametro = [
       ":email"  => $email,
-      ":pass"   => md5(md5($pass))
-    ]
+      ":senha"   => md5(md5($pass))
+    ];
     // Efectuando o login do Administrador
-    $loginAdmin->EXE_QUERY("SELECT * FROM ", $paramets);
+    $login = new Model();
+    $loginAdmin = $login->EXE_QUERY("SELECT * FROM tb_admin WHERE email_admin=:email AND senha_admin=:senha", $parametro);
     if($loginAdmin){
       echo "<script>location.href='theme/admin/home.php'</script>";
+      // Adicionar a sessão do administrador
     }else {
       // Efectuando o login da company
-      $loginCompany->EXE_QUERY("SELECT * FROM ", $paramets);
+      $loginCompany = $login->EXE_QUERY("SELECT * FROM tb_empresa", $parametro);
       if($loginCompany){
         echo "<script>location.href='theme/company/home.php'</script>";
       }else {
         // Efectuando login do usuário
-        $loginStudy->EXE_QUERY("SELECT * FROM ", $paramets);
+        $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno", $parametro);
         if($loginStudy){
           echo "<script>location.href='theme/study/home.php'</script>";
+        }else {
+          echo "<script>window.alert('Este usuário não exixte')</script>";
         }
       }
     }
