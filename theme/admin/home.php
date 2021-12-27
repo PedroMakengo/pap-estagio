@@ -37,7 +37,15 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Total Empresas</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                                <!-- Contar quantas empresas estão no sistema -->
+                                                <?php
+                                                  $contEmpresa = new Model();
+                                                  $empresas = $contEmpresa->EXE_QUERY("SELECT * FROM tb_empresa");
+                                                  echo count($empresas);
+                                                  ?>
+                                                <!-- Contar quantas empresas estão no sistema -->
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-success font-weight-bold">
@@ -52,7 +60,15 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Total de Estagiários</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                              <?php
+                                                  $contAluno = new Model();
+                                                  $aluno = $contAluno->EXE_QUERY("SELECT * FROM tb_aluno");
+                                                  echo count($aluno);
+                                                  ?>
+                                                <!-- Contar quantas empresas estão no sistema -->
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-success font-weight-bold">
@@ -67,7 +83,15 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Estagiários Sexo (M)</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                              <?php
+                                                  $contAlunoMasculino = new Model();
+                                                  $alunoMasculino = $contAlunoMasculino->EXE_QUERY("SELECT * FROM tb_aluno WHERE sexo='M' ");
+                                                  echo count($alunoMasculino);
+                                                  ?>
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-primary font-weight-bold">
@@ -82,7 +106,15 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Estagiários Sexo (M)</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                              <?php
+                                                  $contAlunoFeminino = new Model();
+                                                  $alunoFeminino = $contAlunoFeminino->EXE_QUERY("SELECT * FROM tb_aluno WHERE sexo='F' ");
+                                                  echo count($alunoFeminino);
+                                                  ?>
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-secondary font-weight-bold">

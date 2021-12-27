@@ -21,10 +21,10 @@
                                 <div class="bg-white border p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?> </strong></h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Painel Administrativo do sistema</h1>
+                                            <!-- <h1 class="h6">Painel Administrativo do sistema</h1> -->
                                         </div>
                                     </div>
                                 </div>
@@ -43,35 +43,37 @@
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
+                                                        <th class="border-0">Nome do estudante</th>
+                                                        <th class="border-0">E-mail</th>
+                                                        <th class="border-0">Contacto</th>
+                                                        <th class="border-0">Numero de Processo</th>
+                                                        <th class="border-0">Estado na plataforma</th>
+                                                        <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="profile-students.php" style="color: blue">Product #1 </a>
-                                                        </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
-                                                        <td>27-08-2018 01:22:12</td>
-                                                        <td>Patricia J. King </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                      $search = new Model();
+                                                      $estudantes = $search->EXE_QUERY("SELECT * FROM tb_aluno");
+                                                      if(count($estudantes)):
+                                                        foreach($estudantes as $mostrar):?>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>T</td>
+                                                            <td>H</td>
+                                                            <td>id000001 </td>
+                                                            <td>20</td>
+                                                            <td>20</td>
+                                                            <td>$80.00</td>
+                                                        </tr>
+                                                    <?php
+                                                      endforeach;
+                                                    else:?>
+                                                      <tr>
+                                                        <td colspan="12" class="bg-warning text-center text-white">Nenhum aluno registrado</td>
+                                                      </tr>
+                                                    <?php
+                                                    endif;?>
                                                 </tbody>
                                             </table>
                                         </div>

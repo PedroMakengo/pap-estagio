@@ -75,7 +75,7 @@
                                                         endforeach;
                                                       else:?>
                                                         <tr>
-                                                          <td class="btn bg-warning text-white" colspan="12">
+                                                          <td class="text-white bg-warning text-center" colspan="12">
                                                         Não existe nenhuma empresa registrada</td>
                                                         </tr>
                                                       <?php

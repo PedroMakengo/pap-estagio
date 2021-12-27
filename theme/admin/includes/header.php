@@ -67,8 +67,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link <?= $_GET['id'] == 'foreigners' ? 'active' : '' ?>" href="foreigners-abroad.php?id=foreigners">
-                        <i class="fas fa-fw fa-chart-pie"></i>Estagiários
+                      <a class="nav-link <?= $_GET['id'] == 'relatory' ? 'active' : '' ?>" href="relatory.php?id=relatory">
+                        <i class="fas fa-fw fa-chart-pie"></i>Relatórios
                     </a>
                   </li>
                   <li class="nav-item">

@@ -21,10 +21,10 @@
                                 <div class="bg-white border p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?> </strong></h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Painel Administrativo do sistema</h1>
+                                            <!-- <h1 class="h6">Painel Administrativo do sistema</h1> -->
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
+                                    <h5 class="card-header"><strong>Relatório de estágios</strong></h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
