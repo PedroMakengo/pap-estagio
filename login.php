@@ -2,6 +2,8 @@
 <?php
   require './source/Config.php';
   require './source/Model.php';
+
+  session_start();
   ?>
 <!-- Adicionando configurações -->
 

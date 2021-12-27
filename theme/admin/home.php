@@ -21,10 +21,10 @@
                                 <div class="bg-white border p-4 shadow">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?></strong></h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Painel Administrativo do sistema</h1>
+                                            <!-- <h1 class="h6">Painel Administrativo do sistema</h1> -->
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Total Empresas</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
+                                            <h1 class="mb-1">0</h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-success font-weight-bold">
@@ -52,7 +52,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Total de Estagiários</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
+                                            <h1 class="mb-1">0</h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-success font-weight-bold">
@@ -67,7 +67,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Estagiários Sexo (M)</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0.00</h1>
+                                            <h1 class="mb-1">0</h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-primary font-weight-bold">
@@ -82,7 +82,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Estagiários Sexo (M)</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$28000</h1>
+                                            <h1 class="mb-1">0</h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-secondary font-weight-bold">
@@ -124,11 +124,26 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Product #1 </td>
-                                                        <td>Product #1 </td>
-                                                    </tr>
+                                                    <!-- Adicionar aqui -->
+                                                    <?php
+                                                      $search = new Model();
+                                                      $empresaLimiteCinco = $search->EXE_QUERY("SELECT * FROM tb_empresa LIMIT 5");
+                                                      if(count($empresaLimiteCinco)):
+                                                        foreach($empresaLimiteCinco as $mostrar):?>
+                                                      <tr>
+                                                          <td>1</td>
+                                                          <td>Product #1 </td>
+                                                          <td>Product #1 </td>
+                                                      </tr>
+                                                    <?php
+                                                        endforeach;
+                                                      else:?>
+                                                      <tr>
+                                                        <td colspan="3">Não existe nenhuma empresa registrada</td>
+                                                      </tr>
+                                                    <?php
+                                                      endif;?>
+                                                    <!-- Adicionar aqui -->
                                                 </tbody>
                                             </table>
                                         </div>
