@@ -21,10 +21,10 @@
                                 <div class="bg-white border p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?></strong></h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Painel Administrativo do sistema</h1>
+                                            <!-- <h1 class="h6">Painel Administrativo do sistema</h1> -->
                                         </div>
                                     </div>
                                 </div>
@@ -32,10 +32,6 @@
                         </div>
 
                         <div class="row">
-                            <!-- ============================================================== -->
-
-                            <!-- ============================================================== -->
-
                             <!-- recent orders  -->
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
@@ -47,86 +43,43 @@
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
+                                                        <th class="border-0">Nome</th>
+                                                        <th class="border-0">Responsável</th>
+                                                        <th class="border-0">NIF</th>
+                                                        <th class="border-0">Localização</th>
+                                                        <th class="border-0">Contacto</th>
+                                                        <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #1 </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
-                                                        <td>27-08-2018 01:22:12</td>
-                                                        <td>Patricia J. King </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic-2.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #2 </td>
-                                                        <td>id000002 </td>
-                                                        <td>12</td>
-                                                        <td>$180.00</td>
-                                                        <td>25-08-2018 21:12:56</td>
-                                                        <td>Rachel J. Wicker </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic-3.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #3 </td>
-                                                        <td>id000003 </td>
-                                                        <td>23</td>
-                                                        <td>$820.00</td>
-                                                        <td>24-08-2018 14:12:77</td>
-                                                        <td>Michael K. Ledford </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic-4.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #4 </td>
-                                                        <td>id000004 </td>
-                                                        <td>34</td>
-                                                        <td>$340.00</td>
-                                                        <td>23-08-2018 09:12:35</td>
-                                                        <td>Michael K. Ledford </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="9"><a href="#"
-                                                                class="btn btn-outline-light float-right">View
-                                                                Details</a></td>
-                                                    </tr>
+                                                    <?php
+
+                                                      $empresa = new Model();
+                                                      $search = $empresa->EXE_QUERY("SELECT * FROM tb_empresa");
+                                                      if(count($search)):
+                                                        foreach($search as $mostrar):?>
+                                                          <tr>
+                                                              <td><?= $mostrar['id_empresa'] ?></td>
+                                                              <td><?= $mostrar['nome_empresa'] ?></td>
+                                                              <td><?= $mostrar['responsavel_empresa'] ?></td>
+                                                              <td><?= $mostrar['nif'] ?></td>
+                                                              <td><?= $mostrar['localizacao'] ?></td>
+                                                              <td><?= $mostrar['contacto'] ?></td>
+                                                              <td>
+                                                                <button class="btn btn-sm btn-danger">
+                                                                  Eliminar
+                                                                </button>
+                                                              </td>
+                                                          </tr>
+                                                        <?php
+                                                        endforeach;
+                                                      else:?>
+                                                        <tr>
+                                                          <td class="btn bg-warning text-white" colspan="12">
+                                                        Não existe nenhuma empresa registrada</td>
+                                                        </tr>
+                                                      <?php
+                                                      endif;?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -136,23 +89,6 @@
                             <!-- ============================================================== -->
                             <!-- end recent orders  -->
                         </div>
-
-                        <!-- Adicionando uma nova empresa -->
-                        <div class="row">
-                          <!-- Modal para registro de empresa -->
-                          <div class="col-lg-12">
-                            <div class="modal">
-                              <!-- Tudo vai ficar aqui -->
-                            </div>
-                          </div>
-                          <!-- End Modal -->
-                          <div class="col-lg-12">
-                            <button class="btn btn-primary">
-                              Adicionar nova empresa
-                            </button>
-                          </div>
-                        </div>
-                        <!-- Terminando o código -->
                     </div>
                 </div>
             </div>
