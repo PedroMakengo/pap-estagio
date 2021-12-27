@@ -1,3 +1,11 @@
+<!-- Adicionando configurações -->
+<?php
+  require './source/Config.php';
+  require './source/Model.php.php';
+  ?>
+<!-- Adicionando configurações -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +27,7 @@
             <div class="col-xl-4 forms">
                 <form action="">
                     <div class="col-lg-12 mb-5">
-                        <h1>The end</h1>
+                        <h1>MoEstagio</h1>
                         <p>Faça o seu logon dentro da nossa plataforma</p>
                         <hr>
                     </div>
@@ -40,6 +48,13 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Adicionando a configuração do login -->
+                    <?php
+                    require './source/controls'
+                    ?>
+                    <!-- End Configuração do login -->
                 </form>
             </div>
             <div class="col-xl-8 background-login">

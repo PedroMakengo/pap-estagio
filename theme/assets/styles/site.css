@@ -1,7 +1,7 @@
 /* Menu */
 body {
     background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#fa196071), to(#00D8F3)), url(../images/systeme/create-1.jpg) !important;
+            from(#0086f360), to(#0086f3)), url(../images/systeme/create-1.jpg) !important;
     background-position: right top;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -26,16 +26,19 @@ header ul li {
 header ul li a {
     display: block;
     padding: 20px 20px;
+    font-family: Poppins !important;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
     color: white;
-    transition: color 1s;
+    transition: color 0.2s;
 }
 
 header ul li a:hover {
   text-decoration: none;
   filter: brightness(1.1);
+  color: #fff;
+  font-weight: 400;
 }
 
 main .container {
