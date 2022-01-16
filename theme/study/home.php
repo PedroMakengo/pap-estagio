@@ -22,7 +22,7 @@
                                 <div class="bg-white border rounded p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?></strong></h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
                                             <h1 class="h6">Vagas disponíveis</h1>

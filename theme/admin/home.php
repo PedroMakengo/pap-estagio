@@ -58,7 +58,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card card-static-2 shadow">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Total de Estagiários</h5>
+                                        <h5 class="text-muted">Total de Estudantes</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">
                                               <!-- Contar quantas empresas estão no sistema -->
@@ -81,7 +81,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card card-static-3 shadow">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Estagiários Sexo (M)</h5>
+                                        <h5 class="text-muted">Genero (Masculino)</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">
                                               <!-- Contar quantas empresas estão no sistema -->
@@ -104,7 +104,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card card-static-4 shadow">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Estagiários Sexo (M)</h5>
+                                        <h5 class="text-muted">Genero (Feminino)</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">
                                               <!-- Contar quantas empresas estão no sistema -->

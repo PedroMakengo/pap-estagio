@@ -43,7 +43,7 @@
             $_SESSION['contacto'] = addslashes($mostrar['contacto']);
             $_SESSION['estado_aluno'] = addslashes($mostrar['estado_aluno']);
           endforeach;
-          echo "<script>location.href='theme/study/home.php'</script>";
+          echo "<script>location.href='theme/study/home.php?id=home'</script>";
         }else {
           echo "<script>window.alert('Este usuário não exixte')</script>";
         }
