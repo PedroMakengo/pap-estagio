@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
-    <title>The end</title>
+    <title>MoEstagio | Home</title>
 
     <style>
         .fundoCompany {
@@ -27,11 +27,9 @@
             background-size: 100%;
             background-repeat: no-repeat;
         }
-
         .manterTop {
             margin-top: -12rem
         }
-
     </style>
 
 </head>

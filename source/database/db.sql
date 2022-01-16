@@ -53,7 +53,7 @@ CREATE TABLE tb_candidatura_vaga (
   id_aluno int(11),
   id_vaga int(11),
   FOREIGN KEY (id_aluno) REFERENCES tb_aluno(id_aluno),
-  FOREIGN KEY (id_vaga) REFERENCES tb_vaga_estagio (id_vaga)
+  FOREIGN KEY (id_vaga) REFERENCES tb_vaga_estagio (id_vaga),
   data_registro_candidatura datetime,
   estado_candidatura int(2)
 );
