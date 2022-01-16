@@ -30,6 +30,12 @@
         .manterTop {
             margin-top: -12rem
         }
+        h1, h2, h3, h4, h5, h6,p,
+        a,
+        table thead th,
+        table tbody td {
+          font-family: Poppins !important;
+        }
     </style>
 
 </head>

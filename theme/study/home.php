@@ -24,6 +24,9 @@
                                         <div class="col-lg-6">
                                             <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
                                         </div>
+                                        <div class="col-lg-6 text-right">
+                                            <h1 class="h6">Vagas disponíveis</h1>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +55,6 @@
                                             <td>Aberto</td>
                                             <td class="text-center">
                                               <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                              <button class="btn btn-sm btn-danger">Eliminar</button>
                                             </td>
                                           </tr>
                                         </tbody>

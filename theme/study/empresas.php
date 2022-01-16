@@ -22,7 +22,7 @@
                                 <div class="bg-white border rounded p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
-                                            <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Algumas empresas</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,6 @@
                                             <td>Aberto</td>
                                             <td class="text-center">
                                               <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                              <button class="btn btn-sm btn-danger">Eliminar</button>
                                             </td>
                                           </tr>
                                         </tbody>
