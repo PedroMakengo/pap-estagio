@@ -19,7 +19,7 @@
 
                         <div class="row mb-4">
                             <div class="col-xl-12 col-lg-12">
-                                <div class="bg-white border p-4">
+                                <div class="bg-white border rounded p-4">
                                     <div class="row pt-1">
                                         <div class="col-lg-6">
                                             <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
@@ -31,8 +31,32 @@
 
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-                                <div class="card rounded-0 p-4">
-                                    <h1>Algumas informações</h1>
+                                <div class="card rounded p-4">
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th>Id</th>
+                                            <th>Empresa</th>
+                                            <th>Area</th>
+                                            <th>Número de Candidatos</th>
+                                            <th>Estado</th>
+                                            <th class="text-center">Acções</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>1</td>
+                                            <td>Sonangol Lda</td>
+                                            <td>Informática</td>
+                                            <td>2</td>
+                                            <td>Aberto</td>
+                                            <td class="text-center">
+                                              <a href="#" class="btn btn-sm btn-primary">Ver</a>
+                                              <button class="btn btn-sm btn-danger">Eliminar</button>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
