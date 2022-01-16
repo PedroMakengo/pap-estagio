@@ -47,16 +47,30 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>
-                                            <td>1</td>
-                                            <td>Sonangol Lda</td>
-                                            <td>Informática</td>
-                                            <td>2</td>
-                                            <td>Aberto</td>
-                                            <td class="text-center">
-                                              <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                            </td>
-                                          </tr>
+                                          <?php
+                                              $vagasDisponiveis = new Model();
+                                              $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio");
+                                              if(count($listaDisponivel)):
+                                                foreach($listaDisponivel as $mostrar):?>
+                                                  <tr>
+                                                    <td>1</td>
+                                                    <td>Sonangol Lda</td>
+                                                    <td>Informática</td>
+                                                    <td>2</td>
+                                                    <td>Aberto</td>
+                                                    <td class="text-center">
+                                                      <a href="#" class="btn btn-sm btn-primary">Ver</a>
+                                                    </td>
+                                                </tr>
+                                                <?php endforeach;?>
+                                              <?php
+                                            else:?>
+                                              <tr>
+                                                <td class="text-center bg-warning text-white" colspan="12">Não existe vagas</td>
+                                              </tr>
+                                            <?php
+                                            endif;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

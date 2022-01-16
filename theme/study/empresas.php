@@ -44,16 +44,31 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>
-                                            <td>1</td>
-                                            <td>Sonangol Lda</td>
-                                            <td>Informática</td>
-                                            <td>2</td>
-                                            <td>Aberto</td>
-                                            <td class="text-center">
-                                              <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                            </td>
-                                          </tr>
+                                          <?php
+                                            $empresaLista = new Model();
+                                            $listaEmpresa = $empresaLista->EXE_QUERY("SELECT * FROM tb_empresa");
+                                            if(count($listaEmpresa)):
+                                              foreach($listaEmpresa as $mostrar):?>
+                                                <tr>
+                                                  <td>1</td>
+                                                  <td>Sonangol Lda</td>
+                                                  <td>Informática</td>
+                                                  <td>2</td>
+                                                  <td>Aberto</td>
+                                                  <td class="text-center">
+                                                    <a href="#" class="btn btn-sm btn-primary">Ver</a>
+                                                  </td>
+                                                </tr>
+                                              <?php
+                                              endforeach;
+                                            else:?>
+                                            <tr>
+                                              <td class="text-white bg-warning text-center" colspan="12">
+                                                Não existe empresas registradas
+                                              </td>
+                                            </tr>
+                                            <?php
+                                            endif;?>
                                         </tbody>
                                     </table>
                                 </div>

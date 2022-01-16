@@ -32,19 +32,19 @@
                         <div class="row">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                               <div class="card p-4">
-                                <h1>Sobre o meu estágio</h1>
+                                <h1 class="h6">Sobre o meu estágio</h1>
                               </div>
 
                               <div class="card p-4">
-                                <h1>Meus Relatório</h1>
+                                <h1 class="h6">Meus Relatório</h1>
                               </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                               <div class="card p-4">
-                                <h1>Perfil do meu estágio</h1>
+                                <h1 class="h6">Perfil do meu estágio</h1>
                               </div>
                               <div class="card p-4 mt-2">
-                                <h1>Efetuar o pedido de declaração para estágio</h1>
+                                <h1 class="h6">Efetuar o pedido de declaração para estágio</h1>
                               </div>
                             </div>
                         </div>
