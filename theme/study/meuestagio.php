@@ -10,7 +10,6 @@
         <!-- Footer -->
         <?php require __DIR__ . "./includes/header.php" ?>
         <!-- Footer -->
-
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="fundoCompany"></div>
