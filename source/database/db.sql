@@ -47,6 +47,19 @@ CREATE TABLE tb_aluno(
   data_registro_aluno datetime
 );
 
+INSERT INTO tb_aluno
+(id_aluno, nome, numero_processo, email,
+senha, foto, sexo, contacto, estado_aluno, data_registro_aluno)
+VALUES
+(1, 'Mauro Bongue', '13732', 'maurob@gmail.com', md5(md5(4444)), 'mauro.png', 'M', '921502927', '0', now());
+
+
+INSERT INTO tb_aluno
+(id_aluno, nome, numero_processo, email,
+senha, foto, sexo, contacto, estado_aluno, data_registro_aluno)
+VALUES
+(2, 'Eduardo Jamba', '11111', 'jamba@gmail.com', md5(md5(1111)), 'jamba.png', 'M', '921502912', '0', now());
+
 -- Candidatura de um determinado aluno dentro da plataforma
 CREATE TABLE tb_candidatura_vaga (
   id_candidatura int(11) primary key auto_increment,
@@ -79,6 +92,5 @@ CREATE TABLE tb_emissao_declaracao(
   data_emissao datetime,
   estado_emissao int(2)
 );
-
 
 

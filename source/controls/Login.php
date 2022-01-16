@@ -15,16 +15,12 @@
     if($loginAdmin){
       // Sessão do administrador
       foreach($loginAdmin as $mostrar):
-        $id       = addslashes($mostrar['id_admin']);
-        $nome     = addslashes($mostrar['nome_admin']);
-        $email    = addslashes($mostrar['email_admin']);
-        $senha    = addslashes($mostrar['senha_admin']);
-        $foto     = addslashes($mostrar['foto_admin']);
+        $_SESSION['id']       = addslashes($mostrar['id_admin']);
+        $_SESSION['nome']     = addslashes($mostrar['nome_admin']);
+        $_SESSION['email']    = addslashes($mostrar['email_admin']);
+        $_SESSION['senha']    = addslashes($mostrar['senha_admin']);
+        $_SESSION['foto']     = addslashes($mostrar['foto_admin']);
       endforeach;
-        $_SESSION['id']        = $id;
-        $_SESSION['nome']      = $nome;
-        $_SESSION['email']     = $email;
-        $_SESSION['foto']      = $foto;
       echo "<script>location.href='theme/admin/home.php?id=home'</script>";
 
     // ===========================================================================================================================
@@ -34,9 +30,19 @@
       if($loginCompany){
         echo "<script>location.href='theme/company/home.php'</script>";
       }else {
-        // Efectuando login do usuário
+        // Efectuando login do usuário estudante
         $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno WHERE email=:email AND senha=:senha", $parametro);
         if($loginStudy){
+          foreach($loginStudy as $mostrar):
+            $_SESSION['id']   = addslashes($mostrar['id']);
+            $_SESSION['nome'] = addslashes($mostrar['nome']);
+            $_SESSION['email'] = addslashes($mostrar['email']);
+            $_SESSION['senha'] = addslashes($mostrar['senha']);
+            $_SESSION['foto'] = addslashes($mostrar['foto']);
+            $_SESSION['sexo'] = addslashes($mostrar['sexo']);
+            $_SESSION['contacto'] = addslashes($mostrar['contacto']);
+            $_SESSION['estado_aluno'] = addslashes($mostrar['estado_aluno']);
+          endforeach;
           echo "<script>location.href='theme/study/home.php'</script>";
         }else {
           echo "<script>window.alert('Este usuário não exixte')</script>";
