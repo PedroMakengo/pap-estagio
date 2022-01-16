@@ -56,7 +56,7 @@
         </nav>
     </div>
 
-    <div class="nav-left-sidebar sidebar-dark" style="background-color: #00D8F3;">
+    <div class="nav-left-sidebar sidebar-dark" style="background-color: #1f6febe6;">
         <div class="menu-list">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -70,17 +70,14 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="#"><i class="fa fa-fw fa-user-circle"></i>Home
+                            <a class="nav-link active" href="home"><i class="fa fa-fw fa-user-circle"></i>Home
                                 <span class="badge badge-success">6</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-f fa-folder"></i>Vagas Disponíveis</a>
-                        </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#"><i class="fab fa-fw fa-wpforms"></i>Empresas</a>
+                            <a class="nav-link" href="empresas.php"><i class="fab fa-fw fa-wpforms"></i>Empresas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Meu estágio</a>
+                            <a class="nav-link" href="meuestagio.php"><i class="fas fa-fw fa-chart-pie"></i>Meu estágio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>

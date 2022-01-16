@@ -21,7 +21,7 @@
     <style>
         .fundoCompany {
             background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#ff5f929c), to(#00D8F3)), url(../assets/images/systeme/create-1.jpg) !important;
+            from(#00D8F3), to(#1f6febe6)), url(../assets/images/systeme/create-1.jpg) !important;
             height: 40vh;
             background-position: center;
             background-size: 100%;
