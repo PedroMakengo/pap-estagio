@@ -40,15 +40,14 @@
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="../assets/images/avatar-1.jpg" alt=""
+                                src="../assets/images/profile/<?= $_SESSION['foto'] ?>" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                <span class="status"></span><span class="ml-2">Available</span>
+                                <h5 class="mb-0 text-white nav-user-name"><?= $_SESSION['nome'] ?></h5>
                             </div>
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            <a class="dropdown-item" href="?logout=true"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -70,20 +69,20 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="home.php"><i class="fa fa-fw fa-user-circle"></i>Dashboard
+                            <a class="nav-link <?= $_GET['id'] == 'home' ? 'active' : '' ?>" href="home.php?id=home"><i class="fa fa-fw fa-user-circle"></i>Dashboard
                                 <span class="badge badge-success">6</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="vacancy.php"><i class="fas fa-f fa-folder"></i>Vaga</a>
+                            <a class="nav-link <?= $_GET['id'] == 'vaga' ? 'active' : '' ?>" href="vacancy.php?id=vaga"><i class="fas fa-f fa-folder"></i>Vaga</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="accepted.php"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
+                            <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a) Aceite</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="assign-task.php"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
+                            <a class="nav-link <?= $_GET['id'] == 'atribuir-tarefa' ? 'active' : '' ?>" href="assign-task.php?id=atribuir-tarefa"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="monthly-report.php"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>
+                            <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>

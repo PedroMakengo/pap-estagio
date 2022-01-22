@@ -37,8 +37,9 @@
           $_SESSION['contacto'] = addslashes($mostrar['contacto']);
           $_SESSION['data']     = addslashes($mostrar['data_registro_empresa']);
           $_SESSION['responsa'] = addslashes($mostrar['responsavel_empresa']);
+          $_SESSION['foto']     = addslashes($mostrar['foto']);
         endforeach;
-        echo "<script>location.href='theme/company/home.php'</script>";
+        echo "<script>location.href='theme/company/home.php?id=home'</script>";
       }else {
         // Efectuando login do usuário estudante
         $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno WHERE email=:email AND senha=:senha", $parametro);

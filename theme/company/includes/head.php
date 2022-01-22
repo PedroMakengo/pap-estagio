@@ -1,3 +1,22 @@
+<!-- Terminar sessão -->
+<?php
+    require '../../source/Config.php';
+    require '../../source/Model.php';
+    // Session start
+    session_start();
+    if(!isset($_SESSION['email']) AND !isset($_SESSION['senha'])):
+		header('location: ../../login.php');
+		exit();
+	endif;
+
+	if(isset($_GET['logout']) && $_GET['logout'] == 'true'):
+		session_destroy();
+		header("location: ../../login.php");
+    endif;
+    // Uzar um controlador aqui para efetuar todas as operações de insert
+?>
+<!-- End sessão -->
+
 <!doctype html>
 <html lang="en">
 
