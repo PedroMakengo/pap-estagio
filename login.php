@@ -40,7 +40,7 @@
                         <input type="password" name="password" placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="submit" value="Logon" name="login" class="form-control-lg form-control">
+                        <input type="submit" value="Login" name="login" class="form-control-lg form-control">
                     </div>
 
                     <div class="col-lg-12 mt-4">

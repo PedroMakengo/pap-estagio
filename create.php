@@ -34,13 +34,20 @@
                         <input type="password" placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="submit" value="Logon" class="form-control-lg form-control">
+                      <select name="" id="" class="form-control">
+                        <option value="">Tipo de usuário</option>
+                        <option value="">Empresa</option>
+                        <option value="">Estudante</option>
+                      </select>
+                    </div>
+                    <div class="mt-3 col-lg-12">
+                        <input type="submit" value="Criar conta" class="form-control-lg form-control">
                     </div>
 
                     <div class="col-lg-12 mt-4">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <p>Já tenho uma conta <a href="login.php">Logon</a></p>
+                                <p>Já tenho uma conta <a href="login.php">Login</a></p>
                             </div>
                         </div>
                     </div>

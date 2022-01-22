@@ -11,14 +11,14 @@ body {
 .background {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#0086f360), to(#00D8F3)), url(../images/systeme/create-1.jpg) !important;
+            from(#0086f360), to(#1f6febe6)), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
 .background-login {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#0086f360), to(#00D8F3)), url(../images/systeme/create-1.jpg) !important;
+            from(#0086f360), to(#1f6febe6)), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
@@ -40,9 +40,9 @@ body {
 }
 
 .forms input[type="submit"] {
-    background: #00D8F3;
+    background: #1f6febe6;
     color: #fff;
-    border: 1px solid #00D8F3;
+    border: 1px solid #1f6febe6;
     cursor: pointer;
     font-weight: 100;
 }
