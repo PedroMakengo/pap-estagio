@@ -10,6 +10,9 @@ CREATE TABLE tb_admin(
 INSERT INTO tb_admin(id_admin, nome_admin, email_admin, senha_admin, foto_admin)
 VALUES (1, "Mauro Bongue", "maurobongue@gmail.com", md5(md5(1234)), 'mauro.png');
 
+INSERT INTO tb_admin(id_admin, nome_admin, email_admin, senha_admin, foto_admin)
+VALUES (2, "Eduardo Jamba", "jamba123@gmail.com", md5(md5(1234)), 'mauro.png');
+
 -- Toda e qualquer empresa que se inscreve no sistema um o intuito de recrutar jovens de uma escola
 CREATE TABLE tb_empresa(
   id_empresa int(11) primary key auto_increment,
@@ -22,6 +25,21 @@ CREATE TABLE tb_empresa(
   data_registro_empresa datetime,
   responsavel_empresa varchar(50)
 );
+
+INSERT INTO  tb_empresa
+(
+  id_empresa,
+  nome_empresa,
+  email_empresa,
+  senha_empresa,
+  nif,
+  localizacao,
+  contacto,
+  data_registro_empresa,
+  responsavel_empresa
+)
+VALUES (3, 'Digital Marketing', 'dgmarketing@gmail.com', md5(md5(1234)), '33324284222', 'Mutamba', '000000000', now(), 'Mara CEO');
+
 
 -- Disponibilização das vagas por parte das empresas registradas
 CREATE TABLE tb_vaga_estagio (
