@@ -28,6 +28,16 @@
       // (2) Efectuando o login da company
       $loginCompany = $login->EXE_QUERY("SELECT * FROM tb_empresa WHERE email_empresa=:email AND senha_empresa=:senha", $parametro);
       if($loginCompany){
+        foreach($loginCompany as $mostrar):
+          $_SESSION['id']       = addslashes($mostrar['id_empresa']);
+          $_SESSION['nome']     = addslashes($mostrar['nome_empresa']);
+          $_SESSION['senha']    = addslashes($mostrar['senha_empresa']);
+          $_SESSION['nif']      = addslashes($mostrar['nif']);
+          $_SESSION['local']    = addslashes($mostrar['localizacao']);
+          $_SESSION['contacto'] = addslashes($mostrar['contacto']);
+          $_SESSION['data']     = addslashes($mostrar['data_registro_empresa']);
+          $_SESSION['responsa'] = addslashes($mostrar['responsavel_empresa']);
+        endforeach;
         echo "<script>location.href='theme/company/home.php'</script>";
       }else {
         // Efectuando login do usuário estudante
