@@ -112,3 +112,9 @@ CREATE TABLE tb_emissao_declaracao(
 );
 
 
+
+
+SELECT * FROM tb_candidatura_vaga
+INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+WHERE tb_empresa.id_empresa=1;

@@ -50,7 +50,19 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Total de Estagiários</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                             <!-- Contar quantas empresas estão no sistema -->
+                                             <?php
+                                                $parametros = [":id" => $_SESSION['id']];
+                                                $totalEstudanteMinhaEmpresa = new Model();
+                                                $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                                INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                                WHERE tb_empresa.id_empresa=:id", $parametros);
+                                                echo count($totalEstagio);
+                                              ?>
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-success font-weight-bold">
@@ -65,7 +77,18 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Estagiários Sexo (M)</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                              <!-- Contar quantas empresas estão no sistema -->
+                                              <?php
+                                                  $parametros = [":id" => $_SESSION['id']];
+                                                  $totalEstudanteMinhaEmpresa = new Model();
+                                                  $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                  INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                                  INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                                  WHERE tb_empresa.id_empresa=:id AND ", $parametros);
+                                                  echo count($totalEstagio);
+                                                ?>
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-primary font-weight-bold">
@@ -78,9 +101,16 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Estagiários Sexo (M)</h5>
+                                        <h5 class="text-muted">Relatórios Submitidos</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0</h1>
+                                            <h1 class="mb-1">
+                                              <?php
+                                                  $parametros = [":id" => $_SESSION['id']];
+                                                  $totalEstudanteMinhaEmpresa = new Model();
+                                                  $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga", $parametros);
+                                                  echo count($totalEstagio);
+                                                ?>
+                                            </h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-secondary font-weight-bold">
