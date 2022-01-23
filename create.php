@@ -1,5 +1,11 @@
+<?php
+  require 'source/Config.php';
+  require 'source/Model.php';
+  require 'source/controls/Create.php';
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,30 +24,30 @@
         <div class="row limit-of-line">
             <div class="col-xl-8 background"></div>
             <div class="col-xl-4 forms">
-                <form action="">
+                <form action="" method="POST">
                     <div class="col-lg-12 mb-5">
                         <h1>MoEstagio</h1>
                         <p>Crie a sua conta dentro da nossa plataforma</p>
                         <hr>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" placeholder="Ex: Pedro Makengo" class="form-control-lg form-control">
+                        <input type="text" name="nome" placeholder="Ex: Pedro Makengo" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" placeholder="Ex: pedromakengo@gmail.com" class="form-control-lg form-control">
+                        <input type="text" name="email" placeholder="Ex: pedromakengo@gmail.com" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="password" placeholder="Password" class="form-control-lg form-control">
+                        <input type="password" name="senha" placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                      <select name="" id="" class="form-control">
-                        <option value="">Tipo de usuário</option>
-                        <option value="">Empresa</option>
-                        <option value="">Estudante</option>
+                      <select name="tipo_usuario" id="" class="form-control">
+                        <option value="" disabled>Tipo de usuário</option>
+                        <option value="Empresa">Empresa</option>
+                        <option value="Estudante">Estudante</option>
                       </select>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="submit" value="Criar conta" class="form-control-lg form-control">
+                        <input type="submit" name="criar_conta" value="Criar conta" class="form-control-lg form-control">
                     </div>
 
                     <div class="col-lg-12 mt-4">

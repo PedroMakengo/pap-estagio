@@ -79,15 +79,7 @@
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">
                                               <!-- Contar quantas empresas estão no sistema -->
-                                              <?php
-                                                  $parametros = [":id" => $_SESSION['id']];
-                                                  $totalEstudanteMinhaEmpresa = new Model();
-                                                  $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
-                                                  INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
-                                                  INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
-                                                  WHERE tb_empresa.id_empresa=:id AND ", $parametros);
-                                                  echo count($totalEstagio);
-                                                ?>
+                                              0
                                             </h1>
                                         </div>
                                         <div
@@ -104,12 +96,7 @@
                                         <h5 class="text-muted">Relatórios Submitidos</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">
-                                              <?php
-                                                  $parametros = [":id" => $_SESSION['id']];
-                                                  $totalEstudanteMinhaEmpresa = new Model();
-                                                  $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga", $parametros);
-                                                  echo count($totalEstagio);
-                                                ?>
+                                             0
                                             </h1>
                                         </div>
                                         <div
