@@ -3,7 +3,6 @@
   require 'source/Model.php';
   require 'source/controls/Create.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
