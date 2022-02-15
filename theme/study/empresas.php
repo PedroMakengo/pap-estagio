@@ -38,8 +38,7 @@
                                             <th>Id</th>
                                             <th>Empresa</th>
                                             <th>Area</th>
-                                            <th>Número de Candidatos</th>
-                                            <th>Estado</th>
+                                            <th>Localização</th>
                                             <th class="text-center">Acções</th>
                                           </tr>
                                         </thead>
@@ -50,11 +49,10 @@
                                             if(count($listaEmpresa)):
                                               foreach($listaEmpresa as $mostrar):?>
                                                 <tr>
-                                                  <td>1</td>
-                                                  <td>Sonangol Lda</td>
-                                                  <td>Informática</td>
-                                                  <td>2</td>
-                                                  <td>Aberto</td>
+                                                  <td><?= $mostrar['id_empresa'] ?></td>
+                                                  <td><?= $mostrar['nome_empresa'] ?></td>
+                                                  <td><?= $mostrar['area_atuacao'] ?></td>
+                                                  <td><?= $mostrar['localizacao'] ?></td>
                                                   <td class="text-center">
                                                     <a href="#" class="btn btn-sm btn-primary">Ver</a>
                                                   </td>
