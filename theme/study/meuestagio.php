@@ -44,6 +44,11 @@
                               </div>
                               <div class="card p-4 mt-2">
                                 <h1 class="h6">Efetuar o pedido de declaração para estágio</h1>
+
+
+                                <div class="mt-4">
+                                  <a href="#" class="btn btn-primary  col-lg-12">Fazer</a>
+                                </div>
                               </div>
                             </div>
                         </div>
@@ -54,6 +59,10 @@
         <!-- ============================================================== -->
         <!-- end wrapper  -->
         <!-- ============================================================== -->
+
+        <!-- Modal de declaração  -->
+
+        <!-- Modal de declaração  -->
     </div>
 
     <!-- Footer -->
