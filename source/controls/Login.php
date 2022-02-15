@@ -51,10 +51,16 @@
             $_SESSION['senha'] = addslashes($mostrar['senha']);
             $_SESSION['foto'] = addslashes($mostrar['foto']);
             $_SESSION['sexo'] = addslashes($mostrar['sexo']);
+            $_SESSION['processo'] = addslashes($mostrar['numero_processo']);
             $_SESSION['contacto'] = addslashes($mostrar['contacto']);
             $_SESSION['estado_aluno'] = addslashes($mostrar['estado_aluno']);
           endforeach;
-          echo "<script>location.href='theme/study/home.php?id=home'</script>";
+
+          if($_SESSION['processo'] == 0):
+            echo "<script>location.href='theme/study/atualizar_registro.php?id=home'</script>";
+          else:
+            echo "<script>location.href='theme/study/home.php?id=home'</script>";
+          endif;
         }else {
           echo "<script>window.alert('Este usuário não exixte')</script>";
         }
