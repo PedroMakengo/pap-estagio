@@ -54,13 +54,8 @@
             $_SESSION['processo'] = addslashes($mostrar['numero_processo']);
             $_SESSION['contacto'] = addslashes($mostrar['contacto']);
             $_SESSION['estado_aluno'] = addslashes($mostrar['estado_aluno']);
-
-            if($mostrar['numero_processo'] == "0"):
-              echo "<script>location.href='theme/study/atualizar_registro.php?id=home'</script>";
-            else:
-              echo "<script>location.href='theme/study/home.php?id=home'</script>";
-            endif;
           endforeach;
+          echo "<script>location.href='theme/study/home.php?id=home'</script>";
         }else {
           echo "<script>window.alert('Este usuário não exixte')</script>";
         }

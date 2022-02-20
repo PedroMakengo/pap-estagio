@@ -16,6 +16,22 @@
     // Uzar um controlador aqui para efetuar todas as operações de insert
 ?>
 <!-- End sessão -->
+
+
+
+<!-- Pesquisando se existe o processo do usuário logado -->
+<?php
+    $parametros = [":email" => $_SESSION['email'], ":senha"=> $_SESSION['senha']];
+
+    $usuarioLogado = new Model();
+    $busandoLogadoUsuario = $usuarioLogado->EXE_QUERY("SELECT * FROM tb_aluno WHERE email=:email AND senha=:senha", $parametros);
+
+    // Pegando o numero de processo
+    foreach($busandoLogadoUsuario as $mostrarProcesso):
+        $processoVerificando = $mostrarProcesso['numero_processo'];
+    endforeach;
+?>
+
 <!doctype html>
 <html lang="en">
 
