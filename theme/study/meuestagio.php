@@ -16,7 +16,7 @@
                 <div class="container-fluid dashboard-content manterTop">
 
                 <?php
-                    if($_SESSION['processo'] == "0"):
+                    if($processoVerificando == "0"):
                 ?>
                   <div class="ecommerce-widget">
                     <div class="row mb-4">
