@@ -35,36 +35,56 @@
                       <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                           <div class="card rounded p-4">
                             <form action="">
-                              <div class="row">
-                                <div class="form-group col-lg-4">
-                                  <label for="#">Nome</label>
-                                  <input type="text" name="nome" placeholder="Nome Completo" class="form-control form-control-lg" />
-                                </div>
-                                <div class="form-group col-lg-4">
-                                  <label for="#">E-mail</label>
-                                  <input type="email" name="email" placeholder="E-mail" class="form-control form-control-lg" />
-                                </div>
-                                <div class="form-group col-lg-4">
-                                  <label for="#">Processo</label>
-                                  <input type="text" name="processo" placeholder="Processo" class="form-control form-control-lg" />
-                                </div>
-                                <div class="form-group col-lg-4">
-                                  <label for="#">Palavra-passe</label>
-                                  <input type="password" name="password" placeholder="Processo" class="form-control form-control-lg" />
-                                </div>
-                                <div class="form-group col-lg-4">
-                                  <label for="#">Genero</label>
-                                  <select name="sexo" id="" class="form-control form-control-lg">
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
-                                  </select>
-                                </div>
-                                <div class="form-group col-lg-4">
-                                  <label for="">Foto</label>
-                                  <input type="file" class="form-control" name="foto">
-                                </div>
+                              <?php
+                                $parametros = [":idUsuarioLogado" => $_SESSION['id']];
+                                $atualizarDadosUsuarioLogado = new Model();
+                                $selecionarDadosDoUsuarioLogado = $atualizarDadosUsuarioLogado->EXE_QUERY("SELECT * FROM tb_aluno WHERE id_aluno=:idUsuarioLogado", $parametros);
 
-                                <div class="form-group col-lg-4">
+                                if($selecionarDadosDoUsuarioLogado):
+                                  foreach($selecionarDadosDoUsuarioLogado as $mostrar):
+                                    $nome = $mostrar['nome'];
+                                    $email = $mostrar['email'];
+                                    $senha = $mostrar['senha'];
+                                    $numero_de_processo = $mostrar['numero_processo'];
+                                    $foto = $mostrar['foto'];
+                                    $sexo = $mostrar['sexo'];
+                                    $contacto = $mostrar['contacto'];
+                              ?>
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="#">Nome</label>
+                                      <input type="text" name="nome" placeholder="Nome Completo" class="form-control form-control-lg" />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="#">E-mail</label>
+                                      <input type="email" name="email" placeholder="E-mail" class="form-control form-control-lg" />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="#">Processo</label>
+                                      <input type="text" name="processo" placeholder="Processo" class="form-control form-control-lg" />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="#">Palavra-passe</label>
+                                      <input type="password" name="password" placeholder="Processo" class="form-control form-control-lg" />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="#">Genero</label>
+                                      <select name="sexo" id="" class="form-control form-control-lg">
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Foto</label>
+                                      <input type="file" class="form-control" name="foto">
+                                    </div>
+                                  </div>
+                              <?php endforeach;
+                                endif;
+                              ?>
+
+                              <div class="row">
+                                 <div class="form-group col-lg-4">
                                   <input type="submit" value="Atualizar os dados" class="bg-primary btn">
                                 </div>
                               </div>
@@ -73,8 +93,6 @@
                       </div>
                   </div>
                 </div>
-
-
 
                 <?php
                     else:

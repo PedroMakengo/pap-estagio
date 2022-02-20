@@ -45,7 +45,7 @@
         $loginStudy = $login->EXE_QUERY("SELECT * FROM tb_aluno WHERE email=:email AND senha=:senha", $parametro);
         if($loginStudy){
           foreach($loginStudy as $mostrar):
-            $_SESSION['id']   = addslashes($mostrar['id']);
+            $_SESSION['id']   = addslashes($mostrar['id_aluno']);
             $_SESSION['nome'] = addslashes($mostrar['nome']);
             $_SESSION['email'] = addslashes($mostrar['email']);
             $_SESSION['senha'] = addslashes($mostrar['senha']);
