@@ -149,31 +149,80 @@
                else:
                 ?>
                  <div class="ecommerce-widget">
-                    <div class="row mb-4">
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="bg-white border rounded p-4">
-                                <div class="row pt-1">
-                                    <div class="col-lg-6">
-                                        <h1 class="h6">Informação da empresa</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="card p-4 rounded text-center">
+                              <span class="p-2 bg-info rounded text-white"> Bem-vindo à página de informação</span>
+                            </div>
                             <div class="card rounded p-4">
-                              <h1>Informação da localização da empresa</h1>
+                              <div class="mt-2">
+                                <ul>
+                                  <?php
+
+                                    $idBuscarEmpresa = $_GET['id'];
+                                    $parametros = [":idEmpresa"   => $idBuscarEmpresa];
+                                    $buscandoEmpresa = new Model();
+                                    $pegandoEmpresa = $buscandoEmpresa->EXE_QUERY("SELECT * FROM tb_empresa WHERE id_empresa=:idEmpresa", $parametros);
+                                    foreach($pegandoEmpresa as $mostrarEmpresa):
+                                      $empresa = $mostrarEmpresa['nome_empresa'];
+                                      $area = $mostrarEmpresa['area_atuacao'];
+                                      $responsavelEmpresa = $mostrarEmpresa['responsavel_empresa'];
+                                      $contactoEmpresa = $mostrarEmpresa['contacto'];
+                                      $nif = $mostrarEmpresa['nif'];
+                                      $localizacao = $mostrarEmpresa['localizacao'];
+                                    endforeach;
+                                  ?>
+                                  <li class="mb-2">Empresa <span class="float-right badge badge-primary"><?= $empresa?></span></li>
+                                  <li class="mb-2">Área <span class="float-right badge badge-primary"><?= $area?></span></li>
+                                  <li class="mb-2">NIF <span class="float-right badge badge-primary"><?= $nif ?></span></li>
+                                  <li class="mb-2">Responsável <span class="float-right badge badge-primary"><?= $responsavelEmpresa ?></span></li>
+                                  <li class="mb-2">Contacto <span class="float-right badge badge-primary"><?= $contactoEmpresa ?></span></li>
+                                  <li class="mb-2">Localização <span class="float-right badge badge-primary"><?= $localizacao ?></span></li>
+                                </ul>
+                              </div>
                             </div>
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                             <div class="card rounded p-4">
-                               <h1>Informação de vaga</h1>
-                            </div>
-
-                            <div class="card rounded p-4">
-                               <h1>Informação de Estágio</h1>
+                              <h2 class="h6">Vagas</h2>
+                              <br>
+                              <table class="table">
+                                 <thead>
+                                   <tr>
+                                     <th>Id</th>
+                                     <th>Área</th>
+                                     <th>Nº Candidatura</th>
+                                     <th class="text-center">Ação</th>
+                                   </tr>
+                                 </thead>
+                                <tbody>
+                                    <?php
+                                        $vagasDisponiveis = new Model();
+                                        $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
+                                        INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+                                        if(count($listaDisponivel)):
+                                          foreach($listaDisponivel as $mostrar):?>
+                                            <tr>
+                                              <td><?= $mostrar['id_vaga_estagio'] ?></td>
+                                              <td><?= $mostrar['area_atuacao_vaga'] ?></td>
+                                              <td><?= $mostrar['numero_candidatura'] ?></td>
+                                              <td class="text-center">
+                                                <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                              </td>
+                                          </tr>
+                                          <?php endforeach;?>
+                                        <?php
+                                      else:?>
+                                        <tr>
+                                          <td class="text-center bg-warning text-white" colspan="12">Não existe vagas</td>
+                                        </tr>
+                                      <?php
+                                      endif;
+                                      ?>
+                                  </tbody>
+                              </table>
                             </div>
                         </div>
                     </div>

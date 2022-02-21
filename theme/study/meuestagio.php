@@ -147,19 +147,6 @@
                     ?>
 
                     <div class="ecommerce-widget">
-
-                        <div class="row mb-4">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="bg-white border rounded p-4">
-                                    <div class="row pt-1">
-                                        <div class="col-lg-6">
-                                            <h1 class="h6">Sobre Meu estágio</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                               <div class="card p-4">
@@ -167,7 +154,47 @@
                               </div>
 
                               <div class="card p-4">
-                                <h1 class="h6">Meus Relatório</h1>
+                                <div class="row mb-2">
+                                  <div class="col-lg-6">
+                                    <h2 class="h6">Meus relatórios</h2>
+                                  </div>
+                                  <div class="col-lg-6 text-right">
+                                    <button class="btn btn-primary btn-sm" >Adicionar relatório</button>
+                                  </div>
+                                </div>
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>Id</th>
+                                      <th>Arquivo</th>
+                                      <th>Estado</th>
+                                      <th>Valor do Relatório</th>
+                                      <th>Data</th>
+                                      <th>Acções</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <?php
+
+                                      $parametros = [":id"  => $_SESSION['id']];
+                                      $meusRelatorios = new Model();
+                                      $buscarMeusRelatorios = $meusRelatorios->EXE_QUERY("SELECT * FROM tb_relatorio_estagio WHERE id_aluno=:id",
+                                      $parametros);
+
+                                      if(count($buscarMeusRelatorios)):
+                                        foreach($buscarMeusRelatorios as $mostrar):
+                                    ?>
+                                        <tr></tr>
+                                    <?php
+                                        endforeach;
+                                      else:?>
+                                        <tr>
+                                          <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum relatório</td>
+                                        </tr>
+                                    <?php
+                                      endif;?>
+                                  </tbody>
+                                </table>
                               </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
@@ -176,8 +203,6 @@
                               </div>
                               <div class="card p-4 mt-2">
                                 <h1 class="h6">Efetuar o pedido de declaração para estágio</h1>
-
-
                                 <div class="mt-4">
                                   <a href="#" class="btn btn-primary  col-lg-12">Fazer</a>
                                 </div>
