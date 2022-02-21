@@ -204,14 +204,25 @@
                                 <h1 class="h6 text-center">Perfil do meu estágio</h1>
 
                                 <div class="mt-4 text-center">
-                                  <img src="../assets/images/profile/<?= $_SESSION['foto'] ?>"
+                                   <!-- Selecionar os dados do usuário no banco de dados -->
+                                   <?php
+                                        $parametros = [":id"  => $_SESSION['id']];
+                                        $dadosUsuario = new Model();
+                                        $dadoUsuarioListagem = $dadosUsuario->EXE_QUERY("SELECT * FROM tb_aluno
+                                        WHERE id_aluno=:id", $parametros);
+                                        foreach($dadoUsuarioListagem as $mostrar):
+                                      ?>
+                                      <img src="../assets/images/profile/<?= $mostrar['foto'] ?>"
                                       style="width: 80px; height: 80px; margin: 0 auto; border-radius: 50%; border: 2px solid #1f6febe6;
                                       ">
                                     <ul class="mt-2">
-                                      <li class="mb-2">Nome <span class="badge badge-primary"><?= $_SESSION['nome'] ?></span></li>
-                                      <li class="mb-2">Nº Processo <span class="badge badge-primary"><?= $_SESSION['processo'] ?></span></li>
-                                      <li class="mb-2">E-mail <span class="badge badge-primary"><?= $_SESSION['email'] ?></span></li>
+                                        <li class="mb-2">Nome <span class="badge badge-primary"><?= $mostrar['nome'] ?></span></li>
+                                        <li class="mb-2">Nº Processo <span class="badge badge-primary"><?= $mostrar['numero_processo'] ?></span></li>
+                                        <li class="mb-2">E-mail <span class="badge badge-primary"><?= $mostrar['email'] ?></span></li>
                                     </ul>
+                                    <?php
+                                        endforeach;
+                                      ?>
                                 </div>
                               </div>
                               <div class="card p-4 mt-2">
