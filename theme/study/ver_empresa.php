@@ -154,7 +154,7 @@
                             <div class="bg-white border rounded p-4">
                                 <div class="row pt-1">
                                     <div class="col-lg-6">
-                                        <h1 class="h6">Algumas empresas</h1>
+                                        <h1 class="h6">Informação da empresa</h1>
                                     </div>
                                 </div>
                             </div>
@@ -162,45 +162,18 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="card rounded p-4">
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th>Id</th>
-                                        <th>Empresa</th>
-                                        <th>Area</th>
-                                        <th>Localização</th>
-                                        <th class="text-center">Acções</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <?php
-                                        $empresaLista = new Model();
-                                        $listaEmpresa = $empresaLista->EXE_QUERY("SELECT * FROM tb_empresa");
-                                        if(count($listaEmpresa)):
-                                          foreach($listaEmpresa as $mostrar):?>
-                                            <tr>
-                                              <td><?= $mostrar['id_empresa'] ?></td>
-                                              <td><?= $mostrar['nome_empresa'] ?></td>
-                                              <td><?= $mostrar['area_atuacao'] ?></td>
-                                              <td><?= $mostrar['localizacao'] ?></td>
-                                              <td class="text-center">
-                                                <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                              </td>
-                                            </tr>
-                                          <?php
-                                          endforeach;
-                                        else:?>
-                                        <tr>
-                                          <td class="text-white bg-warning text-center" colspan="12">
-                                            Não existe empresas registradas
-                                          </td>
-                                        </tr>
-                                        <?php
-                                        endif;?>
-                                    </tbody>
-                                </table>
+                              <h1>Informação da localização da empresa</h1>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                            <div class="card rounded p-4">
+                               <h1>Informação de vaga</h1>
+                            </div>
+
+                            <div class="card rounded p-4">
+                               <h1>Informação de Estágio</h1>
                             </div>
                         </div>
                     </div>
