@@ -184,7 +184,9 @@
                                       if(count($buscarMeusRelatorios)):
                                         foreach($buscarMeusRelatorios as $mostrar):
                                     ?>
-                                        <tr></tr>
+                                        <tr>
+                                          <!-- Trabalhar nesta área -->
+                                        </tr>
                                     <?php
                                         endforeach;
                                       else:?>
@@ -199,7 +201,18 @@
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                               <div class="card p-4">
-                                <h1 class="h6">Perfil do meu estágio</h1>
+                                <h1 class="h6 text-center">Perfil do meu estágio</h1>
+
+                                <div class="mt-4 text-center">
+                                  <img src="../assets/images/profile/<?= $_SESSION['foto'] ?>"
+                                      style="width: 80px; height: 80px; margin: 0 auto; border-radius: 50%; border: 2px solid #1f6febe6;
+                                      ">
+                                    <ul class="mt-2">
+                                      <li class="mb-2">Nome <span class="badge badge-primary"><?= $_SESSION['nome'] ?></span></li>
+                                      <li class="mb-2">Nº Processo <span class="badge badge-primary"><?= $_SESSION['processo'] ?></span></li>
+                                      <li class="mb-2">E-mail <span class="badge badge-primary"><?= $_SESSION['email'] ?></span></li>
+                                    </ul>
+                                </div>
                               </div>
                               <div class="card p-4 mt-2">
                                 <h1 class="h6">Efetuar o pedido de declaração para estágio</h1>
