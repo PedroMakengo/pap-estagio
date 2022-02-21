@@ -180,15 +180,16 @@
                                         <tbody>
                                           <?php
                                               $vagasDisponiveis = new Model();
-                                              $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio");
+                                              $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
+                                              INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
                                               if(count($listaDisponivel)):
                                                 foreach($listaDisponivel as $mostrar):?>
                                                   <tr>
-                                                    <td>1</td>
-                                                    <td>Sonangol Lda</td>
-                                                    <td>Informática</td>
-                                                    <td>2</td>
-                                                    <td>Aberto</td>
+                                                    <td><?= $mostrar['id_vaga_estagio'] ?></td>
+                                                    <td><?= $mostrar['nome_empresa'] ?></td>
+                                                    <td><?= $mostrar['area_atuacao_vaga'] ?></td>
+                                                    <td><?= $mostrar['numero_candidatura'] ?></td>
+                                                    <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                     <td class="text-center">
                                                       <a href="#" class="btn btn-sm btn-primary">Ver</a>
                                                     </td>
