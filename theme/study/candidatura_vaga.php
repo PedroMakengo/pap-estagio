@@ -148,13 +148,42 @@
               <?php
                else:
                 ?>
+
+                <!-- Selecionar dados relacionado a vaga -->
+                <?php
+                  $parametros = [":id" => $_GET['id']];
+                  $dadosEstagio = new Model();
+                  $buscandoDadosDoEstagio = $dadosEstagio->EXE_QUERY("SELECT * FROM tb_vaga_estagio
+                  INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                  WHERE tb_vaga_estagio.id_vaga_estagio=:id",
+                  $parametros);
+
+                  if(count($buscandoDadosDoEstagio)):
+                    foreach($buscandoDadosDoEstagio as $dados):
+                      $empresa = $dados["nome_empresa"];
+                      $area = $dados['area_atuacao_vaga'];
+                      $candidaturaDisponivel = $dados['numero_restante_candidatura'];
+                      $candidatosInscritos = $dados['numero_candidatura'] - count($buscandoDadosDoEstagio);
+                      $estadoVaga = $dados['estado_vaga'] == 0 ? "Aberto" : "Fechado";
+                    endforeach;
+                  endif;
+
+                ?>
+
                  <div class="ecommerce-widget">
                     <div class="row mb-4">
                         <div class="col-xl-12 col-lg-12">
                             <div class="bg-white border rounded p-4">
                                 <div class="row pt-1">
                                     <div class="col-lg-6">
-                                        <h1 class="h6">Algumas empresas</h1>
+                                        <h1 class="h6">
+                                          <a href="home.php?id=home">
+                                            <i class="fas fa-arrow-left"></i>
+                                          </a>
+                                        </h1>
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        <h1 class="h6">Candidatura de Estágio</h1>
                                     </div>
                                 </div>
                             </div>
@@ -162,46 +191,93 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-                            <div class="card rounded p-4">
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th>Id</th>
-                                        <th>Empresa</th>
-                                        <th>Area</th>
-                                        <th>Localização</th>
-                                        <th class="text-center">Acções</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <?php
-                                        $empresaLista = new Model();
-                                        $listaEmpresa = $empresaLista->EXE_QUERY("SELECT * FROM tb_empresa");
-                                        if(count($listaEmpresa)):
-                                          foreach($listaEmpresa as $mostrar):?>
-                                            <tr>
-                                              <td><?= $mostrar['id_empresa'] ?></td>
-                                              <td><?= $mostrar['nome_empresa'] ?></td>
-                                              <td><?= $mostrar['area_atuacao'] ?></td>
-                                              <td><?= $mostrar['localizacao'] ?></td>
-                                              <td class="text-center">
-                                                <a href="#" class="btn btn-sm btn-primary">Ver</a>
-                                              </td>
-                                            </tr>
-                                          <?php
-                                          endforeach;
-                                        else:?>
-                                        <tr>
-                                          <td class="text-white bg-warning text-center" colspan="12">
-                                            Não existe empresas registradas
-                                          </td>
-                                        </tr>
-                                        <?php
-                                        endif;?>
-                                    </tbody>
-                                </table>
+                        <div class="col-xl-4 col-lg-4 col-md-8 col-sm-12 col-12">
+                          <div class="card p-4 rounded">
+                            <h1 class="h5 border-bottom pb-2">Dados da Vaga</h1>
+
+                            <div class="mt-2">
+                              <ul>
+                                <li class="mb-2">Empresa <span class="float-right badge badge-primary"><?= $empresa?></span></li>
+                                <li class="mb-2">Área <span class="float-right badge badge-primary"><?= $area?></span></li>
+                                <li class="mb-2">Nº Candidatura Disponível <span class="float-right badge badge-primary"><?= $candidaturaDisponivel?></span></li>
+                                <li class="mb-2">Nº Candidatos <span class="float-right badge badge-primary"><?= $candidatosInscritos?></span></li>
+                                <li class="mb-2">Estado Vaga <span class="float-right badge badge-primary"><?= $estadoVaga?></span></li>
+                              </ul>
                             </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                            <?php
+                                $parametros = [":id"  => $_SESSION['id'], ":idVaga" => $_GET['id']];
+                                $verificarMinhaCandidatura = new Model();
+                                $resultadoVerificarMinhaCandidatura = $verificarMinhaCandidatura->EXE_QUERY("SELECT * FROM tb_candidatura_vaga WHERE id_aluno=:id AND id_vaga_estagio=:idVaga"
+                                , $parametros);
+
+                                if(count($resultadoVerificarMinhaCandidatura)):
+                            ?>
+                              <div class="card rounded p-4">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="bg-success text-center rounded p-3 text-white">
+                                        <p>A tua candidatura foi enviada com sucesso</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            <?php
+                              else:
+                            ?>
+                                <div class="card rounded p-4">
+                                  <form method="POST">
+                                    <div class="row">
+                                      <div class="col-lg-6 form-group">
+                                          <label for="">Nome Completo</label>
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['nome'] ?>" />
+                                      </div>
+                                      <div class="col-lg-6 form-group">
+                                          <label for="">Genero</label>
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['sexo'] == 'M' ? 'Masculino' : 'Femenino' ?>" />
+                                      </div>
+                                      <div class="col-lg-6 form-group">
+                                          <label for="">E-mail</label>
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['email'] ?>" />
+                                      </div>
+                                      <div class="col-lg-6 form-group">
+                                          <label for="">Contacto</label>
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['contacto'] ?>" />
+                                      </div>
+                                      <div class="col-lg-12 form-group">
+                                        <label for="">Solicitação da Candidatura</label>
+                                        <textarea name="message" class="form-control form-control-lg"></textarea>
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <input type="submit" name="candidatura_vaga" value="Solicitar de Vaga" class="btn btn-primary form-control form-control-lg">
+                                      </div>
+                                    </div>
+                                    <?php
+                                      if(isset($_POST['candidatura_vaga'])):
+                                        $idEstagioSelecionado = $_GET['id'];
+                                        $parametros = [
+                                          ":idAluno"    => $_SESSION['id'],
+                                          ":idEstagio"  => $idEstagioSelecionado,
+                                          ":mensagem"   => $_POST['message']
+                                        ];
+
+                                        $candidaturaInserir = new Model();
+                                        $candidaturaInserir->EXE_NON_QUERY("INSERT INTO tb_candidatura_vaga
+                                        (id_aluno, id_vaga_estagio, data_registro_candidatura, estado_candidatura, motivacao_candidatura)
+                                        VALUES (:idAluno, :idEstagio, now(), 0, :mensagem) ", $parametros);
+
+                                        if($candidaturaInserir):
+                                          echo "<script>location.href=`candidatura_vaga.php?id=$idEstagioSelecionado`</script>";
+                                        endif;
+                                      endif;
+                                    ?>
+                                  </form>
+                                </div>
+                            <?php
+                              endif;
+                            ?>
                         </div>
                     </div>
                 </div>
