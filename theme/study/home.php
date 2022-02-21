@@ -133,7 +133,7 @@
                                     else:
                                         $sms = "Não foi possível fazer o upload";
                                     endif;
-                                    // echo "<script>location.href='home.php?id=home'</script>";
+                                    echo "<script>location.href='home.php?id=home'</script>";
                                   endif;
                                 endif;
                               ?>
