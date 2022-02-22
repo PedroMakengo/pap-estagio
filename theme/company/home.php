@@ -77,9 +77,8 @@
 
                                         <?php
                                           if(isset($_POST['atualizar_submit'])):
-
                                             // Dados do get
-                                            $idEmpresa = $_GET['id'];
+                                            $idEmpresa = $_SESSION['id'];
 
                                             $nome  = $_POST['nome'];
                                             $email = $_POST['email'];
@@ -90,15 +89,31 @@
                                             $nif   = $_POST['nif'];
 
                                             $parametros = [
-                                              ":"
+                                              ":nome"     => $nome,
+                                              ":email"    => $email,
+                                              ":area"     => $area,
+                                              ":ceo"      => $area,
+                                              ":tel"      => $tel,
+                                              ":gps"      => $gps,
+                                              ":nif"      => $nif,
+                                              ":idEmpresa" => $idEmpresa
                                             ];
-
                                             $atualizarDadosInserir = new Model();
-                                            $atualizarDadosInserir->EXE_NON_QUERY("UPDATE", $parametros);
+                                            $atualizarDadosInserir->EXE_NON_QUERY("UPDATE tb_empresa SET
+                                              nome_empresa=:nome,
+                                              email_empresa=:email,
+                                              area_atuacao=:area,
+                                              responsavel_empresa=:ceo,
+                                              contacto=:tel,
+                                              localizacao=:gps,
+                                              nif=:nif
+                                              WHERE
+                                              id_empresa=:idEmpresa
+                                            ", $parametros);
 
                                             if($atualizarDadosInserir):
                                               echo "<script>location.href='home.php?id=$idEmpresa'</script>";
-                                            endforeach;
+                                            endif;
                                           endif;
                                         ?>
                                     </form>
