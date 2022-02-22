@@ -26,7 +26,7 @@
                                             <span>Nesta tela tens a possibilidade de adicionar uma nova vaga</span>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <button class="btn btn-small">Adicionar uma vaga</button>
+                                            <button class="btn btn-small btn-primary">Adicionar uma vaga</button>
                                         </div>
                                     </div>
                                 </div>
@@ -40,30 +40,44 @@
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                              <thead>
+                                                <tr>
+                                                  <th>Id</th>
+                                                  <th>Empresa</th>
+                                                  <th>Area</th>
+                                                  <th>Número de Candidatos</th>
+                                                  <th>Estado</th>
+                                                  <th class="text-center">Acções</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <?php
+                                                    $parametros = [":id"  => $_SESSION['id']];
+                                                    $vagasDisponiveis = new Model();
+                                                    $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
+                                                    INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+                                                    if(count($listaDisponivel)):
+                                                      foreach($listaDisponivel as $mostrar):?>
+                                                        <tr>
+                                                          <td><?= $mostrar['id_vaga_estagio'] ?></td>
+                                                          <td><a href="#"><?= $mostrar['nome_empresa'] ?></a></td>
+                                                          <td><?= $mostrar['area_atuacao_vaga'] ?></td>
+                                                          <td><?= $mostrar['numero_candidatura'] ?></td>
+                                                          <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
+                                                          <td class="text-center">
+                                                            <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                          </td>
+                                                      </tr>
+                                                      <?php endforeach;?>
+                                                    <?php
+                                                  else:?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #1 </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
+                                                      <td class="text-center bg-warning text-white" colspan="12">Não existe vagas</td>
                                                     </tr>
-                                                </tbody>
+                                                  <?php
+                                                  endif;
+                                                  ?>
+                                              </tbody>
                                             </table>
                                         </div>
                                     </div>

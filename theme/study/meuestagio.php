@@ -14,7 +14,6 @@
             <div class="dashboard-ecommerce">
                 <div class="fundoCompany"></div>
                 <div class="container-fluid dashboard-content manterTop">
-
                 <?php
                     if($processoVerificando == "0"):
                 ?>
@@ -150,7 +149,20 @@
                         <div class="row">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                               <div class="card p-4">
-                                <h1 class="h6">Sobre o meu estágio</h1>
+                                <h1 class="h6 mb-4">Sobre o meu estágio</h1>
+
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>Id</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+
+                                  <tbody>
+                                    <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe</td>
+                                  </tbody>
+                                </table>
                               </div>
 
                               <div class="card p-4">
