@@ -29,9 +29,41 @@
                                     </div>
                                 </div>
                                 <div class="bg-white rounded mt-4 border p-4">
-                                    <div class="row pt-1">
-                                      <form method="POST"></form>
-                                    </div>
+                                    <form method="POST">
+                                      <div class="row">
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">Nome da Empresa</label>
+                                          <input type="text" name="nome" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">E-mail</label>
+                                          <input type="email" name="email" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">NIF</label>
+                                          <input type="text" name="nif" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">Localização</label>
+                                          <input type="text" name="localizacao" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">Contacto</label>
+                                          <input type="tel" name="tel" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                          <label for="">Responsável</label>
+                                          <input type="text" name="responsavel" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-12 form-group">
+                                          <label for="">Área de Atuação da Empresa</label>
+                                          <input type="text" name="nif" class="form-control form-control-lg" />
+                                        </div>
+                                        <div class="col-lg-3">
+                                          <input type="submit" value="Atualização" class="bg-primary form-control form-control-lg" />
+                                        </div>
+                                      </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
