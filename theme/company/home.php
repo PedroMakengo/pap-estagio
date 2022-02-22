@@ -30,39 +30,56 @@
                                 </div>
                                 <div class="bg-white rounded mt-4 border p-4">
                                     <form method="POST">
-                                      <div class="row">
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">Nome da Empresa</label>
-                                          <input type="text" name="nome" class="form-control form-control-lg" />
+                                      <?php
+                                        $parametros = [":id"  => $_SESSION['id']];
+                                        $atualizarMeusDados = new Model();
+                                        $atualizarDados = $atualizarMeusDados->EXE_QUERY("SELECT * FROM tb_empresa
+                                        WHERE id_empresa=:id", $parametros);
+                                        foreach($atualizarDados as $mostrar):
+                                      ?>
+                                        <div class="row">
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">Nome da Empresa</label>
+                                            <input type="text" name="nome" value="<?= $mostrar['nome_empresa'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">E-mail</label>
+                                            <input type="email" name="email" value="<?= $mostrar['email_empresa'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">NIF</label>
+                                            <input type="text" name="nif" value="<?= $mostrar['nif'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">Localização</label>
+                                            <input type="text" name="localizacao" value="<?= $mostrar['localizacao'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">Contacto</label>
+                                            <input type="tel" name="tel" value="<?= $mostrar['contacto'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-4 form-group">
+                                            <label for="">Responsável</label>
+                                            <input type="text" name="responsavel" value="<?= $mostrar['responsavel_empresa'] ?>" class="form-control form-control-lg" />
+                                          </div>
+                                          <div class="col-lg-12 form-group">
+                                            <label for="">Área de Atuação da Empresa</label>
+                                            <input type="text" name="area" value="<?= $mostrar['area_atuacao'] ?>" class="form-control form-control-lg" />
+                                          </div>
                                         </div>
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">E-mail</label>
-                                          <input type="email" name="email" class="form-control form-control-lg" />
+                                      <?php
+                                        endforeach;?>
+                                        <div class="row">
+                                          <div class="col-lg-3">
+                                            <input type="submit" name="atualizar_submit" value="Atualização" class="bg-primary form-control form-control-lg" />
+                                          </div>
                                         </div>
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">NIF</label>
-                                          <input type="text" name="nif" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">Localização</label>
-                                          <input type="text" name="localizacao" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">Contacto</label>
-                                          <input type="tel" name="tel" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="col-lg-4 form-group">
-                                          <label for="">Responsável</label>
-                                          <input type="text" name="responsavel" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="col-lg-12 form-group">
-                                          <label for="">Área de Atuação da Empresa</label>
-                                          <input type="text" name="nif" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="col-lg-3">
-                                          <input type="submit" value="Atualização" class="bg-primary form-control form-control-lg" />
-                                        </div>
-                                      </div>
+
+                                        <?php
+                                          if(isset($_POST['atualizar_submit'])):
+
+                                          endif;
+                                        ?>
                                     </form>
                                 </div>
                             </div>
