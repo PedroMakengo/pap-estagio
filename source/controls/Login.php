@@ -31,6 +31,7 @@
         foreach($loginCompany as $mostrar):
           $_SESSION['id']       = addslashes($mostrar['id_empresa']);
           $_SESSION['nome']     = addslashes($mostrar['nome_empresa']);
+          $_SESSION['email']    = addslashes($mostrar['email_empresa']);
           $_SESSION['senha']    = addslashes($mostrar['senha_empresa']);
           $_SESSION['nif']      = addslashes($mostrar['nif']);
           $_SESSION['local']    = addslashes($mostrar['localizacao']);

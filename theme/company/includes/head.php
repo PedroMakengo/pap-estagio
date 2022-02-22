@@ -17,6 +17,22 @@
 ?>
 <!-- End sessão -->
 
+<?php
+
+    // Pesquisando se existe o processo do usuário logado
+    $parametros = [":email" => $_SESSION['email'], ":senha"=> $_SESSION['senha']];
+
+    $usuarioLogado = new Model();
+    $busandoLogadoUsuario = $usuarioLogado->EXE_QUERY("SELECT * FROM tb_empresa
+    WHERE email_empresa=:email AND senha_empresa=:senha", $parametros);
+
+    // Pegando o numero de processo
+    foreach($busandoLogadoUsuario as $mostrarProcesso):
+        $nifVerificado = $mostrarProcesso['nif'];
+    endforeach;
+
+?>
+
 <!doctype html>
 <html lang="en">
 
