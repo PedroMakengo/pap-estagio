@@ -163,7 +163,8 @@
                                                           INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
                                                           WHERE tb_vaga_estagio.id_empresa=:id", $parametros);
 
-                                                          foreach($buscandoCandidatos as $mostrar):
+                                                          if(count($buscandoCandidatos)):
+                                                            foreach($buscandoCandidatos as $mostrar):
                                                       ?>
                                                           <tr>
                                                               <td><?= $mostrar['id_candidatura'] ?></td>
@@ -176,7 +177,14 @@
                                                               </td>
                                                           </tr>
                                                         <?php
-                                                          endforeach;?>
+                                                          endforeach;
+                                                        else:?>
+                                                            <tr>
+                                                              <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe estagiários dentro da tua empresaa</td>
+                                                            </tr>
+                                                        <?php
+                                                        endif;
+                                                        ?>
                                                   </tbody>
                                               </table>
                                           </div>

@@ -27,7 +27,8 @@
       elseif($_POST['tipo_usuario'] == 'Estudante'):
         $inserirEstudante = new Model();
         $inserirEstudante->EXE_NON_QUERY("INSERT INTO tb_aluno
-        (nome, numero_processo, email, senha) VALUES (:nome, '', :email, :senha)", $parametros);
+        (nome, numero_processo, email, senha)
+        VALUES (:nome, 0, :email, :senha)", $parametros);
         if($inserirEstudante):
           echo "<script>location.href='theme/study/home.php?id=home'</script>";
         endif;

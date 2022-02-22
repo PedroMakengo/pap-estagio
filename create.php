@@ -30,10 +30,10 @@
                         <hr>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" name="nome" placeholder="Ex: Pedro Makengo" class="form-control-lg form-control">
+                        <input type="text" name="nome" placeholder="Ex: Eduardo Jamba" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" name="email" placeholder="Ex: pedromakengo@gmail.com" class="form-control-lg form-control">
+                        <input type="text" name="email" placeholder="Ex: jambaeduardo@gmail.com" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
                         <input type="password" name="senha" placeholder="Password" class="form-control-lg form-control">

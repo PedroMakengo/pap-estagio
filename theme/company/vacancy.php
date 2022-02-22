@@ -270,7 +270,7 @@
                   (:id_empresa, :area, :quantidade, now(), 0) ", $parametros);
 
                    if($inserirVagaMinha):
-                    // echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                    echo "<script>location.href='vacancy.php?id=vaga'</script>";
                    endif;
                 endif;
               ?>

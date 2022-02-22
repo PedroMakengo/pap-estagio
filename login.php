@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
+    <title>Login</title>
     <link rel="stylesheet" href="theme/assets/theme/bootstrap.min.css">
     <link rel="stylesheet" href="theme/assets/styles/create.css">
 
@@ -34,7 +34,7 @@
                         <hr>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="email" name="email" placeholder="Ex: pedromakengo@gmail.com" class="form-control form-control-lg">
+                        <input type="email" name="email" placeholder="Ex: eduardo@gmail.com" class="form-control form-control-lg">
                     </div>
                     <div class="mt-3 col-lg-12">
                         <input type="password" name="password" placeholder="Password" class="form-control-lg form-control">
