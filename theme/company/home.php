@@ -78,6 +78,27 @@
                                         <?php
                                           if(isset($_POST['atualizar_submit'])):
 
+                                            // Dados do get
+                                            $idEmpresa = $_GET['id'];
+
+                                            $nome  = $_POST['nome'];
+                                            $email = $_POST['email'];
+                                            $area  = $_POST['area'];
+                                            $ceo   = $_POST['responsavel'];
+                                            $tel   = $_POST['tel'];
+                                            $gps   = $_POST['localizacao'];
+                                            $nif   = $_POST['nif'];
+
+                                            $parametros = [
+                                              ":"
+                                            ];
+
+                                            $atualizarDadosInserir = new Model();
+                                            $atualizarDadosInserir->EXE_NON_QUERY("UPDATE", $parametros);
+
+                                            if($atualizarDadosInserir):
+                                              echo "<script>location.href='home.php?id=$idEmpresa'</script>";
+                                            endforeach;
                                           endif;
                                         ?>
                                     </form>
