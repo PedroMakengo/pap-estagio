@@ -36,16 +36,16 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card shadow">
-                                    <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
                                               <thead>
                                                 <tr>
                                                   <th>Id</th>
-                                                  <th>Empresa</th>
                                                   <th>Area</th>
-                                                  <th>Número de Candidatos</th>
+                                                  <th>Nº Candidatos</th>
+                                                  <th>Nº Candidatura Disponível</th>
+                                                  <th>Área de atuação</th>
                                                   <th>Estado</th>
                                                   <th class="text-center">Acções</th>
                                                 </tr>
@@ -55,17 +55,24 @@
                                                     $parametros = [":id"  => $_SESSION['id']];
                                                     $vagasDisponiveis = new Model();
                                                     $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
-                                                    INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+                                                    INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                                    WHERE tb_empresa.id_empresa=:id", $parametros);
                                                     if(count($listaDisponivel)):
                                                       foreach($listaDisponivel as $mostrar):?>
                                                         <tr>
                                                           <td><?= $mostrar['id_vaga_estagio'] ?></td>
-                                                          <td><a href="#"><?= $mostrar['nome_empresa'] ?></a></td>
                                                           <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                           <td><?= $mostrar['numero_candidatura'] ?></td>
+                                                          <td><?= $mostrar['numero_restante_candidatura'] ?></td>
+                                                          <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                           <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                           <td class="text-center">
-                                                            <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                            <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
+                                                              <i class="fas fa-trash"></i>
+                                                            </a>
+                                                            <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">
+                                                              <i class="fas fa-edit"></i>
+                                                            </a>
                                                           </td>
                                                       </tr>
                                                       <?php endforeach;?>
