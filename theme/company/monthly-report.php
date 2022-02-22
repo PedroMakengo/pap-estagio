@@ -32,7 +32,9 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card rounded-0 p-4">
-                                   <h1>Relatório Mensal</h1>
+                                    <div class="text-center text-white bg-info p-3 rounded">
+                                        <p>Trabalhando nesta parte</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -26,7 +26,7 @@
                                             <span>Nesta tela tens a possibilidade de adicionar uma nova vaga</span>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <button class="btn btn-small btn-primary">Adicionar uma vaga</button>
+                                            <button class="btn btn-small btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Adicionar uma vaga</button>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                                           <td><?= $mostrar['id_vaga_estagio'] ?></td>
                                                           <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                           <td><?= $mostrar['numero_candidatura'] ?></td>
-                                                          <td><?= $mostrar['numero_restante_candidatura'] ?></td>
+                                                          <td><?= $mostrar['numero_candidatura'] ?></td>
                                                           <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                           <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                           <td class="text-center">
@@ -99,6 +99,76 @@
         <!-- end wrapper  -->
         <!-- ============================================================== -->
     </div>
+
+    <!-- MODAL -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Adicionar vaga</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST">
+              <div class="row">
+                <div class="col-lg-4 form-group">
+                  <label for="">Nome da Empresa</label>
+                  <input type="text" disabled value="<?= $_SESSION['nome'] ?>" class="form-control form-control-lg" />
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">NIF</label>
+                  <input type="text" disabled value="<?= $_SESSION['nif'] ?>" class="form-control form-control-lg" />
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Contacto</label>
+                  <input type="text" disabled value="<?= $_SESSION['contacto'] ?>" class="form-control form-control-lg" />
+                </div>
+                <div class="col-lg-8 form-group">
+                  <label for="">Área de atuação</label>
+                  <input type="text" name="area_atuacao" class="form-control form-control-lg" placeholder="Área de atuação da vaga" />
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Quantidade de Candidatos</label>
+                  <input type="number" name="qt_candidatos" class="form-control form-control-lg" />
+                </div>
+
+                <div class="col-lg-4 form-group">
+                  <input type="submit" value="Adicionar vaga" class="form-control btn-primary btn" name="adicionar_vaga" />
+                </div>
+              </div>
+              <?php
+
+                if(isset($_POST['adicionar_vaga'])):
+
+                  $quantidadeCandidatos = $_POST['qt_candidatos'];
+                  $area_atuacao = $_POST['area_atuacao'];
+
+                  $parametros = [
+                    ":id_empresa"   => $_SESSION['id'],
+                    ":area"         => $area_atuacao,
+                    ":quantidade"   => $quantidadeCandidatos
+                  ];
+
+                  $inserirVagaMinha = new Model();
+                  $inserirVagaMinha->EXE_NON_QUERY("INSERT INTO tb_vaga_estagio
+                  (id_empresa, area_atuacao_vaga, numero_candidatura, data_registro_vaga, estado_vaga)
+                   VALUES
+                  (:id_empresa, :area, :quantidade, now(), 0) ", $parametros);
+
+                   if($inserirVagaMinha):
+                    // echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                   endif;
+                endif;
+              ?>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL -->
 
     <!-- Footer -->
     <?php require __DIR__ . "./includes/footer.php" ?>
