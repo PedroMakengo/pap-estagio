@@ -188,7 +188,7 @@
                             <div class="card rounded p-4">
                               <h2 class="h6">Vagas</h2>
                               <br>
-                              <table class="table">
+                              <table class="table" id="dataTableEstagio">
                                  <thead>
                                    <tr>
                                      <th>Id</th>
