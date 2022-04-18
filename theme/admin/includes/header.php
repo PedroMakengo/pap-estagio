@@ -72,7 +72,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link <?= $_GET['id'] == 'teste' ? 'active' : '' ?>" href="#">
+                      <a class="nav-link <?= $_GET['id'] == 'estatistica' ? 'active' : '' ?>" href="estatistica.php?id=estatistica">
                         <i class="fas fa-f fa-chart-pie"></i>Estátisticas
                      </a>
                   </li>
