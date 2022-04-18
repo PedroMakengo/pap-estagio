@@ -36,21 +36,18 @@
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header"><strong>Relatório de estágios</strong></h5>
+                                    <h5 class="card-header"><strong>Declaração</strong></h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table" id="dataTableEstagio">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
+                                                        <th class="border-0">Nome do Aluno</th>
+                                                        <th class="border-0">Empresa</th>
+                                                        <th class="border-0">Data da Emissão</th>
+                                                        <th class="border-0">Estado</th>
+                                                        <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -66,8 +63,6 @@
                                                               <td>id000001 </td>
                                                               <td>20</td>
                                                               <td>$80.00</td>
-                                                              <td>27-08-2018 01:22:12</td>
-                                                              <td>Patricia J. King </td>
                                                               <td><span class="badge-dot badge-brand mr-1"></span>InTransit
                                                               </td>
                                                           </tr>
