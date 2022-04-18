@@ -227,7 +227,7 @@
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12">
-                                    <div class="card">
+                                    <div class="card p-2">
                                         <div>
                                             <canvas id="mycompra-chart" style="height: 300px"></canvas>
                                         </div>
