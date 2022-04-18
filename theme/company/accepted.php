@@ -141,9 +141,9 @@
                           <div class="row">
                               <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                   <div class="card shadow">
-                                      <div class="card-body p-0">
+                                      <div class="card-body p-2">
                                           <div class="table-responsive">
-                                              <table class="table">
+                                              <table class="table" id="dataTableEstagio">
                                                   <thead class="bg-light">
                                                       <tr class="border-0">
                                                           <th class="border-0">#</th>
