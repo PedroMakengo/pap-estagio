@@ -83,7 +83,7 @@
                                                         endforeach;
                                                       else: ?>
                                                         <tr>
-                                                          <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum relatório</td>
+                                                          <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum declaração</td>
                                                         </tr>
                                                       <?php
                                                       endif;?>
@@ -129,7 +129,7 @@
                                                         endforeach;
                                                       else: ?>
                                                         <tr>
-                                                          <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum relatório</td>
+                                                          <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum declaração emitidas</td>
                                                         </tr>
                                                       <?php
                                                       endif;?>

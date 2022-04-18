@@ -15,7 +15,6 @@
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     <div class="ecommerce-widget">
-
                         <div class="row mb-4">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="bg-white border p-4 shadow">
@@ -37,16 +36,19 @@
                               <h2>Gráfico</h2>
                             </div>
                           </div>
+
                           <div class="col-lg-6">
                             <div class="card p-4">
                               <h2>Gráfico</h2>
                             </div>
                           </div>
+
                           <div class="col-lg-6">
                             <div class="card p-4">
                               <h2>Gráfico</h2>
                             </div>
                           </div>
+
                           <div class="col-lg-6">
                             <div class="card p-4">
                               <h2>Gráfico</h2>
