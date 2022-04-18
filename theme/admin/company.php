@@ -15,7 +15,6 @@
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     <div class="ecommerce-widget">
-
                         <div class="row mb-4">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="bg-white border p-4">
@@ -37,7 +36,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
-                                    <div class="card-body p-0">
+                                    <div class="card-body p-0 mt-3">
                                         <div class="table-responsive">
                                             <table class="table" id="dataTableEstagio">
                                                 <thead class="bg-light">
