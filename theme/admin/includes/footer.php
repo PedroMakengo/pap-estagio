@@ -9,6 +9,16 @@
 
     <script src="../assets/scripts/Chart.min.js"></script>
     <script src="../assets/scripts/chart.js"></script>
+
+    <script src="../assets/scripts/data-table.js"></script>
+    <script src="../assets/scripts/jquery.dataTables.js"></script>
+    <script src="../assets/scripts/dataTables.bootstrap4.js"></script>
+
+    <script>
+        $(function() {
+            $('#dataTableEstagio').dataTable();
+        });
+    </script>
 </body>
 
 </html>

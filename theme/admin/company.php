@@ -39,7 +39,7 @@
                                     <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table" id="dataTableEstagio">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
