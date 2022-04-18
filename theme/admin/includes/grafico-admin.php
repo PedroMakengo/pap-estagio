@@ -74,17 +74,17 @@ foreach($dezembro as $mostrar):
 $dezembro = $mostrar['dezembro'];
 endforeach;
 
-$alunoMensal[] = (int)$janeiro;
-$alunoMensal[] = (int)$fevereiro;
-$alunoMensal[] = (int)$marco;
-$alunoMensal[] = (int)$abril;
-$alunoMensal[] = (int)$maio;
-$alunoMensal[] = (int)$junho;
-$alunoMensal[] = (int)$julho;
-$alunoMensal[] = (int)$agosto;
-$alunoMensal[] = (int)$setembro;
-$alunoMensal[] = (int)$outubro;
-$alunoMensal[] = (int)$novembro;
-$alunoMensal[] = (int)$dezembro;
+$empresaMensal[] = (int)$janeiro;
+$empresaMensal[] = (int)$fevereiro;
+$empresaMensal[] = (int)$marco;
+$empresaMensal[] = (int)$abril;
+$empresaMensal[] = (int)$maio;
+$empresaMensal[] = (int)$junho;
+$empresaMensal[] = (int)$julho;
+$empresaMensal[] = (int)$agosto;
+$empresaMensal[] = (int)$setembro;
+$empresaMensal[] = (int)$outubro;
+$empresaMensal[] = (int)$novembro;
+$empresaMensal[] = (int)$dezembro;
 
-// echo json_encode($mensalEmpresas);
+// echo json_encode($empresaMensal);
