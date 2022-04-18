@@ -245,6 +245,25 @@
                   <label for="">Quantidade de Candidatos</label>
                   <input type="number" name="qt_candidatos" class="form-control form-control-lg" />
                 </div>
+                <div class="col-lg-6 form-group">
+                  <label for="">Atividades por realizar</label>
+                  <textarea class="form-control form-control-lg" name="atividades"></textarea>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <label for="">Competências</label>
+                  <textarea class="form-control form-control-lg" name="competencias"></textarea>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <label for="">Línguas</label>
+                  <input class="form-control form-control-lg" name="linguas" />
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <label for="">Grau academico</label>
+                  <input class="form-control form-control-lg" name="grau_academico" />
+                </div>
 
                 <div class="col-lg-4 form-group">
                   <input type="submit" value="Adicionar vaga" class="form-control btn-primary btn" name="adicionar_vaga" />
@@ -253,22 +272,29 @@
               <?php
 
                 if(isset($_POST['adicionar_vaga'])):
-
                   $quantidadeCandidatos = $_POST['qt_candidatos'];
                   $area_atuacao = $_POST['area_atuacao'];
+
+                  $grau         = $_POST['grau_academico'];
+                  $linguas      = $_POST['linguas'];
+                  $competencias = $_POST['competencias'];
+                  $atividades   = $_POST['atividades'];
 
                   $parametros = [
                     ":id_empresa"   => $_SESSION['id'],
                     ":area"         => $area_atuacao,
-                    ":quantidade"   => $quantidadeCandidatos
+                    ":quantidade"   => $quantidadeCandidatos,
+                    ":atividades"   => $atividades,
+                    ":competencias" => $competencias,
+                    ":linguas"      => $linguas,
+                    ":ensino"       => $grau
                   ];
 
                   $inserirVagaMinha = new Model();
                   $inserirVagaMinha->EXE_NON_QUERY("INSERT INTO tb_vaga_estagio
-                  (id_empresa, area_atuacao_vaga, numero_candidatura, data_registro_vaga, estado_vaga)
+                  (id_empresa, area_atuacao_vaga, numero_candidatura, data_registro_vaga, estado_vaga, numero_restante_candidatura, atividades_por_realizar, competencias, linguas, ensino)
                    VALUES
-                  (:id_empresa, :area, :quantidade, now(), 0) ", $parametros);
-
+                  (:id_empresa, :area, :quantidade, now(), 0, :quantidade, :atividades, :competencias, :linguas, :ensino) ", $parametros);
                    if($inserirVagaMinha):
                     echo "<script>location.href='vacancy.php?id=vaga'</script>";
                    endif;

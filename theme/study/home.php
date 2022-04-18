@@ -102,7 +102,6 @@
                                   $target        = "../assets/storage/study/" . basename($_FILES['foto']['name']);
                                   $foto          = $_FILES['foto']['name'];
 
-
                                   // Procurar saber se o número de processo adicionado já existe no banco de dados e é diferente
                                   // de zero
 

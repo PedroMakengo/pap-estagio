@@ -165,6 +165,11 @@
                       $candidaturaDisponivel = $dados['numero_restante_candidatura'];
                       $candidatosInscritos = $dados['numero_candidatura'] - count($buscandoDadosDoEstagio);
                       $estadoVaga = $dados['estado_vaga'] == 0 ? "Aberto" : "Fechado";
+
+                      $competencias = $dados["competencias"];
+                      $linguas      = $dados["linguas"];
+                      $ensino       = $dados["ensino"];
+                      $atividades   = $dados["atividades_por_realizar"];
                     endforeach;
                   endif;
 
@@ -204,6 +209,35 @@
                                 <li class="mb-2">Estado Vaga <span class="float-right badge badge-primary"><?= $estadoVaga?></span></li>
                               </ul>
                             </div>
+
+                            <div class="mt-3">
+                              <h2 class="h5 border-bottom pb-2">Ensino</h2>
+                              <div class="p-2">
+                                <p><?= $ensino ?></p>
+                              </div>
+                            </div>
+
+                            <div class="mt-3">
+                              <h2 class="h5 border-bottom pb-2">Competências</h2>
+                              <div class="p-2">
+                                <p><?= $competencias ?></p>
+                              </div>
+                            </div>
+
+                            <div class="mt-3">
+                              <h2 class="h5 border-bottom pb-2">Atividades  por realizar</h2>
+                              <div class="p-2">
+                                <p><?= $atividades ?></p>
+                              </div>
+                            </div>
+
+                            <div class="mt-3">
+                              <h2 class="h5 border-bottom pb-2">Línguas</h2>
+                              <div class="p-2">
+                                <p><?= $linguas ?></p>
+                              </div>
+                            </div>
+
                           </div>
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
@@ -228,7 +262,7 @@
                               else:
                             ?>
                                 <div class="card rounded p-4">
-                                  <form method="POST">
+                                  <form method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                       <div class="col-lg-6 form-group">
                                           <label for="">Nome Completo</label>
@@ -247,6 +281,10 @@
                                           <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['contacto'] ?>" />
                                       </div>
                                       <div class="col-lg-12 form-group">
+                                          <label for="">Currículo</label>
+                                          <input type="file" class="form-control form-control-lg" name="foto"  />
+                                      </div>
+                                      <div class="col-lg-12 form-group">
                                         <label for="">Solicitação da Candidatura</label>
                                         <textarea name="message" class="form-control form-control-lg"></textarea>
                                       </div>
@@ -257,18 +295,28 @@
                                     <?php
                                       if(isset($_POST['candidatura_vaga'])):
                                         $idEstagioSelecionado = $_GET['id'];
+
+                                        $target        = "../assets/storage/curriculo/" . basename($_FILES['foto']['name']);
+                                        $curriculo     = $_FILES['foto']['name'];
+
                                         $parametros = [
                                           ":idAluno"    => $_SESSION['id'],
                                           ":idEstagio"  => $idEstagioSelecionado,
-                                          ":mensagem"   => $_POST['message']
+                                          ":mensagem"   => $_POST['message'],
+                                          ":curriculo"  => $curriculo
                                         ];
 
                                         $candidaturaInserir = new Model();
                                         $candidaturaInserir->EXE_NON_QUERY("INSERT INTO tb_candidatura_vaga
-                                        (id_aluno, id_vaga_estagio, data_registro_candidatura, estado_candidatura, motivacao_candidatura)
-                                        VALUES (:idAluno, :idEstagio, now(), 0, :mensagem) ", $parametros);
+                                        (id_aluno, id_vaga_estagio, data_registro_candidatura, estado_candidatura, motivacao_candidatura, curriculo)
+                                        VALUES (:idAluno, :idEstagio, now(), 0, :mensagem, :curriculo) ", $parametros);
 
                                         if($candidaturaInserir):
+                                          if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)):
+                                              $sms = "Uploaded feito com sucesso";
+                                          else:
+                                              $sms = "Não foi possível fazer o upload";
+                                          endif;
                                           echo "<script>location.href=`candidatura_vaga.php?id=$idEstagioSelecionado`</script>";
                                         endif;
                                       endif;
