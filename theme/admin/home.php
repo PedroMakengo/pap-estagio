@@ -128,7 +128,7 @@
 
                         <div class="row">
                             <!-- ============================================================== -->
-                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="card shadow">
                                     <h5 class="card-header"><strong>Empresas registradas</strong></h5>
                                     <div class="card-body p-0">
@@ -139,52 +139,6 @@
                                 </div>
                             </div>
                             <!-- ============================================================== -->
-
-                            <!-- recent orders  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card shadow">
-                                    <h5 class="card-header"><strong>Empresas registradas</strong></h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Nome</th>
-                                                        <th class="border-0">Data</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <!-- Adicionar aqui -->
-                                                    <?php
-                                                      $search = new Model();
-                                                      $empresaLimiteCinco = $search->EXE_QUERY("SELECT * FROM tb_empresa LIMIT 5");
-                                                      if(count($empresaLimiteCinco)):
-                                                        foreach($empresaLimiteCinco as $mostrar):?>
-                                                      <tr>
-                                                          <td>1</td>
-                                                          <td>Product #1 </td>
-                                                          <td>Product #1 </td>
-                                                      </tr>
-                                                    <?php
-                                                        endforeach;
-                                                      else:?>
-                                                      <tr>
-                                                        <td colspan="3">Não existe nenhuma empresa registrada</td>
-                                                      </tr>
-                                                    <?php
-                                                      endif;?>
-                                                    <!-- Adicionar aqui -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end recent orders  -->
-
                         </div>
                     </div>
                 </div>

@@ -37,9 +37,9 @@
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
-                                    <div class="card-body p-0">
+                                    <div class="card-body p-0 mt-4">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table" id="dataTableEstagio">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
@@ -58,13 +58,15 @@
                                                       if(count($estudantes)):
                                                         foreach($estudantes as $mostrar):?>
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>T</td>
-                                                            <td>H</td>
-                                                            <td>id000001 </td>
-                                                            <td>20</td>
-                                                            <td>20</td>
-                                                            <td>$80.00</td>
+                                                            <td><?= $mostrar['id_aluno'] ?></td>
+                                                            <td><?= $mostrar['nome'] ?></td>
+                                                            <td><?= $mostrar['email'] ?></td>
+                                                            <td><?= $mostrar['contacto'] ?></td>
+                                                            <td><?= $mostrar['numero_processo'] ?></td>
+                                                            <td><?= $mostrar['estado_aluno'] ?></td>
+                                                            <td>
+                                                                <button class="btn btn-small btn-primary">ver</button>
+                                                            </td>
                                                         </tr>
                                                     <?php
                                                       endforeach;

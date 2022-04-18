@@ -67,8 +67,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link <?= $_GET['id'] == 'relatory' ? 'active' : '' ?>" href="relatory.php?id=relatory">
-                        <i class="fas fa-fw fa-chart-pie"></i>Relatórios
+                      <a class="nav-link <?= $_GET['id'] == 'declaracao' ? 'active' : '' ?>" href="declaracao.php?id=declaracao">
+                        <i class="fas fa-fw fa-file"></i>Declarações
                     </a>
                   </li>
                   <li class="nav-item">
