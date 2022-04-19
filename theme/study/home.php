@@ -24,7 +24,7 @@
                           <div class="bg-white border rounded p-4">
                               <div class="row pt-1">
                                   <div class="col-lg-6">
-                                      <h1 class="h6">Atualmente </h1>
+                                      <h1 class="h6">Por favor Sr(a) <strong><?= $_SESSION["nome"] ?></strong>, atualize a sua conta !</h1>
                                   </div>
                               </div>
                           </div>
@@ -179,8 +179,7 @@
                                         <tbody>
                                           <?php
                                               $vagasDisponiveis = new Model();
-                                              $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
-                                              INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+                                              $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa ORDER BY `tb_vaga_estagio`.`id_vaga_estagio` DESC");
                                               if(count($listaDisponivel)):
                                                 foreach($listaDisponivel as $mostrar):?>
                                                   <tr>
