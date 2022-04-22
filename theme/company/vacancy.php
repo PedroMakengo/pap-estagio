@@ -276,12 +276,20 @@
 
                 <div class="col-lg-6 form-group">
                   <label for="">Línguas</label>
-                  <input class="form-control form-control-lg" name="linguas" />
+                  <select name="[linguas]" class="form-control form-control-lg" id="linguas" multiple>
+                    <option value="Português">Português</option>
+                    <option value="Inglês">Inglês</option>
+                    <option value="Francês">Francês</option>
+                  </select>
                 </div>
 
                 <div class="col-lg-6 form-group">
                   <label for="">Grau academico</label>
-                  <input class="form-control form-control-lg" name="grau_academico" />
+                  <select name="grau_academico" id="" class="form-control form-control-lg">
+                    <option value="Médio da Concluído">Médio da Concluído</option>
+                    <option value="Médio da Concluído">Médio da Concluído</option>
+                    <option value="Médio da Concluído">Médio da Concluído</option>
+                  </select>
                 </div>
 
                 <div class="col-lg-4 form-group">
