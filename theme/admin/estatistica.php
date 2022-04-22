@@ -38,7 +38,7 @@
                                   <h5>Gráfico de Candidatura</h2>
                                 </div>
                                 <div class="col-lg-6 text-right">
-                                  <a href="relatorio-pdf.php?id=candidatura">Relatório</a>
+                                  <a href="relatorio-pdf.php?id=candidatura" target="_blank">Relatório</a>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -58,7 +58,7 @@
                                   <h5>Estudantes por Sexo</h2>
                                 </div>
                                 <div class="col-lg-6 text-right">
-                                  <a href="#">Relatório</a>
+                                  <a href="relatorio-pdf.php?id=estudantes" target="_blank">Relatório</a>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -78,7 +78,7 @@
                                   <h5>Gráfico de Vagas</h2>
                                 </div>
                                 <div class="col-lg-6 text-right">
-                                  <a href="#">Relatório</a>
+                                  <a href="relatorio-pdf.php?id=vagas" target="_blank">Relatório</a>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -98,7 +98,7 @@
                                   <h5>Emissão de Declaração</h2>
                                 </div>
                                 <div class="col-lg-6 text-right">
-                                  <a href="#">Relatório</a>
+                                  <a href="relatorio-pdf.php?id=declaracoes" target="_blank">Relatório</a>
                                 </div>
 
                                 <div class="col-lg-12">
