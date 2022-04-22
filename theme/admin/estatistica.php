@@ -33,25 +33,37 @@
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="card p-4">
-                              <h2>Gráfico</h2>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <h5>Gráfico de candidatura</h2>
+                                </div>
+                                <div class="col-lg-6 text-right">
+                                  <a href="#">Relatório</a>
+                                </div>
+
+                                <div class="col-lg-12">
+                                  <hr>
+                                  <h1>Gráfico</h1>
+                                </div>
+                              </div>
                             </div>
                           </div>
 
                           <div class="col-lg-6">
                             <div class="card p-4">
-                              <h2>Gráfico</h2>
+                              <h5>Gráfico sexo</h5>
                             </div>
                           </div>
 
                           <div class="col-lg-6">
                             <div class="card p-4">
-                              <h2>Gráfico</h2>
+                              <h5>Gráfico de vagas</h5>
                             </div>
                           </div>
 
                           <div class="col-lg-6">
                             <div class="card p-4">
-                              <h2>Gráfico</h2>
+                              <h5>Gráfico de emissão de declaração</h5>
                             </div>
                           </div>
                         </div>
