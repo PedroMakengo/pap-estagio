@@ -133,7 +133,7 @@
                                     <h5 class="card-header"><strong>Empresas registradas</strong></h5>
                                     <div class="card-body p-0">
                                        <div>
-                                            <canvas id="mycompra-chart" style="height: 300px"></canvas>
+                                          <canvas id="mycompra-chart" style="height: 250px"></canvas>
                                        </div>
                                     </div>
                                 </div>
