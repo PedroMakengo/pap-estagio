@@ -110,7 +110,6 @@
     <?php require __DIR__ . "./includes/footer.php" ?>
     <!-- Footer -->
 
-
     <script>
         $(function() {
           var lineChart = document.getElementById("alunoChart").getContext("2d");
@@ -144,7 +143,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: <?=  json_encode($empresaMensal) ?>,
+                  data: <?=  json_encode($atividadeGrafico) ?>,
               },
               ],
           },
