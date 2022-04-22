@@ -39,7 +39,7 @@
                                     <h5 class="card-header"><strong>Estudantes registradas recentemente...</strong></h5>
                                     <div class="card-body p-0 mt-4">
                                         <div class="table-responsive">
-                                            <table class="table" id="dataTableEstagio">
+                                            <table class="table" id="dataTableEstagio" style="width: 1400px">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
@@ -47,7 +47,7 @@
                                                         <th class="border-0">E-mail</th>
                                                         <th class="border-0">Contacto</th>
                                                         <th class="border-0">Numero de Processo</th>
-                                                        <th class="border-0">Estado na plataforma</th>
+                                                        <th class="border-0">Data de registro</th>
                                                         <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
@@ -63,9 +63,14 @@
                                                             <td><?= $mostrar['email'] ?></td>
                                                             <td><?= $mostrar['contacto'] ?></td>
                                                             <td><?= $mostrar['numero_processo'] ?></td>
-                                                            <td><?= $mostrar['estado_aluno'] ?></td>
+                                                            <td><?= $mostrar['data_registro_aluno'] ?></td>
                                                             <td>
-                                                                <button class="btn btn-small btn-primary">ver</button>
+                                                                <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-small btn-primary">
+                                                                  <i class="fas fa-eye"></i>
+                                                                </a>
+                                                                <a href="students.php?action=delete&id=<?= $mostrar['id_aluno']?>" class="btn btn-small btn-danger">
+                                                                  <i class="fas fa-trash"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     <?php
@@ -77,6 +82,25 @@
                                                     <?php
                                                     endif;?>
                                                 </tbody>
+
+                                                 <!-- Eliminar empresa -->
+                                                 <?php
+                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                        $id = $_GET['id'];
+                                                        $parametros  =[
+                                                            ":id"=>$id
+                                                        ];
+                                                        $delete = new Model();
+                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_aluno WHERE id_aluno=:id", $parametros);
+                                                        if($delete == true):
+                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                            echo "<script>location.href='students.php?id=student'</script>";
+                                                        else:
+                                                            echo "<script>window.alert('Operação falhou');</script>";
+                                                        endif;
+                                                    endif;
+                                                ?>
+                                                <!-- End Eliminar empresa -->
                                             </table>
                                         </div>
                                     </div>
