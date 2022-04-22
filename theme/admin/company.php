@@ -38,7 +38,7 @@
                                     <h5 class="card-header"><strong>Empresas registradas recentemente...</strong></h5>
                                     <div class="card-body p-0 mt-3">
                                         <div class="table-responsive">
-                                            <table class="table" id="dataTableEstagio">
+                                            <table class="table" id="dataTableEstagio" >
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
@@ -47,6 +47,7 @@
                                                         <th class="border-0">NIF</th>
                                                         <th class="border-0">Localização</th>
                                                         <th class="border-0">Contacto</th>
+                                                        <th class="border-0">Data de registro</th>
                                                         <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
@@ -64,10 +65,11 @@
                                                               <td><?= $mostrar['nif'] ?></td>
                                                               <td><?= $mostrar['localizacao'] ?></td>
                                                               <td><?= $mostrar['contacto'] ?></td>
+                                                              <td><?= $mostrar['data_registro_empresa'] ?></td>
                                                               <td>
-                                                                <button class="btn btn-sm btn-danger">
-                                                                  Eliminar
-                                                                </button>
+                                                                <a href="company.php?action=delete&id=<?= $mostrar['id_empresa']?>" class="btn btn-sm btn-danger">
+                                                                  <i class="fas fa-trash"></i>
+                                                                </a>
                                                               </td>
                                                           </tr>
                                                         <?php
@@ -80,6 +82,25 @@
                                                       <?php
                                                       endif;?>
                                                 </tbody>
+
+                                                <!-- Eliminar empresa -->
+                                                <?php
+                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                        $id = $_GET['id'];
+                                                        $parametros  =[
+                                                            ":id"=>$id
+                                                        ];
+                                                        $delete = new Model();
+                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_empresa WHERE id_empresa=:id", $parametros);
+                                                        if($delete == true):
+                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                            echo "<script>location.href='company.php?id=company'</script>";
+                                                        else:
+                                                            echo "<script>window.alert('Operação falhou');</script>";
+                                                        endif;
+                                                    endif;
+                                                ?>
+                                                <!-- End Eliminar empresa -->
                                             </table>
                                         </div>
                                     </div>

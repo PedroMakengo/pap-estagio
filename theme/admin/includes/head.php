@@ -83,6 +83,11 @@
         table tbody td {
           font-family: Poppins !important;
         }
+
+        #dataTableEstagio {
+            width: 1100px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
