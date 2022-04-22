@@ -173,6 +173,7 @@
                                             <th>Area</th>
                                             <th>Número de Candidatos</th>
                                             <th>Estado</th>
+                                            <th>Data de registro</th>
                                             <th class="text-center">Acções</th>
                                           </tr>
                                         </thead>
@@ -187,6 +188,7 @@
                                                     <td><a href="#"><?= $mostrar['nome_empresa'] ?></a></td>
                                                     <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                     <td><?= $mostrar['numero_candidatura'] ?></td>
+                                                    <td><?= $mostrar['data_registro_vaga'] ?></td>
                                                     <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                     <td class="text-center">
                                                       <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>

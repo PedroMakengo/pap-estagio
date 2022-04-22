@@ -30,13 +30,13 @@
                         <hr>
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" name="nome" placeholder="Ex: Eduardo Jamba" class="form-control-lg form-control">
+                        <input type="text" name="nome" required placeholder="Ex: Eduardo Jamba" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="text" name="email" placeholder="Ex: jambaeduardo@gmail.com" class="form-control-lg form-control">
+                        <input type="text" name="email" required placeholder="Ex: jambaeduardo@gmail.com" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                        <input type="password" name="senha" placeholder="Password" class="form-control-lg form-control">
+                        <input type="password" name="senha" required placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
                       <select name="tipo_usuario" id="" class="form-control">
