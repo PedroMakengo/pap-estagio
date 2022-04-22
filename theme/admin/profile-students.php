@@ -15,6 +15,19 @@
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     <div class="ecommerce-widget">
+                        <?php
+                          $id = $_GET['id'];
+                          $parametros = [":id" => $id];
+                          $buscarProfileEstudante = new Model();
+                          $buscando = $buscarProfileEstudante->EXE_QUERY("SELECT * FROM tb_aluno WHERE id_aluno=:id", $parametros);
+                          foreach($buscando as $mostrar):
+                            $nome = $mostrar['nome'];
+                            $foto = $mostrar['foto'];
+                            $genero = $mostrar['sexo'] === 'M' ? "Masculino": "Femenino";
+                            $contacto = $mostrar['contacto'];
+                            $email = $mostrar['email'];
+                          endforeach;
+                        ?>
 
                         <div class="row mb-4">
                             <div class="col-xl-12 col-lg-12">
@@ -22,11 +35,13 @@
                                     <div class="row pt-1">
                                         <div class="col-lg-6 text-left">
                                             <h1 class="h6">
-                                              <a href="students.php?id=student">Regressar</a>
+                                              <a href="students.php?id=student">
+                                                <i class="fas fa-arrow-circle-left"></i> Voltar
+                                              </a>
                                             </h1>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <h1 class="h6">Informações sobre o Estagiário: <strong>Eduardo Jamba</strong></h1>
+                                            <h1 class="h6">Informações sobre o Estagiário: <strong><?= $nome ?></strong></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -39,114 +54,46 @@
                                 <div class="card">
                                     <h5 class="card-header"><strong>Descrição</strong></h5>
                                     <div class="card-body p-4">
-                                        Descrição
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <h5 class="card-header"><strong>Relatório</strong></h5>
-                                    <div class="card-body p-4">
-                                        <h1>Relatório do Mês</h1>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <h5 class="card-header"><strong>Nível</strong></h5>
-                                    <div class="card-body p-4">
-                                        <h1>Relatório do Mês</h1>
+                                        <p>Todas as informações relacionadas ao estudante <strong><?= $nome ?></strong> encontras nesta sessão.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header"><strong>Trabalhos ligado ao Sr(a)</strong></h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="profile-students.php" style="color: blue">Product #1 </a>
-                                                        </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
-                                                        <td>27-08-2018 01:22:12</td>
-                                                        <td>Patricia J. King </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <h5 class="card-header"><strong>Informações do estudante</strong></h5>
+                                    <div class="card-body p-4">
+                                      <div class="row">
+                                        <div class="col-lg-4">
+                                          <img src="../assets/storage/study/<?= $foto ?>" alt="<?= $nome ?>" class="col-lg-12">
                                         </div>
+                                        <div class="col-lg-8">
+                                          <div class="row">
+                                            <div class="col-lg-12">
+                                              <h5>Nome completo: <strong><?= $nome ?></strong></h5><hr />
+                                            </div>
+                                            <div class="col-lg-6">
+                                              <h5>Genero: <strong><?= $genero ?></strong></h5>
+                                            </div>
+                                            <div class="col-lg-6">
+                                              <h5>Contacto: <strong><?= $contacto ?></strong></h5>
+                                            </div>
+                                            <div class="col-lg-12">
+                                              <hr>
+                                              <h5>E-mail: <strong><?= $email ?></strong></h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <h5 class="card-header"><strong>Repositórios ligado ao Sr(a)</strong></h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="../assets/images/product-pic.jpg" alt="user"
-                                                                    class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="profile-students.php" style="color: blue">Product #1 </a>
-                                                        </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
-                                                        <td>27-08-2018 01:22:12</td>
-                                                        <td>Patricia J. King </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                <div class="col-lg-12 card">
+                                    <h5 class="card-header"><strong>Relatório</strong></h5>
+                                    <div class="card-body p-4">
+                                        <h1>Relatório do Mês</h1>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
