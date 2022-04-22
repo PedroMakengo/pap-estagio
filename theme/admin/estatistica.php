@@ -328,7 +328,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: <?=  json_encode($empresaMensal) ?>,
+                  data: <?=  json_encode($dataDeclaracao) ?>,
               },
               ],
           },

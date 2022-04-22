@@ -196,3 +196,92 @@ $dataVaga[] = (int)$setembroMensal;
 $dataVaga[] = (int)$outubroMensal;
 $dataVaga[] = (int)$novembroMensal;
 $dataVaga[] = (int)$dezembroMensal;
+
+
+
+// GRÁFICO DECLARAÇÕES
+$janeiroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as janeiro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 1 ");
+foreach($janeiroDeclaracao as $mostrar):
+$janeiroMensal1 = $mostrar['janeiro'];
+endforeach;
+
+$fevereiroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as fevereiro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 2 ");
+foreach($fevereiroDeclaracao as $mostrar):
+$fevereiroMensal2 = $mostrar['fevereiro'];
+endforeach;
+
+$marcoDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as marco FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 3 ");
+foreach($marcoDeclaracao as $mostrar):
+$marcoMensal3 = $mostrar['marco'];
+endforeach;
+
+$abrilDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as abril FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 4 ");
+foreach($abrilDeclaracao as $mostrar):
+$abrilMensal4 = $mostrar['abril'];
+endforeach;
+
+$maioDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as maio FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 5 ");
+foreach($maioDeclaracao as $mostrar):
+$maioMensal5 = $mostrar['maio'];
+endforeach;
+
+$junhoDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as junho FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 6 ");
+foreach($junhoDeclaracao as $mostrar):
+$junhoMensal6 = $mostrar['junho'];
+endforeach;
+
+$julhoDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as julho FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 7 ");
+foreach($julhoDeclaracao as $mostrar):
+$julhoMensal7 = $mostrar['julho'];
+endforeach;
+
+$agostoDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as agosto FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 8 ");
+foreach($agostoDeclaracao as $mostrar):
+$agostoMensal8 = $mostrar['agosto'];
+endforeach;
+
+$setembroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as setembro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 9 ");
+foreach($setembroDeclaracao as $mostrar):
+$setembroMensal9 = $mostrar['setembro'];
+endforeach;
+
+$outubroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as outubro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 10 ");
+foreach($outubroDeclaracao as $mostrar):
+$outubroMensal10 = $mostrar['outubro'];
+endforeach;
+
+$novembroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as novembro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 11 ");
+foreach($novembroDeclaracao as $mostrar):
+$novembroMensal11 = $mostrar['novembro'];
+endforeach;
+
+$dezembroDeclaracao = $mensal->EXE_QUERY("SELECT count(id_declaracao) as dezembro FROM tb_emissao_declaracao
+WHERE month(data_emissao) = 12 ");
+foreach($dezembroDeclaracao as $mostrar):
+$dezembroMensal12 = $mostrar['dezembro'];
+endforeach;
+
+$dataDeclaracao[] = (int)$janeiroMensal1;
+$dataDeclaracao[] = (int)$fevereiroMensal2;
+$dataDeclaracao[] = (int)$marcoMensal3;
+$dataDeclaracao[] = (int)$abrilMensal4;
+$dataDeclaracao[] = (int)$maioMensal5;
+$dataDeclaracao[] = (int)$junhoMensal6;
+$dataDeclaracao[] = (int)$julhoMensal7;
+$dataDeclaracao[] = (int)$agostoMensal8;
+$dataDeclaracao[] = (int)$setembroMensal9;
+$dataDeclaracao[] = (int)$outubroMensal10;
+$dataDeclaracao[] = (int)$novembroMensal11;
+$dataDeclaracao[] = (int)$dezembroMensal12;
+
