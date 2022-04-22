@@ -1,11 +1,14 @@
 <?php
-		include '../assets/mpdf-6.1/mpdf.php';
+
+    include '../../source/Config.php';
+    include '../../source/Model.php';
+    include '../assets/mpdf-6.1/mpdf.php';
 
     switch ($_GET['id']):
       case 'candidatura':
          // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM estudante_table");
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
 
           $html = "
                 <html>
@@ -16,13 +19,21 @@
                           .nav-header {margin: 0px auto;text-align: center;}
                           .mk-title {font-weight: 100;font-size: 18px;}
                           .mk-title-lg {font-weight: 100;font-size: 18px}
-                          img {width: 80px;height: 80px}
 
-                          table {width: 100%; }
-                          table thead {background: red;}
-                          table thead tr {background: rgb(24, 179, 240) !important}
-                          .table thead th {padding: 10px; background: rgb(24, 179, 240); font-weight: 100 }
-                          .table td {padding: 10px; background: #f2f2f2; font-weight: 100; color: black; }
+                          table { width: 100%; border-spacing: 0 0.5rem; }
+                          table th {
+                            background: #1f6feb;
+                            font-weight: 400;
+                            padding: 1rem 2rem;
+                            text-align: left;
+                            line-height: 1.5rem;
+                          }
+                          table td {
+                            padding: 1rem 2rem;
+                            border: 0;
+                            background: #f7f7f7;
+                            color: #000 !important;
+                          }
                       </style>
                   </head>
                   <body>
@@ -42,7 +53,8 @@
                                               <th style='color: white'>Id</th>
                                               <th style='color: white'>Nome Completo</th>
                                               <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Data da candidatura</th>
+                                              <th style='color: white'>Contacto</th>
+                                              <th style='color: white'>Data</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -50,11 +62,11 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_estudante"] }</td>
-                                              <td>{$mostrar["nome_estudante"] }</td>
-                                              <td>{$mostrar["data_nascimento"] }</td>
-                                              <td>{$mostrar["sexo_estudante"] }</td>
-                                              <td>{$mostrar["data_matricula"] }</td>
+                                              <td>{$mostrar["id_candidatura"] }</td>
+                                              <td>{$mostrar["nome"] }</td>
+                                              <td>{$mostrar["sexo"]}</td>
+                                              <td>{$mostrar["contacto"] }</td>
+                                              <td>{$mostrar["data_registro_candidatura"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -76,8 +88,8 @@
 
       case 'estudantes':
           // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM estudante_table");
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_aluno");
 
           $html = "
                 <html>
@@ -90,11 +102,21 @@
                           .mk-title-lg {font-weight: 100;font-size: 18px}
                           img {width: 80px;height: 80px}
 
-                          table {width: 100%; }
-                          table thead {background: red;}
-                          table thead tr {background: rgb(24, 179, 240) !important}
-                          .table thead th {padding: 10px; background: rgb(24, 179, 240); font-weight: 100 }
-                          .table td {padding: 10px; background: #f2f2f2; font-weight: 100; color: black; }
+
+                          table { width: 100%; border-spacing: 0 0.5rem; }
+                          table th {
+                            background: #1f6feb;
+                            font-weight: 400;
+                            padding: 1rem 2rem;
+                            text-align: left;
+                            line-height: 1.5rem;
+                          }
+                          table td {
+                            padding: 1rem 2rem;
+                            border: 0;
+                            background: #f7f7f7;
+                            color: #000 !important;
+                          }
                       </style>
                   </head>
                   <body>
@@ -114,7 +136,8 @@
                                               <th style='color: white'>Id</th>
                                               <th style='color: white'>Nome Completo</th>
                                               <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Data da candidatura</th>
+                                              <th style='color: white'>Telefone</th>
+                                              <th style='color: white'>Bilhete</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -122,11 +145,11 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_estudante"] }</td>
-                                              <td>{$mostrar["nome_estudante"] }</td>
-                                              <td>{$mostrar["data_nascimento"] }</td>
-                                              <td>{$mostrar["sexo_estudante"] }</td>
-                                              <td>{$mostrar["data_matricula"] }</td>
+                                              <td>{$mostrar["id_aluno"] }</td>
+                                              <td>{$mostrar["nome"] }</td>
+                                              <td>{$mostrar["sexo"] }</td>
+                                              <td>{$mostrar["contacto"] }</td>
+                                              <td>{$mostrar["numero_processo"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -146,8 +169,8 @@
           exit();
       case 'vagas':
           // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM estudante_table");
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_vaga_estagio INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
           $html = "
                 <html>
                   <head>
@@ -159,11 +182,20 @@
                           .mk-title-lg {font-weight: 100;font-size: 18px}
                           img {width: 80px;height: 80px}
 
-                          table {width: 100%; }
-                          table thead {background: red;}
-                          table thead tr {background: rgb(24, 179, 240) !important}
-                          .table thead th {padding: 10px; background: rgb(24, 179, 240); font-weight: 100 }
-                          .table td {padding: 10px; background: #f2f2f2; font-weight: 100; color: black; }
+                          table { width: 100%; border-spacing: 0 0.5rem; }
+                          table th {
+                            background: #1f6feb;
+                            font-weight: 400;
+                            padding: 1rem 2rem;
+                            text-align: left;
+                            line-height: 1.5rem;
+                          }
+                          table td {
+                            padding: 1rem 2rem;
+                            border: 0;
+                            background: #f7f7f7;
+                            color: #000 !important;
+                          }
                       </style>
                   </head>
                   <body>
@@ -181,9 +213,9 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Data da candidatura</th>
+                                              <th style='color: white'>Empresa</th>
+                                              <th style='color: white'>Area de atuação</th>
+                                              <th style='color: white'>Data de registro</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -191,11 +223,10 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_estudante"] }</td>
-                                              <td>{$mostrar["nome_estudante"] }</td>
-                                              <td>{$mostrar["data_nascimento"] }</td>
-                                              <td>{$mostrar["sexo_estudante"] }</td>
-                                              <td>{$mostrar["data_matricula"] }</td>
+                                              <td>{$mostrar["id_vaga_estagio"] }</td>
+                                              <td>{$mostrar["nome_empresa"] }</td>
+                                              <td>{$mostrar["area_atuacao_vaga"] }</td>
+                                              <td>{$mostrar["data_registro_vaga"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -217,8 +248,8 @@
 
       case 'declaracoes':
           // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM estudante_table");
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_emissao_declaracao INNER JOIN tb_aluno ON tb_emissao_declaracao.id_aluno = tb_aluno.id_aluno");
           $html = "
                 <html>
                   <head>
@@ -230,11 +261,20 @@
                           .mk-title-lg {font-weight: 100;font-size: 18px}
                           img {width: 80px;height: 80px}
 
-                          table {width: 100%; }
-                          table thead {background: red;}
-                          table thead tr {background: rgb(24, 179, 240) !important}
-                          .table thead th {padding: 10px; background: rgb(24, 179, 240); font-weight: 100 }
-                          .table td {padding: 10px; background: #f2f2f2; font-weight: 100; color: black; }
+                          table { width: 100%; border-spacing: 0 0.5rem; }
+                          table th {
+                            background: #1f6feb;
+                            font-weight: 400;
+                            padding: 1rem 2rem;
+                            text-align: left;
+                            line-height: 1.5rem;
+                          }
+                          table td {
+                            padding: 1rem 2rem;
+                            border: 0;
+                            background: #f7f7f7;
+                            color: #000 !important;
+                          }
                       </style>
                   </head>
                   <body>
@@ -252,9 +292,8 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Data da candidatura</th>
+                                              <th style='color: white'>Nome Aluno</th>
+                                              <th style='color: white'>Data de Emissão</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -262,11 +301,9 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_estudante"] }</td>
-                                              <td>{$mostrar["nome_estudante"] }</td>
-                                              <td>{$mostrar["data_nascimento"] }</td>
-                                              <td>{$mostrar["sexo_estudante"] }</td>
-                                              <td>{$mostrar["data_matricula"] }</td>
+                                              <td>{$mostrar["id_declaracao"] }</td>
+                                              <td>{$mostrar["nome"] }</td>
+                                              <td>{$mostrar["data_emissao"] }</td>
                                           </tr>
                 ";
                       endforeach;
