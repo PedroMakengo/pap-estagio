@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 text-left">
-                    <h1>Moestagio</h1>
+                    <h1>Meu Estágio</h1>
                 </div>
                 <div class="col-lg-8 text-right">
                     <ul>

@@ -18,8 +18,8 @@
     if($_POST['tipo_usuario'] ==  'Empresa'):
       // Inserir dados na tabela de uma empresa
       $inserirEmpresa = new Model();
-      $inserirEmpresa->EXE_NON_QUERY("INSERT INTO tb_empresa (nome_empresa, email_empresa, senha_empresa)
-      VALUES (:nome, :email, :senha) ", $parametros);
+      $inserirEmpresa->EXE_NON_QUERY("INSERT INTO tb_empresa (nome_empresa, email_empresa, senha_empresa, nif, localizacao, contacto, data_registro_empresa)
+      VALUES (:nome, :email, :senha, 0, NULL, NULL, now()) ", $parametros);
       if($inserirEmpresa):
         echo "<script>location.href='theme/company/home.php?id=home'</script>";
       endif;

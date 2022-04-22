@@ -29,7 +29,7 @@
             <div class="col-xl-4 forms">
                 <form method="POST">
                     <div class="col-lg-12 mb-5">
-                        <h1>MoEstagio</h1>
+                        <h1>Meu Estágio</h1>
                         <p>Faça o seu logon dentro da nossa plataforma</p>
                         <hr>
                     </div>
