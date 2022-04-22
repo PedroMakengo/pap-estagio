@@ -109,7 +109,7 @@
     <!-- Footer -->
     <?php require __DIR__ . "./includes/footer.php" ?>
     <!-- Footer -->
-
+    <?php require 'includes/grafico-atividades.php' ?>
     <script>
         $(function() {
           var lineChart = document.getElementById("alunoChart").getContext("2d");
@@ -132,7 +132,7 @@
               ],
               datasets: [
               {
-                  label: "Empresas registadas",
+                  label: "Atividades registradas",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",

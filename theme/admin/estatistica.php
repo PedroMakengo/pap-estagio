@@ -44,7 +44,7 @@
                                 <div class="col-lg-12">
                                   <hr>
                                   <div>
-                                    <canvas id="graficoCandidatura" style="height: 250px"></canvas>
+                                    <canvas id="graficoCandidatura" style="height: 230px"></canvas>
                                   </div>
                                 </div>
                               </div>
@@ -64,7 +64,7 @@
                                 <div class="col-lg-12">
                                   <hr>
                                   <div>
-                                    <canvas id="graficoEstudanteSexo" style="height: 250px"></canvas>
+                                    <canvas id="graficoEstudanteSexo" style="height: 230px"></canvas>
                                   </div>
                                 </div>
                               </div>
@@ -84,7 +84,7 @@
                                 <div class="col-lg-12">
                                   <hr>
                                   <div>
-                                    <canvas id="graficoVaga" style="height: 250px"></canvas>
+                                    <canvas id="graficoVaga" style="height: 230px"></canvas>
                                   </div>
                                 </div>
                               </div>
@@ -104,7 +104,7 @@
                                 <div class="col-lg-12">
                                   <hr>
                                   <div>
-                                    <canvas id="graficoDeclaracao" style="height: 250px"></canvas>
+                                    <canvas id="graficoDeclaracao" style="height: 230px"></canvas>
                                   </div>
                                 </div>
                               </div>
@@ -123,7 +123,7 @@
     <!-- Footer -->
     <?php require __DIR__ . "./includes/footer.php" ?>
     <!-- Footer -->
-
+    <?php require 'includes/grafico-estatistica.php' ?>
 
     <script>
         $(function() {
@@ -158,7 +158,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: <?=  json_encode($empresaMensal) ?>,
+                  data: <?=  json_encode($candidaturas) ?>,
               },
               ],
           },
@@ -208,7 +208,7 @@
                   backgroundColor: ["#1f6feb", "#EE558E"],
                   fill: true,
                   borderWidth: 2,
-                  data: [2, 5],
+                  data: <?= json_encode($dataSexo) ?>,
               },
               ],
           },
@@ -268,7 +268,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: <?=  json_encode($empresaMensal) ?>,
+                  data: <?=  json_encode($dataVaga) ?>,
               },
               ],
           },
