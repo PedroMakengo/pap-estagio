@@ -85,6 +85,9 @@
                             <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link <?= $_GET['id'] == 'perfil' ? 'active' : '' ?>" href="profile.php?id=perfil"><i class="fas fa-user"></i>Meu Perfil</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
                         </li>
                     </ul>

@@ -131,7 +131,7 @@
                                   <div class="bg-white border p-4">
                                       <div class="row pt-1">
                                           <div class="col-lg-6">
-                                              <h1 class="h6">Bem-vindo(a) Sr. <strong>Eduardo Jamba</strong></h1>
+                                              <h1 class="h6">Bem-vindo(a) Empresa <strong><?= $_SESSION['nome'] ?></strong></h1>
                                           </div>
                                       </div>
                                   </div>
@@ -151,7 +151,7 @@
                                                           <th class="border-0">Vaga</th>
                                                           <th class="border-0">Motivação</th>
                                                           <th class="border-0">Data de Candidatura</th>
-                                                          <th class="border-0">Acções</th>
+                                                          <th class="border-0 text-center">Acções</th>
                                                       </tr>
                                                   </thead>
                                                   <tbody>
@@ -173,7 +173,12 @@
                                                               <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                               <td><?= $mostrar['data_registro_candidatura'] ?></td>
                                                               <td>
-                                                                <a href="#" class="btn btn-small btn-primary">Ativar</a>
+                                                                <a href="#" class="btn btn-small btn-primary">
+                                                                  <i class="fas fa-eye"></i>
+                                                                </a>
+                                                                <button class="btn btn-small btn-success">
+                                                                  <i class="fas fa-trash"></i>
+                                                                </button>
                                                               </td>
                                                           </tr>
                                                         <?php

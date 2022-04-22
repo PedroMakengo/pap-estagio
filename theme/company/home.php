@@ -130,7 +130,7 @@
                                     <div class="bg-white border rounded p-4">
                                         <div class="row pt-1">
                                             <div class="col-lg-6">
-                                                <h1 class="h6">Bem-vindo(a) Sr. <strong><?= $_SESSION['nome'] ?></strong></h1>
+                                                <h1 class="h6">Bem-vindo(a) Empresa <strong><?= $_SESSION['nome'] ?></strong></h1>
                                             </div>
                                         </div>
                                     </div>
@@ -197,7 +197,16 @@
                                             <div class="metric-value d-inline-block">
                                                 <h1 class="mb-1">
                                                 <!-- Contar quantas empresas estão no sistema -->
-                                                0
+                                                <?php
+                                                   $parametros = [":id" => $_SESSION['id']];
+                                                   $totalEstagioSexo = new Model();
+                                                   $totalEstagio = $totalEstagioSexo->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                   INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                                   INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                                   INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
+                                                   WHERE tb_empresa.id_empresa=:id AND tb_aluno.sexo = 'M' ", $parametros);
+                                                   echo count($totalEstagio);
+                                                ?>
                                                 </h1>
                                             </div>
                                             <div
@@ -211,10 +220,19 @@
                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="text-muted">Relatórios Submitidos</h5>
+                                            <h5 class="text-muted">Estagiários Sexo (F)</h5>
                                             <div class="metric-value d-inline-block">
                                                 <h1 class="mb-1">
-                                                0
+                                                  <?php
+                                                    $parametros = [":id" => $_SESSION['id']];
+                                                    $totalEstagioSexo = new Model();
+                                                    $totalEstagio = $totalEstagioSexo->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                    INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                                    INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                                    INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
+                                                    WHERE tb_empresa.id_empresa=:id AND tb_aluno.sexo = 'F' ", $parametros);
+                                                    echo count($totalEstagio);
+                                                  ?>
                                                 </h1>
                                             </div>
                                             <div
@@ -228,8 +246,10 @@
 
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="card p-2">
+                                        <h2 class="h5">Gráfico de candidaturas</h2>
+                                        <hr>
                                         <div>
-                                            <canvas id="mycompra-chart" style="height: 300px"></canvas>
+                                            <canvas id="mycompra-chart" style="height: 250px"></canvas>
                                         </div>
                                     </div>
                                 </div>

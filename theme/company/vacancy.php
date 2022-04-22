@@ -131,7 +131,7 @@
                                   <div class="bg-white border p-4">
                                       <div class="row pt-1">
                                           <div class="col-lg-6">
-                                              <h1 class="h6">Olá, Sr(a). <strong>Eduardo Jamba</strong></h1>
+                                              <h1 class="h6">Empresa <strong><?= $_SESSION['nome'] ?></strong></h1>
                                               <span>Nesta tela tens a possibilidade de adicionar uma nova vaga</span>
                                           </div>
                                           <div class="col-lg-6 text-right">
@@ -176,10 +176,10 @@
                                                             <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                             <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                             <td class="text-center">
-                                                              <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
+                                                              <a href="vacancy.php?action=delete&id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
                                                                 <i class="fas fa-trash"></i>
                                                               </a>
-                                                              <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">
+                                                              <a href="#id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">
                                                                 <i class="fas fa-edit"></i>
                                                               </a>
                                                             </td>
@@ -195,6 +195,25 @@
                                                     ?>
                                                 </tbody>
                                               </table>
+
+                                              <!-- Eliminar empresa -->
+                                              <?php
+                                                  if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                      $id = $_GET['id'];
+                                                      $parametros  =[
+                                                          ":id"=>$id
+                                                      ];
+                                                      $delete = new Model();
+                                                      $delete->EXE_NON_QUERY("DELETE FROM tb_vaga_estagio WHERE id_vaga_estagio=:id", $parametros);
+                                                      if($delete == true):
+                                                          echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                          echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                                                      else:
+                                                          echo "<script>window.alert('Operação falhou');</script>";
+                                                      endif;
+                                                  endif;
+                                              ?>
+                                              <!-- End Eliminar empresa -->
                                           </div>
                                       </div>
                                   </div>
