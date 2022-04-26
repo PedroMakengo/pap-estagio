@@ -79,9 +79,6 @@
                             <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-fw fa-chart-pie"></i>Candidatos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $_GET['id'] == 'atribuir-tarefa' ? 'active' : '' ?>" href="assign-task.php?id=atribuir-tarefa"><i class="fa fa-users"></i>Atribuir Tarefa</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>
                         </li>
                         <li class="nav-item">

@@ -175,36 +175,44 @@
                               <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                                   <div class="card shadow">
                                       <div class="card-body p-4">
-                                        <form method="POST">
+                                        <form method="post">
                                           <div class="row">
-                                            <div class="col-lg-12 form-group">
-                                              <label for="">Foto</label>
-                                              <input type="file" class="form-control" name="foto" value="<?= $foto ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Empresa</label>
-                                              <input type="text" class="form-control" name="empresa" value="<?= $nome ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Responsável da Empresa</label>
-                                              <input type="text" class="form-control" name="responsavel" value="<?= $responsavel ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Nif</label>
-                                              <input type="text" class="form-control" name="nif" value="<?= $nif ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Localização</label>
-                                              <input type="text" class="form-control" name="localizacao" value="<?= $localizacao ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Contacto</label>
-                                              <input type="text" class="form-control" name="contacto" value="<?= $contacto ?>">
-                                            </div>
-                                            <div class="col-lg-6 form-group">
-                                              <label for="">Area de atuação</label>
-                                              <input type="text" class="form-control" name="area" value="<?= $area ?>">
-                                            </div>
+                                            <?php
+                                              $parametros = [":id" => $_SESSION['id']];
+                                              $perfilEditando = new Model();
+                                              $edita = $perfilEditando->EXE_QUERY("SELECT * FROM tb_empresa WHERE id_empresa=:id", $parametros);
+
+                                              foreach ($edita as $mostrar):?>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">E-mail</label>
+                                                  <input type="email" class="form-control" name="email" value="<?=$mostrar['email_empresa'] ?>" />
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Empresa</label>
+                                                  <input type="text" class="form-control" name="nome" value="<?= $mostrar['nome_empresa'] ?>" />
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Responsável da Empresa</label>
+                                                  <input type="text" class="form-control" name="responsavel" value="<?= $mostrar['responsavel_empresa'] ?>">
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Nif</label>
+                                                  <input type="text" class="form-control" name="nif" value="<?= $mostrar['nif'] ?>">
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Localização</label>
+                                                  <input type="text" class="form-control" name="localizacao" value="<?= $mostrar['localizacao'] ?>">
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Contacto</label>
+                                                  <input type="tel" maxlength="9" class="form-control" name="contacto" value="<?= $mostrar['contacto'] ?>">
+                                                </div>
+                                                <div class="col-lg-12 form-group">
+                                                  <label for="">Area de atuação</label>
+                                                  <input type="text" class="form-control" name="area" value="<?= $mostrar['area_atuacao'] ?>">
+                                                </div>
+                                              <?php
+                                              endforeach;?>
                                             <div class="col-lg-4 form-group">
                                               <input type="submit" class="form-control btn-primary" name="editar" value="Atualizar">
                                             </div>
@@ -212,7 +220,46 @@
                                         </form>
 
                                         <!-- Editar Perfil -->
+                                        <?php
 
+                                        if(isset($_POST['editar'])):
+
+                                          $nome         = $_POST['nome'];
+                                          $responsavel  = $_POST['responsavel'];
+                                          $nif          = $_POST['nif'];
+                                          $localizacao  = $_POST['localizacao'];
+                                          $area         = $_POST['area'];
+                                          $contacto     = $_POST['contacto'];
+                                          $email        = $_POST['email'];
+
+                                          $parametros = [
+                                            ":nome"     => $nome,
+                                            ":email"    => $email,
+                                            ":gps"      => $localizacao,
+                                            ":ceo"      => $responsavel,
+                                            ":area"     => $area,
+                                            ":tel"      => $contacto,
+                                            ":nif"      => $nif,
+                                            ":id"       => $_SESSION['id']
+                                          ];
+                                          $atualizarPerfil = new Model();
+                                          $atualizarPerfil->EXE_NON_QUERY("UPDATE tb_empresa SET
+                                            nome_empresa=:nome,
+                                            email_empresa=:email,
+                                            area_atuacao=:area,
+                                            responsavel_empresa=:ceo,
+                                            contacto=:tel,
+                                            localizacao=:gps,
+                                            nif=:nif
+                                            WHERE
+                                            id_empresa=:id
+                                          ", $parametros);
+
+                                            if($atualizarPerfil):
+                                              echo "<script>location.href='profile.php?id=perfil'</script>";
+                                            endif;
+                                          endif;
+                                          ?>
                                         <!-- Editar Perfil -->
                                       </div>
                                   </div>
