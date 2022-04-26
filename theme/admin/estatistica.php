@@ -132,7 +132,7 @@
               ],
               datasets: [
               {
-                  label: "Empresas registadas",
+                  label: "Candidatos registadas",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",
@@ -182,7 +182,7 @@
               ],
               datasets: [
               {
-                  label: "Empresas registadas",
+                  label: "Estudantes por sexo",
                   borderColor: "#fff",
                   pointBorderColor: "#fff",
                   pointBackgroundColor: "#fff",
@@ -242,7 +242,7 @@
               ],
               datasets: [
               {
-                  label: "Empresas registadas",
+                  label: "Vagas registadas",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",
@@ -302,7 +302,7 @@
               ],
               datasets: [
               {
-                  label: "Empresas registadas",
+                  label: "Declarações registadas",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",

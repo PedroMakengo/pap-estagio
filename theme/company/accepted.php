@@ -173,12 +173,12 @@
                                                               <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                               <td><?= $mostrar['data_registro_candidatura'] ?></td>
                                                               <td>
-                                                                <a href="#" class="btn btn-small btn-primary">
+                                                                <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-small btn-primary">
                                                                   <i class="fas fa-eye"></i>
                                                                 </a>
-                                                                <button class="btn btn-small btn-success">
+                                                                <a href="accepted.php?id=" class="btn btn-small btn-success">
                                                                   <i class="fas fa-trash"></i>
-                                                                </button>
+                                                                </a>
                                                               </td>
                                                           </tr>
                                                         <?php
@@ -192,6 +192,9 @@
                                                         ?>
                                                   </tbody>
                                               </table>
+
+                                              <!-- Eliminar -->
+                                              <!-- Eliminar -->
                                           </div>
                                       </div>
                                   </div>
