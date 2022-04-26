@@ -198,20 +198,20 @@
 
                                               <!-- Eliminar empresa -->
                                               <?php
-                                                  if (isset($_GET['action']) && $_GET['action'] == 'delete'):
-                                                      $id = $_GET['id'];
-                                                      $parametros  =[
-                                                          ":id"=>$id
-                                                      ];
-                                                      $delete = new Model();
-                                                      $delete->EXE_NON_QUERY("DELETE FROM tb_vaga_estagio WHERE id_vaga_estagio=:id", $parametros);
-                                                      if($delete == true):
-                                                          echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                          echo "<script>location.href='vacancy.php?id=vaga'</script>";
-                                                      else:
-                                                          echo "<script>window.alert('Operação falhou');</script>";
-                                                      endif;
-                                                  endif;
+                                                if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                    $id = $_GET['id'];
+                                                    $parametros  =[
+                                                        ":id"=>$id
+                                                    ];
+                                                    $delete = new Model();
+                                                    $delete->EXE_NON_QUERY("DELETE FROM tb_vaga_estagio WHERE id_vaga_estagio=:id", $parametros);
+                                                    if($delete == true):
+                                                        echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                        echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                                                    else:
+                                                        echo "<script>window.alert('Operação falhou');</script>";
+                                                    endif;
+                                                endif;
                                               ?>
                                               <!-- End Eliminar empresa -->
                                           </div>

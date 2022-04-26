@@ -15,7 +15,7 @@
             <div class="dashboard-ecommerce">
                 <div class="p-4 fundoCompany"></div>
                 <div class="container-fluid dashboard-content manterTop">
-                    <?php
+                   <?php
                         if($nifVerificado == "0"):
                     ?>
                       <div class="ecommerce-widget">
@@ -131,7 +131,11 @@
                                   <div class="bg-white border p-4">
                                       <div class="row pt-1">
                                           <div class="col-lg-6">
-                                              <h1 class="h6">Bem-vindo(a) Empresa <strong><?= $_SESSION['nome'] ?></strong></h1>
+                                              <h1 class="h6">Olá, Sr(a). <strong>Eduardo Jamba</strong></h1>
+                                              <span>Nesta tela tens a possibilidade de adicionar uma nova tarefa </span>
+                                          </div>
+                                          <div class="col-lg-6 text-right">
+                                              <button class="btn btn-small btn-primary">Adicionar tarefa</button>
                                           </div>
                                       </div>
                                   </div>
@@ -141,85 +145,17 @@
                           <div class="row">
                               <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                   <div class="card shadow">
-                                      <div class="card-body p-2">
-                                          <div class="table-responsive">
-                                              <table class="table" id="dataTableEstagio">
-                                                  <thead class="bg-light">
-                                                      <tr class="border-0">
-                                                          <th class="border-0">#</th>
-                                                          <th class="border-0">Nome Completo</th>
-                                                          <th class="border-0">Vaga</th>
-                                                          <th class="border-0">Motivação</th>
-                                                          <th class="border-0">Data de Candidatura</th>
-                                                          <th class="border-0 text-center">Acções</th>
-                                                      </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                      <?php
-                                                          $parametros = [":id"    => $_SESSION['id']];
-                                                          $listagemCandidatos = new Model();
-                                                          $buscandoCandidatos = $listagemCandidatos->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
-                                                          INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
-                                                          INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
-                                                          WHERE tb_vaga_estagio.id_empresa=:id", $parametros);
-
-                                                          if(count($buscandoCandidatos)):
-                                                            foreach($buscandoCandidatos as $mostrar):
-                                                      ?>
-                                                          <tr>
-                                                              <td><?= $mostrar['id_candidatura'] ?></td>
-                                                              <td><?= $mostrar['nome'] ?></td>
-                                                              <td><?= $mostrar['area_atuacao_vaga'] ?> </td>
-                                                              <td><?= $mostrar['motivacao_candidatura'] ?></td>
-                                                              <td><?= $mostrar['data_registro_candidatura'] ?></td>
-                                                              <td>
-                                                                <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-small btn-primary">
-                                                                  <i class="fas fa-eye"></i>
-                                                                </a>
-                                                                <a href="accepted.php?action=delete&id=<?= $mostrar['id_candidatura'] ?>" class="btn btn-small btn-danger">
-                                                                  <i class="fas fa-trash"></i>
-                                                                </a>
-                                                              </td>
-                                                          </tr>
-                                                        <?php
-                                                          endforeach;
-                                                        else:?>
-                                                            <tr>
-                                                              <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe estagiários dentro da tua empresaa</td>
-                                                            </tr>
-                                                        <?php
-                                                        endif;
-                                                        ?>
-                                                  </tbody>
-                                              </table>
-
-                                              <!-- Eliminar -->
-                                              <?php
-                                                if (isset($_GET['action']) && $_GET['action'] == 'delete'):
-                                                    $id = $_GET['id'];
-                                                    $parametros  =[
-                                                        ":id"=>$id
-                                                    ];
-                                                    $delete = new Model();
-                                                    $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
-                                                    if($delete == true):
-                                                        echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                        echo "<script>location.href='accepted.php?id=aceite'</script>";
-                                                    else:
-                                                        echo "<script>window.alert('Operação falhou');</script>";
-                                                    endif;
-                                                endif;
-                                              ?>
-                                              <!-- Eliminar -->
-                                          </div>
+                                      <div class="card-body p-4">
+                                        <div class="text-center text-white bg-info p-3 rounded">
+                                            <p>Trabalhando nesta parte</p>
+                                        </div>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
                     <?php
-                      endif;
-                    ?>
+                    endif;?>
                 </div>
             </div>
         </div>
