@@ -36,13 +36,13 @@
                                     <h5>Gráfico de Vagas</h2>
                                   </div>
                                   <div class="col-lg-6 text-right">
-                                    <a href="relatorio-pdf.php?id=vagasEmpresa" target="_blank">Relatório</a>
+                                    <a href="relatorio-pdf.php?ver=vagasEmpresa&id=<?= $_SESSION['id']?>" target="_blank">Relatório</a>
                                   </div>
 
                                   <div class="col-lg-12">
                                     <hr>
                                     <div>
-                                      <canvas id="graficoVaga" style="height: 230px"></canvas>
+                                      <canvas id="graficoVagas" style="height: 230px"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -55,13 +55,13 @@
                                     <h5>Gráfico de Estagiários</h2>
                                   </div>
                                   <div class="col-lg-6 text-right">
-                                    <a href="relatorio-pdf.php?id=estagiarios" target="_blank">Relatório</a>
+                                    <a href="relatorio-pdf.php?ver=estagiarios&id=<?= $_SESSION['id']?>" target="_blank">Relatório</a>
                                   </div>
 
                                   <div class="col-lg-12">
                                     <hr>
                                     <div>
-                                      <canvas id="graficoVaga" style="height: 230px"></canvas>
+                                      <canvas id="graficoEstagios" style="height: 230px"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -78,5 +78,131 @@
     </div>
 
     <!-- Footer -->
-    <?php require __DIR__ . "./includes/footer.php" ?>
+    <?php require "includes/footer.php" ?>
     <!-- Footer -->
+
+    <?php require 'includes/grafico-estatistica.php' ?>
+
+    <script>
+      $(function() {
+          var graficoVagas = document.getElementById("graficoVagas").getContext("2d");
+          var vagas = new Chart(graficoVagas, {
+          type: "bar",
+          data: {
+              labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+              ],
+              datasets: [
+              {
+                  label: "Candidatos registadas",
+                  borderColor: "#1f6feb",
+                  pointBorderColor: "#1f6feb",
+                  pointBackgroundColor: "#1f6feb",
+                  pointBorderWidth: 2,
+                  pointHoverRadius: 4,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 4,
+                  backgroundColor: "transparent",
+                  fill: true,
+                  borderWidth: 2,
+                  data: [1, 4],
+              },
+              ],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: {
+              position: "bottom",
+              labels: {
+                  padding: 10,
+                  fontColor: "#1f6feb",
+              },
+              },
+              tooltips: {
+              bodySpacing: 4,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest",
+              xPadding: 10,
+              yPadding: 10,
+              caretPadding: 10,
+              },
+              layout: {
+              padding: { left: 15, right: 15, top: 15, bottom: 15 },
+              },
+          },
+          });
+
+          var graficoEstagios = document.getElementById("graficoEstagios").getContext("2d");
+          var estagiarios = new Chart(graficoEstagios, {
+          type: "bar",
+          data: {
+              labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+              ],
+              datasets: [
+              {
+                  label: "Candidatos registadas",
+                  borderColor: "#1f6feb",
+                  pointBorderColor: "#1f6feb",
+                  pointBackgroundColor: "#1f6feb",
+                  pointBorderWidth: 2,
+                  pointHoverRadius: 4,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 4,
+                  backgroundColor: "transparent",
+                  fill: true,
+                  borderWidth: 2,
+                  data: [1, 4],
+              },
+              ],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: {
+              position: "bottom",
+              labels: {
+                  padding: 10,
+                  fontColor: "#1f6feb",
+              },
+              },
+              tooltips: {
+              bodySpacing: 4,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest",
+              xPadding: 10,
+              yPadding: 10,
+              caretPadding: 10,
+              },
+              layout: {
+              padding: { left: 15, right: 15, top: 15, bottom: 15 },
+              },
+          },
+          });
+      });
+    </script>
