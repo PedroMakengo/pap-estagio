@@ -20,6 +20,7 @@
     <script>
          $(document).ready(function () {
             $('#dataTableEstagio').dataTable();
+            $('#dataTableEstagioAceite').dataTable();
 
             var lineChart = document.getElementById("mycompra-chart").getContext("2d");
             var myLineChart = new Chart(lineChart, {

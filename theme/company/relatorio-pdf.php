@@ -87,8 +87,11 @@
       break;
       case 'estagiarios':
           // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM tb_aluno");
+          $parametros = [":id" => $_GET['id']];
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+          INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+          WHERE tb_vaga_estagio.id_empresa=:id AND estado_candidatura=1", $parametros);
 
           $html = "
                 <html>

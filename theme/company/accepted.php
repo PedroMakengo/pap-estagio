@@ -165,7 +165,7 @@
                                                               $buscandoCandidatos = $listagemCandidatos->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
                                                               INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
                                                               INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
-                                                              WHERE tb_vaga_estagio.id_empresa=:id", $parametros);
+                                                              WHERE tb_vaga_estagio.id_empresa=:id AND estado_candidatura=0", $parametros);
 
                                                               if(count($buscandoCandidatos)):
                                                                 foreach($buscandoCandidatos as $mostrar):
@@ -177,7 +177,7 @@
                                                                   <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                                   <td><?= $mostrar['data_registro_candidatura'] ?></td>
                                                                   <td>
-                                                                    <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-small btn-primary">
+                                                                    <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-small btn-primary">
                                                                       <i class="fas fa-eye"></i>
                                                                     </a>
                                                                     <a href="accepted.php?action=delete&id=<?= $mostrar['id_candidatura'] ?>" class="btn btn-small btn-danger">
@@ -219,7 +219,79 @@
                                           </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <div class="card shadow">
+                                          <div class="card-body p-2">
+                                              <div class="table-responsive">
+                                                  <table class="table" id="dataTableEstagioAceite">
+                                                      <thead class="bg-light">
+                                                          <tr class="border-0">
+                                                              <th class="border-0">#</th>
+                                                              <th class="border-0">Nome Completo</th>
+                                                              <th class="border-0">Vaga</th>
+                                                              <th class="border-0">Motivação</th>
+                                                              <th class="border-0">Data de Candidatura</th>
+                                                              <th class="border-0 text-center">Acções</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <?php
+                                                              $parametros = [":id"    => $_SESSION['id']];
+                                                              $listagemCandidatos = new Model();
+                                                              $buscandoCandidatos = $listagemCandidatos->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                              INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                                              INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
+                                                              WHERE tb_vaga_estagio.id_empresa=:id AND estado_candidatura=1", $parametros);
+
+                                                              if(count($buscandoCandidatos)):
+                                                                foreach($buscandoCandidatos as $mostrar):
+                                                          ?>
+                                                              <tr>
+                                                                  <td><?= $mostrar['id_candidatura'] ?></td>
+                                                                  <td><?= $mostrar['nome'] ?></td>
+                                                                  <td><?= $mostrar['area_atuacao_vaga'] ?> </td>
+                                                                  <td><?= $mostrar['motivacao_candidatura'] ?></td>
+                                                                  <td><?= $mostrar['data_registro_candidatura'] ?></td>
+                                                                  <td class="text-center">
+                                                                    <button title="Desativar o estágio" class="btn btn-small btn-primary">
+                                                                      <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                  </td>
+                                                              </tr>
+                                                            <?php
+                                                              endforeach;
+                                                            else:?>
+                                                                <tr>
+                                                                  <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe estagiários dentro da tua empresaa</td>
+                                                                </tr>
+                                                            <?php
+                                                            endif;
+                                                            ?>
+                                                      </tbody>
+                                                  </table>
+
+                                                  <!-- Eliminar -->
+                                                  <?php
+                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                        $id = $_GET['id'];
+                                                        $parametros  =[
+                                                            ":id"=>$id
+                                                        ];
+                                                        $delete = new Model();
+                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
+                                                        if($delete == true):
+                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                            echo "<script>location.href='accepted.php?id=aceite'</script>";
+                                                        else:
+                                                            echo "<script>window.alert('Operação falhou');</script>";
+                                                        endif;
+                                                    endif;
+                                                  ?>
+                                                  <!-- Eliminar -->
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
                                     <div class="tab-pane fade" id="nav-atribuir" role="tabpanel" aria-labelledby="nav-profile-tab">
                                       <div class="card shadow">
                                         <div class="card-body p-2">

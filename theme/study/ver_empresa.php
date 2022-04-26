@@ -105,7 +105,6 @@
                                   $target        = "../assets/storage/study/" . basename($_FILES['foto']['name']);
                                   $foto          = $_FILES['foto']['name'];
 
-
                                   // Procurar saber se o número de processo adicionado já existe no banco de dados e é diferente
                                   // de zero
 
@@ -199,9 +198,10 @@
                                  </thead>
                                 <tbody>
                                     <?php
+                                        $parametros = [":id" => $_GET['id']];
                                         $vagasDisponiveis = new Model();
                                         $listaDisponivel = $vagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio
-                                        INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+                                        INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa WHERE tb_empresa.id_empresa=:id", $parametros);
                                         if(count($listaDisponivel)):
                                           foreach($listaDisponivel as $mostrar):?>
                                             <tr>

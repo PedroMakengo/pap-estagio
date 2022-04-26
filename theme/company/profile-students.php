@@ -57,6 +57,53 @@
                                         <p>Todas as informações relacionadas ao estudante <strong><?= $nome ?></strong> encontras nesta sessão.</p>
                                     </div>
                                 </div>
+
+                                <div class="card">
+                                  <form method="POST">
+                                    <?php
+
+                                      $parametros = [
+                                        ":idAluno"  => $_GET['id'],
+                                        ":idCandidatura" => $_GET['candidatura']
+                                      ];
+                                      $candidatura = new Model();
+                                      $candidaturaAceite = $candidatura->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                      WHERE id_aluno=:idAluno AND id_candidatura=:idCandidatura AND estado_candidatura=1", $parametros);
+                                      if($candidaturaAceite):
+                                     ?>
+                                      <button class="col-lg-12 btn btn-info">
+                                        Candidatura aceite...
+                                      </button>
+                                     <?php
+                                     else:?>
+                                      <button name="atualizar_candidatura" class="col-lg-12 btn btn-primary">
+                                        Aceitar a candidatura
+                                      </button>
+                                    <?php
+                                      endif;
+                                    ?>
+                                    <?php
+
+                                      if(isset($_POST['atualizar_candidatura'])):
+                                        $idAluno = $_GET['id'];
+                                        $id      = $_GET['candidatura'];
+
+                                        $parametros = [
+                                          ":id" => $id,
+                                          ":estado" => 1
+                                        ];
+
+                                        $aceitarCandidatura = new Model();
+                                        $aceitarCandidatura->EXE_NON_QUERY("UPDATE tb_candidatura_vaga SET
+                                         estado_candidatura=:estado WHERE id_candidatura=:id", $parametros);
+
+                                         if($aceitarCandidatura):
+                                          echo "<script>location.href='profile-students.php?id=${idAluno}&candidatura=${id}'</script>";
+                                         endif;
+                                      endif;
+                                    ?>
+                                  </form>
+                                </div>
                             </div>
 
                             <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">

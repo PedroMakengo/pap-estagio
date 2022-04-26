@@ -1,12 +1,10 @@
 <!-- Footer -->
 <?php require __DIR__ . "./includes/head.php" ?>
 <!-- Footer -->
-
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
     <div class="dashboard-main-wrapper">
-
         <!-- Footer -->
         <?php require __DIR__ . "./includes/header.php" ?>
         <!-- Footer -->
@@ -105,7 +103,7 @@
               ],
               datasets: [
               {
-                  label: "Candidatos registadas",
+                  label: "Vagas da Minha Empresa",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",
@@ -116,7 +114,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: [1, 4],
+                  data: <?= json_encode($candidaturas) ?>,
               },
               ],
           },
@@ -165,7 +163,7 @@
               ],
               datasets: [
               {
-                  label: "Candidatos registadas",
+                  label: "Estagiários registadas",
                   borderColor: "#1f6feb",
                   pointBorderColor: "#1f6feb",
                   pointBackgroundColor: "#1f6feb",
@@ -176,7 +174,7 @@
                   backgroundColor: "transparent",
                   fill: true,
                   borderWidth: 2,
-                  data: [1, 4],
+                  data: <?= json_encode($dataEstagiario)?>,
               },
               ],
           },
