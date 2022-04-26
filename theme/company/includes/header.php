@@ -1,6 +1,6 @@
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="home.php">MoEstagio</a>
+            <a class="navbar-brand" href="home.php">Meu estágio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -76,10 +76,10 @@
                             <a class="nav-link <?= $_GET['id'] == 'vaga' ? 'active' : '' ?>" href="vacancy.php?id=vaga"><i class="fas fa-f fa-folder"></i>Vaga</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-fw fa-chart-pie"></i>Estrangeiro(a)</a>
+                            <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-fw fa-chart-pie"></i>Candidatos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $_GET['id'] == 'atribuir-tarefa' ? 'active' : '' ?>" href="assign-task.php?id=atribuir-tarefa"><i class="fa fa-fw fa-rocket"></i>Atribuir Tarefa</a>
+                            <a class="nav-link <?= $_GET['id'] == 'atribuir-tarefa' ? 'active' : '' ?>" href="assign-task.php?id=atribuir-tarefa"><i class="fa fa-users"></i>Atribuir Tarefa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>

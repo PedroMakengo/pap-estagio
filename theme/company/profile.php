@@ -125,17 +125,15 @@
                         else:
                     ?>
                       <div class="ecommerce-widget">
-
                           <div class="row mb-4">
                               <div class="col-xl-12 col-lg-12">
                                   <div class="bg-white border p-4">
                                       <div class="row pt-1">
                                           <div class="col-lg-6">
-                                              <h1 class="h6">Olá, Sr(a). <strong>Eduardo Jamba</strong></h1>
-                                              <span>Nesta tela tens a possibilidade de adicionar uma nova tarefa </span>
+                                              <h1 class="h6"><strong><?= $_SESSION['nome'] ?></strong></h1>
                                           </div>
                                           <div class="col-lg-6 text-right">
-                                              <button class="btn btn-small btn-primary">Adicionar tarefa</button>
+                                              <h1 class="h6">Atualizar a minha conta</h1>
                                           </div>
                                       </div>
                                   </div>
@@ -143,12 +141,79 @@
                           </div>
 
                           <div class="row">
-                              <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                              <?php
+                                $parametros = [":id" => $_SESSION['id']];
+                                $buscandoMeuPerfil = new Model();
+                                $buscando = $buscandoMeuPerfil->EXE_QUERY("SELECT * FROM tb_empresa WHERE id_empresa=:id", $parametros);
+                                foreach ($buscando as $mostrar):
+                                  $nome           = $mostrar['nome_empresa'];
+                                  $email          = $mostrar['email_empresa'];
+                                  $nif            = $mostrar['nif'];
+                                  $localizacao    = $mostrar['localizacao'];
+                                  $contacto       = $mostrar['contacto'];
+                                  $responsavel    = $mostrar['responsavel_empresa'];
+                                  $foto           = $mostrar['foto'];
+                                  $area           = $mostrar['area_atuacao'];
+                                endforeach;
+                              ?>
+                              <div class="col-lg-4 col-xl-4">
+                                <div class="card p-4">
+                                  <img src="../assets/images/profile/<?= $foto ?>" alt="" class="mb-2" style="margin: 0 auto; width: 80px; height: 80px; border-radius: 80px">
+                                  <p class="m-auto text-center"><strong><?= $nome ?></strong></p>
+                                  <p class="m-auto text-center"><strong><?= $email ?></strong></p>
+                                  <hr>
+
+                                  <div class="text-center m-auto">
+                                    <p class="mt-0">Nif: <strong><?= $nif ?></strong></p>
+                                    <p class="mt-0">Contacto: <strong><?= $contacto ?></strong></p>
+                                    <p class="mt-0">Localização: <strong><?= $localizacao ?></strong></p>
+                                    <p class="mt-0">Aréa de atuação: <strong><?= $area ?></strong></p>
+                                    <p class="mt-0">Responsável da Empresa: <strong><?= $responsavel ?></strong></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                                   <div class="card shadow">
                                       <div class="card-body p-4">
-                                        <div class="text-center text-white bg-info p-3 rounded">
-                                            <p>Trabalhando nesta parte</p>
-                                        </div>
+                                        <form method="POST">
+                                          <div class="row">
+                                            <div class="col-lg-12 form-group">
+                                              <label for="">Foto</label>
+                                              <input type="file" class="form-control" name="foto" value="<?= $foto ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Empresa</label>
+                                              <input type="text" class="form-control" name="empresa" value="<?= $nome ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Responsável da Empresa</label>
+                                              <input type="text" class="form-control" name="responsavel" value="<?= $responsavel ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Nif</label>
+                                              <input type="text" class="form-control" name="nif" value="<?= $nif ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Localização</label>
+                                              <input type="text" class="form-control" name="localizacao" value="<?= $localizacao ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Contacto</label>
+                                              <input type="text" class="form-control" name="contacto" value="<?= $contacto ?>">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                              <label for="">Area de atuação</label>
+                                              <input type="text" class="form-control" name="area" value="<?= $area ?>">
+                                            </div>
+                                            <div class="col-lg-4 form-group">
+                                              <input type="submit" class="form-control btn-primary" name="editar" value="Atualizar">
+                                            </div>
+                                          </div>
+                                        </form>
+
+                                        <!-- Editar Perfil -->
+
+                                        <!-- Editar Perfil -->
                                       </div>
                                   </div>
                               </div>
