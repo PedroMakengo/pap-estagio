@@ -41,7 +41,7 @@
                 ],
                 datasets: [
                 {
-                    label: "Empresas registadas",
+                    label: "Candidaturas registadas",
                     borderColor: "#1f6feb",
                     pointBorderColor: "#1f6feb",
                     pointBackgroundColor: "#1f6feb",

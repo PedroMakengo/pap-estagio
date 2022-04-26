@@ -76,10 +76,10 @@
                             <a class="nav-link <?= $_GET['id'] == 'vaga' ? 'active' : '' ?>" href="vacancy.php?id=vaga"><i class="fas fa-f fa-folder"></i>Vaga</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-fw fa-chart-pie"></i>Candidatos</a>
+                            <a class="nav-link <?= $_GET['id'] == 'aceite' ? 'active' : '' ?>" href="accepted.php?id=aceite"><i class="fas fa-users"></i>Candidatos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-table"></i>Relatório & Gráficos</a>
+                            <a class="nav-link <?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>" href="monthly-report.php?id=relatorio"><i class="fas fa-fw fa-chart-pie"></i>Relatório & Gráficos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?= $_GET['id'] == 'perfil' ? 'active' : '' ?>" href="profile.php?id=perfil"><i class="fas fa-user"></i>Meu Perfil</a>

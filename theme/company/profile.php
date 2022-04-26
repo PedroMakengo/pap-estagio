@@ -130,7 +130,7 @@
                                   <div class="bg-white border p-4">
                                       <div class="row pt-1">
                                           <div class="col-lg-6">
-                                              <h1 class="h6"><strong><?= $_SESSION['nome'] ?></strong></h1>
+                                            <h1 class="h6">Nome da Empresa: <strong><?= $_SESSION['nome'] ?></strong></h1>
                                           </div>
                                           <div class="col-lg-6 text-right">
                                               <h1 class="h6">Atualizar a minha conta</h1>
