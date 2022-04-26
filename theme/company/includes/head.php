@@ -52,7 +52,8 @@
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
     <link rel="stylesheet" href="../assets/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
-    <title>The end</title>
+    <link href="../assets/css/font-face.css" rel="stylesheet" media="all" />
+    <title>Meu estágio</title>
 
     <style>
         .fundoCompany {

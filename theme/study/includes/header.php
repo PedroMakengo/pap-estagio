@@ -1,6 +1,6 @@
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="home.php" style="font-family: Poppins !important">MoEstagio</a>
+            <a class="navbar-brand" href="home.php" style="font-family: Poppins !important">Meu estágio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link <?php if($_GET['id'] == 'home') echo "active";?>"
-                              href="home.php?id=home"><i class="fa fa-fw fa-user-circle"></i>Home
+                              href="home.php?id=home"><i class="fa fa-fw fa-user-circle"></i>Página Inicial
                                 <span class="badge badge-success">6</span></a>
                         </li>
                         <li class="nav-item ">

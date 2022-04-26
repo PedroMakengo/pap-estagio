@@ -52,7 +52,7 @@
 
                   <li class="nav-item ">
                       <a class="nav-link <?= $_GET['id'] == 'home' ? 'active' : '' ?>" href="home.php?id=home">
-                        <i class="fa fa-fw fa-user-circle"></i>Dashboard
+                        <i class="fa fa-fw fa-user-circle"></i>Página Inicial
                           <span class="badge badge-success">6</span>
                       </a>
                   </li>
