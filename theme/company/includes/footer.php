@@ -1,5 +1,5 @@
- <!-- jquery 3.3.1 -->
- <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- jquery 3.3.1 -->
+   <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->
@@ -19,8 +19,10 @@
     ?>
     <script>
          $(document).ready(function () {
+
             $('#dataTableEstagio').dataTable();
             $('#dataTableEstagioAceite').dataTable();
+            $("#dataTableEstagioAceiteCandidato").dataTable();
 
             var lineChart = document.getElementById("mycompra-chart").getContext("2d");
             var myLineChart = new Chart(lineChart, {

@@ -186,7 +186,9 @@
                                               <td><?= $mostrar['area_atuacao'] ?></td>
                                               <td><?= $mostrar['localizacao'] ?></td>
                                               <td class="text-center">
-                                                <a href="ver_empresa.php?id=<?= $mostrar['id_empresa'] ?>" class="btn btn-sm btn-primary">Ver</a>
+                                                <a href="ver_empresa.php?id=<?= $mostrar['id_empresa'] ?>" class="btn btn-sm btn-primary">
+                                                  <i class="fas fa-eye"></i>
+                                                </a>
                                               </td>
                                             </tr>
                                           <?php

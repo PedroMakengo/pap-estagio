@@ -7,8 +7,9 @@
     switch ($_GET['ver']):
       case 'vagasEmpresa':
          // Instanciando
-          // $usuario = new Model();
-          // $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
+          $parametros = [":id" => $_GET['id']];
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_vaga_estagio WHERE id_empresa=:id", $parametros);
 
           $html = "
                 <html>
@@ -51,9 +52,9 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Contacto</th>
+                                              <th style='color: white'>Area de Atuação</th>
+                                              <th style='color: white'>Atividades</th>
+                                              <th style='color: white'>Competência</th>
                                               <th style='color: white'>Data</th>
                                           </tr>
                                       </thead>
@@ -62,11 +63,11 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_candidatura"] }</td>
-                                              <td>{$mostrar["nome"] }</td>
-                                              <td>{$mostrar["sexo"]}</td>
-                                              <td>{$mostrar["contacto"] }</td>
-                                              <td>{$mostrar["data_registro_candidatura"] }</td>
+                                              <td>{$mostrar["id_vaga_estagio"] }</td>
+                                              <td>{$mostrar["area_atuacao_vaga"] }</td>
+                                              <td>{$mostrar["atividades_por_realizar"]}</td>
+                                              <td>{$mostrar["competencias"] }</td>
+                                              <td>{$mostrar["data_registro_vaga"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -91,6 +92,7 @@
           $usuario = new Model();
           $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
           INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+          INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
           WHERE tb_vaga_estagio.id_empresa=:id AND estado_candidatura=1", $parametros);
 
           $html = "
@@ -145,9 +147,10 @@
                                       <tbody>
               ";
               foreach ($sql as $mostrar) :
+                $sexo = $mostrar['sexo'] === 'M' ? "Masculino": "Feminino";
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_aluno"] }</td>
+                                              <td>{$mostrar["id_candidatura"] }</td>
                                               <td>{$mostrar["nome"] }</td>
                                               <td>{$mostrar["sexo"] }</td>
                                               <td>{$mostrar["contacto"] }</td>

@@ -151,10 +151,9 @@
                                                 <thead>
                                                   <tr>
                                                     <th>Id</th>
-                                                    <th>Area</th>
+                                                    <th>Área de atuação</th>
                                                     <th>Nº Candidatos</th>
                                                     <th>Nº Candidatura Disponível</th>
-                                                    <th>Área de atuação</th>
                                                     <th>Estado</th>
                                                     <th class="text-center">Acções</th>
                                                   </tr>
@@ -173,7 +172,6 @@
                                                             <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                             <td><?= $mostrar['numero_candidatura'] ?></td>
                                                             <td><?= $mostrar['numero_candidatura'] ?></td>
-                                                            <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                             <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                             <td class="text-center">
                                                               <a href="vacancy.php?action=delete&id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
@@ -276,7 +274,7 @@
 
                 <div class="col-lg-6 form-group">
                   <label for="">Línguas</label>
-                  <select name="[linguas]" class="form-control form-control-lg" id="linguas" multiple>
+                  <select name="linguas" class="form-control form-control-lg" id="linguas" multiple>
                     <option value="Português">Português</option>
                     <option value="Inglês">Inglês</option>
                     <option value="Francês">Francês</option>
@@ -286,9 +284,7 @@
                 <div class="col-lg-6 form-group">
                   <label for="">Grau academico</label>
                   <select name="grau_academico" id="" class="form-control form-control-lg">
-                    <option value="Médio da Concluído">Médio da Concluído</option>
-                    <option value="Médio da Concluído">Médio da Concluído</option>
-                    <option value="Médio da Concluído">Médio da Concluído</option>
+                    <option value="Médio da Concluído">Médio Concluído</option>
                   </select>
                 </div>
 
@@ -312,6 +308,8 @@
                     ":area"         => $area_atuacao,
                     ":quantidade"   => $quantidadeCandidatos,
                     ":atividades"   => $atividades,
+                    ":estado"       => 0,
+                    ":num_resta"    => $quantidadeCandidatos,
                     ":competencias" => $competencias,
                     ":linguas"      => $linguas,
                     ":ensino"       => $grau
@@ -319,9 +317,31 @@
 
                   $inserirVagaMinha = new Model();
                   $inserirVagaMinha->EXE_NON_QUERY("INSERT INTO tb_vaga_estagio
-                  (id_empresa, area_atuacao_vaga, numero_candidatura, data_registro_vaga, estado_vaga, numero_restante_candidatura, atividades_por_realizar, competencias, linguas, ensino)
+                  (
+                    id_empresa,
+                    area_atuacao_vaga,
+                    numero_candidatura,
+                    data_registro_vaga,
+                    estado_vaga,
+                    numero_restante_candidatura,
+                    atividades_por_realizar,
+                    competencias,
+                    linguas,
+                    ensino
+                  )
                    VALUES
-                  (:id_empresa, :area, :quantidade, now(), 0, :quantidade, :atividades, :competencias, :linguas, :ensino) ", $parametros);
+                  (
+                    :id_empresa,
+                    :area,
+                    :quantidade,
+                     now(),
+                     :estado,
+                     :num_resta,
+                     :atividades,
+                     :competencias,
+                     :linguas,
+                     :ensino
+                  ) ", $parametros);
                    if($inserirVagaMinha):
                     echo "<script>location.href='vacancy.php?id=vaga'</script>";
                    endif;

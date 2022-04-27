@@ -8,7 +8,11 @@
       case 'candidatura':
          // Instanciando
           $usuario = new Model();
-          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+          INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
+          INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+          INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+          ");
 
           $html = "
                 <html>
@@ -52,8 +56,8 @@
                                           <tr>
                                               <th style='color: white'>Id</th>
                                               <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Contacto</th>
+                                              <th style='color: white'>Aréa</th>
+                                              <th style='color: white'>Empresa</th>
                                               <th style='color: white'>Data</th>
                                           </tr>
                                       </thead>
@@ -64,8 +68,8 @@
                                           <tr>
                                               <td>{$mostrar["id_candidatura"] }</td>
                                               <td>{$mostrar["nome"] }</td>
-                                              <td>{$mostrar["sexo"]}</td>
-                                              <td>{$mostrar["contacto"] }</td>
+                                              <td>{$mostrar["area_atuacao_vaga"]}</td>
+                                              <td>{$mostrar["nome_empresa"] }</td>
                                               <td>{$mostrar["data_registro_candidatura"] }</td>
                                           </tr>
                 ";

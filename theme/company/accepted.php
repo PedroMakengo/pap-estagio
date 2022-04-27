@@ -177,10 +177,10 @@
                                                                   <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                                   <td><?= $mostrar['data_registro_candidatura'] ?></td>
                                                                   <td>
-                                                                    <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-small btn-primary">
+                                                                    <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-sm btn-primary">
                                                                       <i class="fas fa-eye"></i>
                                                                     </a>
-                                                                    <a href="accepted.php?action=delete&id=<?= $mostrar['id_candidatura'] ?>" class="btn btn-small btn-danger">
+                                                                    <a href="accepted.php?action=delete&id=<?= $mostrar['id_candidatura'] ?>" class="btn btn-sm btn-danger">
                                                                       <i class="fas fa-trash"></i>
                                                                     </a>
                                                                   </td>
@@ -220,10 +220,10 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                    <div class="card shadow">
+                                      <div class="card shadow">
                                           <div class="card-body p-2">
                                               <div class="table-responsive">
-                                                  <table class="table" id="dataTableEstagioAceite">
+                                                  <table class="table" id="dataTableEstagioAceiteCandidato">
                                                       <thead class="bg-light">
                                                           <tr class="border-0">
                                                               <th class="border-0">#</th>
@@ -253,9 +253,12 @@
                                                                   <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                                   <td><?= $mostrar['data_registro_candidatura'] ?></td>
                                                                   <td class="text-center">
-                                                                    <button title="Desativar o estágio" class="btn btn-small btn-primary">
+                                                                    <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-sm btn-primary">
+                                                                      <i class="fas fa-eye"></i>
+                                                                    </a>
+                                                                    <!-- <button title="Desativar o estágio" class="btn btn-sm btn-primary">
                                                                       <i class="fas fa-trash"></i>
-                                                                    </button>
+                                                                    </button> -->
                                                                   </td>
                                                               </tr>
                                                             <?php
@@ -294,8 +297,8 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-atribuir" role="tabpanel" aria-labelledby="nav-profile-tab">
                                       <div class="card shadow">
-                                        <div class="card-body p-2">
-                                          333
+                                        <div class="card-body p-4 bg-warning text-white">
+                                          <p>Trabalhando nesta parte</p>
                                         </div>
                                       </div>
                                     </div>

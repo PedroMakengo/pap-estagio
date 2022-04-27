@@ -52,6 +52,9 @@
                                                               <td><?= $mostrar['contacto'] ?></td>
                                                               <td><?= $mostrar['data_registro_empresa'] ?></td>
                                                               <td>
+                                                                <a href="profile-empresa.php?id=<?= $mostrar['id_empresa'] ?>" class="btn btn-sm btn-primary">
+                                                                  <i class="fas fa-eye"></i>
+                                                                </a>
                                                                 <a href="company.php?action=delete&id=<?= $mostrar['id_empresa']?>" class="btn btn-sm btn-danger">
                                                                   <i class="fas fa-trash"></i>
                                                                 </a>
