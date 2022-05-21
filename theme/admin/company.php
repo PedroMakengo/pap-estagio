@@ -33,7 +33,7 @@
                                                         <th class="border-0">Localização</th>
                                                         <th class="border-0">Contacto</th>
                                                         <th class="border-0">Data de registro</th>
-                                                        <th class="border-0">Acções</th>
+                                                        <th class="border-0 text-center">Acções</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -81,7 +81,14 @@
                                                         $delete = new Model();
                                                         $delete->EXE_NON_QUERY("DELETE FROM tb_empresa WHERE id_empresa=:id", $parametros);
                                                         if($delete == true):
-                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                            echo '<script>
+                                                                    swal({
+                                                                    title: "Dado Eliminado!",
+                                                                    text: "Operação Efetuada com sucesso",
+                                                                    icon: "success",
+                                                                    button: "Fechar",
+                                                                    })
+                                                                </script>';
                                                             echo "<script>location.href='company.php?id=company'</script>";
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";

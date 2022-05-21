@@ -31,6 +31,7 @@
                                 </li>
                               </ul>
                               <div class="tab-content mt-3" id="myTabContent">
+
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <div class="card">
                                       <h5 class="card-header"><strong>Declaração</strong></h5>
@@ -51,17 +52,18 @@
                                                     <?php
 
                                                       $search = new Model();
-                                                      $relatorio = $search->EXE_QUERY("SELECT * FROM tb_relatorio_estagio");
+                                                      $relatorio = $search->EXE_QUERY("SELECT * FROM tb_emissao_declaracao
+                                                      INNER JOIN tb_aluno ON tb_emissao_declaracao.id_aluno=tb_aluno.id_aluno
+                                                      INNER JOIN tb_empresa ON tb_emissao_declaracao.id_empresa=tb_empresa.id_empresa");
                                                       if(count($relatorio)):
                                                         foreach($relatorio as $mostrar):?>
                                                           <tr>
-                                                              <td>1</td>
-                                                              <td>Product #1 </td>
-                                                              <td>id000001 </td>
-                                                              <td>20</td>
-                                                              <td>$80.00</td>
-                                                              <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                              </td>
+                                                              <td><?= $mostrar['id_declaracao'] ?></td>
+                                                              <td><?= $mostrar['nome'] ?></td>
+                                                              <td><?= $mostrar['nome'] ?></td>
+                                                              <td><?= $mostrar['data_emissao'] ?></td>
+                                                              <td><?= $mostrar['estado_emissao'] === "0" ? 'Processando' : 'Aceite' ?></td>
+                                                              <td class="text-center">Acções</td>
                                                           </tr>
                                                         <?php
                                                         endforeach;
@@ -72,11 +74,42 @@
                                                       <?php
                                                       endif;?>
                                                 </tbody>
+
+                                                <!-- Eliminar Pedido de Declaração -->
+                                                  <?php
+                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                        $id = $_GET['id'];
+                                                        $parametros  =[
+                                                            ":id"=>$id
+                                                        ];
+                                                        $delete = new Model();
+                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_empresa WHERE id_empresa=:id", $parametros);
+                                                        if($delete == true):
+                                                            echo '<script>
+                                                                    swal({
+                                                                    title: "Dado Eliminado!",
+                                                                    text: "Operação Efetuada com sucesso",
+                                                                    icon: "success",
+                                                                    button: "Fechar",
+                                                                    })
+                                                                </script>';
+                                                            echo '<script>
+                                                                      setTimeout(function() {
+                                                                          window.location.href="declaracao.php?id=declaracao";
+                                                                      }, 2000)
+                                                                  </script>';
+                                                        else:
+                                                            echo "<script>window.alert('Operação falhou');</script>";
+                                                        endif;
+                                                    endif;
+                                                ?>
+                                                <!-- Eliminar Pedido de Declaração -->
                                             </table>
                                         </div>
                                       </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <div class="card">
                                       <h5 class="card-header"><strong>Declaração</strong></h5>
@@ -123,6 +156,7 @@
                                       </div>
                                     </div>
                                 </div>
+
                               </div>
                             </div>
 

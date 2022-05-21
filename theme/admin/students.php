@@ -50,10 +50,10 @@
                                                             <td><?= $mostrar['numero_processo'] ?></td>
                                                             <td><?= $mostrar['data_registro_aluno'] ?></td>
                                                             <td>
-                                                                <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-small btn-primary">
+                                                                <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-sm btn-primary">
                                                                   <i class="fas fa-eye"></i>
                                                                 </a>
-                                                                <a href="students.php?action=delete&id=<?= $mostrar['id_aluno']?>" class="btn btn-small btn-danger">
+                                                                <a href="students.php?action=delete&id=<?= $mostrar['id_aluno']?>" class="btn btn-sm btn-danger">
                                                                   <i class="fas fa-trash"></i>
                                                                 </a>
                                                             </td>
@@ -78,8 +78,19 @@
                                                         $delete = new Model();
                                                         $delete->EXE_NON_QUERY("DELETE FROM tb_aluno WHERE id_aluno=:id", $parametros);
                                                         if($delete == true):
-                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                            echo "<script>location.href='students.php?id=student'</script>";
+                                                            echo '<script>
+                                                                    swal({
+                                                                    title: "Dado Eliminado!",
+                                                                    text: "Operação Efetuada com sucesso",
+                                                                    icon: "success",
+                                                                    button: "Fechar!",
+                                                                    })
+                                                                </script>';
+                                                            echo '<script>
+                                                                        setTimeout(function() {
+                                                                            window.location.href="students.php?id=students";
+                                                                        }, 2000)
+                                                                </script>';
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";
                                                         endif;
