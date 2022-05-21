@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+    <script src="theme/assets/scripts/sweetalert.min.js"></script>
 </head>
 <body>
     <main>
@@ -50,13 +51,6 @@
                       </div>
                   </div>
               </div>
-
-
-              <!-- Adicionando a configuração do login -->
-              <?php
-                require './source/controls/Login.php';
-              ?>
-              <!-- End Configuração do login -->
           </form>
         </div>
         <div class="col-xl-8 background-login">
@@ -65,3 +59,9 @@
     </main>
 </body>
 </html>
+
+ <!-- Adicionando a configuração do login -->
+ <?php
+    require './source/controls/Login.php';
+  ?>
+  <!-- End Configuração do login -->

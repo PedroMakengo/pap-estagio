@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group col-lg-4">
                                       <label for="#">Contacto</label>
-                                      <input type="text" name="contacto" value="<?= $mostrar['contacto'] ?>" placeholder="Contacto" class="form-control form-control-lg" />
+                                      <input type="tel" name="contacto" maxlength="9" value="<?= $mostrar['contacto'] ?>" placeholder="Contacto" class="form-control form-control-lg" />
                                     </div>
                                     <div class="form-group col-lg-4">
                                       <label for="">Foto</label>
@@ -90,7 +90,6 @@
 
                               <?php
                                 if(isset($_POST['atualizarConta'])):
-
                                   // Pegando os dados dos inputs
                                   $nome  = $_POST['nome'];
                                   $email = $_POST['email'];
@@ -98,6 +97,7 @@
                                   $processo = $_POST['processo'];
                                   $contacto = $_POST['contacto'];
 
+                                  // Validando todos os campos
                                   // Pegando a foto
                                   $target        = "../assets/storage/study/" . basename($_FILES['foto']['name']);
                                   $foto          = $_FILES['foto']['name'];
@@ -132,6 +132,14 @@
                                     else:
                                         $sms = "Não foi possível fazer o upload";
                                     endif;
+                                    echo '<script>
+                                      swal({
+                                        title: "Opps!",
+                                        text: "Já existe um usuário com este e-mail",
+                                        icon: "error",
+                                        button: "Fechar!",
+                                      })
+                                    </script>';
                                     echo "<script>location.href='home.php?id=home'</script>";
                                   endif;
                                 endif;

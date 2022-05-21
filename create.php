@@ -1,7 +1,6 @@
 <?php
   require 'source/Config.php';
   require 'source/Model.php';
-  require 'source/controls/Create.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -17,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+
+    <script src="theme/assets/scripts/sweetalert.min.js"></script>
 </head>
 <body>
     <main>
@@ -62,3 +63,7 @@
     </main>
 </body>
 </html>
+
+<!-- Crud -->
+<?php require 'source/controls/Create.php'; ?>
+<!-- Crud -->

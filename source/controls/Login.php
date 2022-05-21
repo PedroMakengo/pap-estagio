@@ -61,7 +61,14 @@
             endforeach;
             echo "<script>location.href='theme/study/home.php?id=home'</script>";
           else:
-            echo "<script>window.alert('Este usuário não exixte')</script>";
+            echo '<script>
+                  swal({
+                    title: "Opps!",
+                    text: "Infelizmente este usuário não foi encontrado",
+                    icon: "error",
+                    button: "Fechar!",
+                  })
+                </script>';
           endif;
         endif;
       endif;

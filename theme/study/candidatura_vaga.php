@@ -317,6 +317,14 @@
                                           else:
                                               $sms = "Não foi possível fazer o upload";
                                           endif;
+                                          echo '<script>
+                                                  swal({
+                                                    title: "Operação efetuado com sucesso!",
+                                                    text: "A tua operação foi efetuada com sucesso",
+                                                    icon: "success",
+                                                    button: "Fechar!",
+                                                  })
+                                                </script>';
                                           echo "<script>location.href=`candidatura_vaga.php?id=$idEstagioSelecionado`</script>";
                                         endif;
                                       endif;

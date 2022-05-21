@@ -52,6 +52,9 @@
                             <a class="nav-link  <?php if($_GET['id'] == 'meuestagio') echo "active";?>" href="meuestagio.php?id=meuestagio"><i class="fas fa-fw fa-chart-pie"></i>Meu estágio</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link  <?php if($_GET['id'] == 'perfil') echo "active";?>" href="perfil.php?id=perfil"><i class="fas fa-user"></i>Perfil</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="?logout=true"><i class="fas fa-f fa-power-off"></i>Terminar sessão</a>
                         </li>
                     </ul>
