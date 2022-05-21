@@ -214,7 +214,7 @@
                                   </div>
                                 </div>
 
-                                <table class="table">
+                                <table class="table" id="table-registro">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -237,7 +237,19 @@
                                         foreach($buscarMeusRelatorios as $mostrar):
                                     ?>
                                         <tr>
-                                          <!-- Trabalhar nesta área -->
+                                          <td><?= $mostrar['id_relatorio'] ?></td>
+                                          <td><a href="../assets/storage/curriculo/<?= $mostrar['id_relatorio'] ?>">Baixar Arquivo</a></td>
+                                          <td><?= $mostrar['estado_relatorio'] === '0' ? 'Processando':'Aprovado' ?></td>
+                                          <td><?= $mostrar['valor_relatorio'] === '0' ? 'Por Definir': $mostrar['valor_relatorio'] ?></td>
+                                          <td><?= $mostrar['data_registro_relatorio'] ?></td>
+                                          <td>
+                                            <a href="meuestagio.php?id=<?= $mostrar['id_relatorio'] ?>&action=delete" class="btn btn-sm bg-danger text-white">
+                                              <i class="fas fa-trash"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm bg-primary text-white">
+                                              <i class="fas fa-eye"></i>
+                                            </a>
+                                          </td>
                                         </tr>
                                     <?php
                                         endforeach;
@@ -248,6 +260,36 @@
                                     <?php
                                       endif;?>
                                   </tbody>
+
+                                  <!-- Eliminar -->
+                                  <?php
+                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                        $id = $_GET['id'];
+                                        $parametros  =[
+                                            ":id"=>$id
+                                        ];
+                                        $delete = new Model();
+                                        $delete->EXE_NON_QUERY("DELETE FROM tb_relatorio_estagio WHERE id_relatorio=:id", $parametros);
+                                        if($delete == true):
+                                            echo '<script>
+                                                    swal({
+                                                    title: "Dado Eliminado!",
+                                                    text: "Operação Efetuada com sucesso",
+                                                    icon: "success",
+                                                    button: "Fechar",
+                                                    })
+                                                </script>';
+                                            echo '<script>
+                                                      setTimeout(function() {
+                                                          window.location.href="meuestagio.php?id=meuestagio";
+                                                      }, 2000)
+                                                  </script>';
+                                        else:
+                                            echo "<script>window.alert('Operação falhou');</script>";
+                                        endif;
+                                    endif;
+                                  ?>
+                                  <!-- Eliminar -->
                                 </table>
                               </div>
 

@@ -24,6 +24,7 @@
         $(function() {
             $('#dataTableEstagio').dataTable();
             $('#dataMinhaTarefa').dataTable();
+            $("#table-registro").dataTable();
         });
     </script>
 </body>

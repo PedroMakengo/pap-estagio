@@ -168,22 +168,22 @@
                       ?>
 
                       <div class="row mb-4">
-                          <div class="col-xl-12 col-lg-12">
-                              <div class="bg-white border p-4">
-                                  <div class="row pt-1">
-                                      <div class="col-lg-6 text-left">
-                                          <h1 class="h6">
-                                            <a href="meuestagio.php?id=meuestagio">
-                                              <i class="fas fa-arrow-circle-left"></i> Voltar
-                                            </a>
-                                          </h1>
-                                      </div>
-                                      <div class="col-lg-6 text-right">
-                                          <h1 class="h6">Tarefa: <strong><?= $tema ?></strong></h1>
-                                      </div>
+                        <div class="col-xl-12 col-lg-12">
+                          <div class="bg-white border p-4">
+                              <div class="row pt-1">
+                                  <div class="col-lg-6 text-left">
+                                      <h1 class="h6">
+                                        <a href="meuestagio.php?id=meuestagio">
+                                          <i class="fas fa-arrow-circle-left"></i> Voltar
+                                        </a>
+                                      </h1>
+                                  </div>
+                                  <div class="col-lg-6 text-right">
+                                      <h1 class="h6">Tarefa: <strong><?= $tema ?></strong></h1>
                                   </div>
                               </div>
                           </div>
+                        </div>
                       </div>
 
 
