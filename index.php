@@ -1,6 +1,8 @@
   <!-- HEAD -->
    <?php require 'public/head.php'; ?>
   <!-- HEAD -->
+
+  <!-- BODY -->
   <body class="">
     <nav id="navigation" class="">
       <div class="wrapper">
@@ -15,7 +17,7 @@
             <li><a onclick="closeMenu()" href="#about">Sobre</a></li>
           </ul>
 
-          <a class="button" href="#contact" onclick="closeMenu()"
+          <a class="button" href="login.php" onclick="closeMenu()"
             >Iniciar sessão</a
           >
 
@@ -525,10 +527,8 @@
         />
       </svg>
     </a>
+  <!-- END BODY -->
 
-    <!-- ScrollReavel Lib -->
-    <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
-    <script src="theme/assets/scrollreveal.js"></script>
-    <script src="theme/assets/main.js"></script>
-  </body>
-</html>
+  <!-- FOOTER -->
+  <?php require 'public/includes/footer.php' ?>
+  <!-- FOOTER -->

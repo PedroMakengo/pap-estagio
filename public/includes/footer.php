@@ -1,5 +1,6 @@
-<script src="theme/assets/theme/jquery-1.12.4.min.js"></script>
-    <script src="theme/assets/theme/bootstrap.min.js"></script>
-    <script src="theme/assets/scripts/script.js"></script>
-</body>
+  <!-- ScrollReavel Lib -->
+    <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
+    <script src="theme/assets/scrollreveal.js"></script>
+    <script src="theme/assets/main.js"></script>
+  </body>
 </html>

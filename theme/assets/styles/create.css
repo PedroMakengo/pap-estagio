@@ -1,3 +1,7 @@
+:root {
+  --primary-color:   hsl(207, 100%, 26%);
+}
+
 body {
     font-family: Roboto;
     font-weight: 100;
@@ -11,14 +15,14 @@ body {
 .background {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#0086f360), to(#1f6febe6)), url(../images/systeme/create-1.jpg) !important;
+            from(#0086f360), to(var(--primary-color))), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
 .background-login {
     height: 100vh;
     background-image: -webkit-gradient(linear, right top, left bottom,
-            from(#0086f360), to(#1f6febe6)), url(../images/systeme/create-1.jpg) !important;
+            from(#0086f360), to(var(--primary-color))), url(../images/systeme/create-1.jpg) !important;
     background-size: 115%;
 }
 
@@ -40,10 +44,20 @@ body {
 }
 
 .forms input[type="submit"] {
-    background: #1f6febe6;
+    background: var(--primary-color);
     color: #fff;
-    border: 1px solid #1f6febe6;
+    border: 1px solid var(--primary-color);
     cursor: pointer;
     font-weight: 100;
 }
 
+
+.form-control-lg {
+  height: 3.8rem;
+}
+
+
+a {
+  color: var(--primary-color);
+  text-decoration: none !important;
+}

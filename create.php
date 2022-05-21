@@ -25,7 +25,7 @@
             <div class="col-xl-4 forms">
                 <form action="" method="POST">
                     <div class="col-lg-12 mb-5">
-                        <h1>Meu Estágio</h1>
+                        <a href="index.php"><h1>Meu Estágio</h1></a>
                         <p>Crie a sua conta dentro da nossa plataforma</p>
                         <hr>
                     </div>
@@ -39,7 +39,7 @@
                         <input type="password" name="senha" required placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
-                      <select name="tipo_usuario" id="" class="form-control">
+                      <select name="tipo_usuario" id="" class="form-control form-control-lg">
                         <option value="" disabled>Tipo de usuário</option>
                         <option value="Empresa">Empresa</option>
                         <option value="Estudante">Estudante</option>

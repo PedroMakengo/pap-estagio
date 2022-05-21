@@ -29,14 +29,14 @@
             <div class="col-xl-4 forms">
                 <form method="POST">
                     <div class="col-lg-12 mb-5">
-                        <h1>Meu Estágio</h1>
+                        <a href="index.php"><h1>Meu Estágio</h1></a>
                         <p>Faça o seu logon dentro da nossa plataforma</p>
                         <hr>
                     </div>
-                    <div class="mt-3 col-lg-12">
+                    <div class="mt-3 col-lg-12 form-group">
                         <input type="email" name="email" placeholder="Ex: eduardo@gmail.com" class="form-control form-control-lg">
                     </div>
-                    <div class="mt-3 col-lg-12">
+                    <div class="mt-3 col-lg-12 form-group">
                         <input type="password" name="password" placeholder="Password" class="form-control-lg form-control">
                     </div>
                     <div class="mt-3 col-lg-12">
