@@ -255,6 +255,11 @@
                                                   button: "Fechar!",
                                                 })
                                               </script>';
+                                          echo '<script>
+                                              setTimeout(function() {
+                                                  window.location.href="accepted.php?id=aceite";
+                                              }, 2000)
+                                          </script>';
                                       endif;
                                     endif;
                                   ?>

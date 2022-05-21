@@ -23,6 +23,7 @@
     <script>
         $(function() {
             $('#dataTableEstagio').dataTable();
+            $('#dataMinhaTarefa').dataTable();
         });
     </script>
 </body>
