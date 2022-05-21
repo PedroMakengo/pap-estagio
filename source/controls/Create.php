@@ -62,6 +62,11 @@
                         button: "Fechar!",
                       })
                     </script>';
+                    echo '<script>
+                        setTimeout(function() {
+                            window.location.href="login.php";
+                        }, 2000)
+                    </script>';
             endif;
             // Verificação do tipo de usuário
             elseif($_POST['tipo_usuario'] == 'Estudante'):
@@ -78,6 +83,11 @@
                         button: "Fechar!",
                       })
                     </script>';
+                    echo '<script>
+                            setTimeout(function() {
+                                window.location.href="login.php";
+                            }, 2000)
+                        </script>';
               endif;
           endif;
         endif;
