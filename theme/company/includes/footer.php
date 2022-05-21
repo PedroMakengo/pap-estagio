@@ -23,6 +23,7 @@
             $('#dataTableEstagio').dataTable();
             $('#dataTableEstagioAceite').dataTable();
             $("#dataTableEstagioAceiteCandidato").dataTable();
+            $("#dataAtribuirTarefa").dataTable();
 
             var lineChart = document.getElementById("mycompra-chart").getContext("2d");
             var myLineChart = new Chart(lineChart, {

@@ -214,8 +214,21 @@
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                               <div class="card p-4">
                                 <h1 class="h6 text-center">Perfil do meu estágio</h1>
+                                <?php
 
-                                <div class="mt-4 text-center">
+                                  $parametros = [":id" => $_SESSION['id'], ":estado" => 1];
+                                  $buscandoEstagioMedico = new Model();
+                                  $buscandoEstagio = $buscandoEstagioMedico->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                  INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                  INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                  WHERE id_aluno=:id AND estado_candidatura=:estado", $parametros);
+                                  foreach($buscandoEstagio as $mostrar):
+                                    $idEmpresa     = $mostrar['id_empresa'];
+                                    $minha_empresa = $mostrar['nome_empresa'];
+                                  endforeach;
+                                ?>
+
+                                <div class="mt-4">
                                    <!-- Selecionar os dados do usuário no banco de dados -->
                                    <?php
                                         $parametros = [":id"  => $_SESSION['id']];
@@ -224,13 +237,17 @@
                                         WHERE id_aluno=:id", $parametros);
                                         foreach($dadoUsuarioListagem as $mostrar):
                                       ?>
+                                    <div class="m-auto text-center">
                                       <img src="../assets/storage/study/<?= $mostrar['foto'] ?>"
                                       style="width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;
                                       ">
-                                    <ul class="mt-2">
+                                    </div>
+                                    <ul class="mt-4">
                                         <li class="mb-2">Nome <span class="badge badge-primary"><?= $mostrar['nome'] ?></span></li>
                                         <li class="mb-2">Nº Processo <span class="badge badge-primary"><?= $mostrar['numero_processo'] ?></span></li>
                                         <li class="mb-2">E-mail <span class="badge badge-primary"><?= $mostrar['email'] ?></span></li>
+                                        <hr>
+                                        <div class="mt-2">Empresa: <strong class="badge badge-primary"><?= $minha_empresa ?></strong> </div>
                                     </ul>
                                     <?php
                                         endforeach;
@@ -245,7 +262,7 @@
                                   $buscandoMinhaDeclaracao = $buscandoDeclaracao->EXE_QUERY("SELECT * FROM tb_emissao_declaracao WHERE id_aluno=:id", $parametros);
                                   if($buscandoMinhaDeclaracao):?>
                                     <div class="mt-4">
-                                      <a href="#" target="__blank" class="btn btn-primary col-lg-12">Visualizar Declaração</a>
+                                      <a href="declaracao.php?id=<?= $_SESSION["id"] ?>" target="__blank" class="btn btn-primary col-lg-12">Visualizar Declaração</a>
                                     </div>
                                   <?php
                                   else: ?>
@@ -274,14 +291,29 @@
 
                                               <?php
                                                 if(isset($_POST['adicionar_declaracao'])):
-                                                  echo '<script>
-                                                      swal({
-                                                        title: "Operação efetuado com sucesso!",
-                                                        text: "A tua operação foi efetuada com sucesso",
-                                                        icon: "success",
-                                                        button: "Fechar!",
-                                                      })
-                                                    </script>';
+
+                                                  $parametros = [
+                                                    ":id" => $_SESSION['id'],
+                                                    ":idEmpresa" => $idEmpresa,
+                                                    ":estado"    => 0
+                                                  ];
+
+                                                  $inserir = new Model();
+                                                  $inserir->EXE_NON_QUERY("INSERT INTO tb_emissao_declaracao
+                                                  (id_aluno, id_empresa, data_emissao, estado_emissao)
+                                                  VALUES
+                                                  (:id, :idEmpresa, now(), :estado) ", $parametros);
+
+                                                  if($inserir):
+                                                    echo '<script>
+                                                            swal({
+                                                              title: "Operação efetuado com sucesso!",
+                                                              text: "A tua operação foi efetuada com sucesso",
+                                                              icon: "success",
+                                                              button: "Fechar!",
+                                                            })
+                                                          </script>';
+                                                  endif;
                                                 endif;
                                               ?>
                                             </div>

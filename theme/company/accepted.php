@@ -219,6 +219,7 @@
                                           </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                       <div class="card shadow">
                                           <div class="card-body p-2">
@@ -256,7 +257,7 @@
                                                                     <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-sm btn-primary">
                                                                       <i class="fas fa-eye"></i>
                                                                     </a>
-                                                                    <a href="atribuir-tarefa.php" title="Atribuir tarefa o estágio" class="btn btn-sm btn-success">
+                                                                    <a href="atribuir-tarefa.php?id=<?= $mostrar['id_aluno'] ?>" title="Atribuir tarefa o estágio" class="btn btn-sm btn-success">
                                                                       <i class="fas fa-book"></i>
                                                                     </a>
                                                                   </td>
@@ -295,11 +296,92 @@
                                           </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="nav-atribuir" role="tabpanel" aria-labelledby="nav-profile-tab">
                                       <div class="card shadow">
-                                        <div class="card-body p-4 bg-warning text-white">
-                                          <p>Trabalhando nesta parte</p>
-                                        </div>
+                                          <div class="card-body p-2">
+                                              <div class="table-responsive">
+                                                  <table class="table" id="dataAtribuirTarefa" style="width: 1500px">
+                                                      <thead class="bg-light">
+                                                          <tr class="border-0">
+                                                              <th class="border-0">#</th>
+                                                              <th class="border-0">Estagiário</th>
+                                                              <th class="border-0">Tema Tarefa</th>
+                                                              <th class="border-0">Arquivo Tarefa</th>
+                                                              <th class="border-0">Arquivo Recebido</th>
+                                                              <th class="border-0">Data Entrega</th>
+                                                              <th class="border-0">Data de Recepção</th>
+                                                              <th class="border-0 text-center">Acções</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <?php
+                                                              $parametros = [":id"    => $_SESSION['id']];
+                                                              $buscandoMinhasTarefas = new Model();
+                                                              $buscandoTarefa = $buscandoMinhasTarefas->EXE_QUERY("SELECT * FROM tb_atribuir_tarefa
+                                                              INNER JOIN tb_aluno ON tb_atribuir_tarefa.id_aluno=tb_aluno.id_aluno
+                                                              INNER JOIN tb_empresa ON tb_atribuir_tarefa.id_empresa=tb_empresa.id_empresa
+                                                              WHERE tb_empresa.id_empresa=:id", $parametros);
+
+                                                              if(count($buscandoTarefa)):
+                                                                foreach($buscandoTarefa as $mostrar):
+                                                          ?>
+                                                              <tr>
+                                                                  <td><?= $mostrar['id_atribuir_tarefa'] ?></td>
+                                                                  <td><?= $mostrar['nome'] ?></td>
+                                                                  <td><?= $mostrar['tema'] ?> </td>
+                                                                  <td><a href="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_enviado'] ?>" taregt="_blank">Tarefa Enviada</a></td>
+                                                                  <td><a href="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_recibo'] ?>" taregt="_blank">Tarefa Recebida</a></td>
+                                                                  <td><?= $mostrar['data_entrega'] ?></td>
+                                                                  <td><?= $mostrar['data_entregada'] ?></td>
+                                                                  <td class="text-center">
+                                                                    <!-- Atualizar tarefa -->
+                                                                    <form method="POST">
+                                                                      <button title="Verificar o estado da tarefa" name="<?= $submeter_tarefa = 'adicionar_estado_tarefa' . $mostrar['id_atribuir_tarefa'] ?>" class="btn btn-sm btn-success">
+                                                                        <i class="fas fa-check"></i>
+                                                                      </button>
+
+                                                                      <?php
+                                                                        if(isset($_POST[$submeter_tarefa])):
+                                                                          echo "<script>window.alert('Funcionando')</script>";
+                                                                        endif;
+                                                                      ?>
+                                                                    </form>
+                                                                    <!-- Atualizar tarefa -->
+                                                                  </td>
+                                                              </tr>
+                                                            <?php
+                                                              endforeach;
+                                                            else:?>
+                                                                <tr>
+                                                                  <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe estagiários dentro da tua empresaa</td>
+                                                                </tr>
+                                                            <?php
+                                                            endif;
+                                                            ?>
+                                                      </tbody>
+                                                  </table>
+
+                                                  <!-- Eliminar -->
+                                                  <?php
+                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                                                        $id = $_GET['id'];
+                                                        $parametros  =[
+                                                            ":id"=>$id
+                                                        ];
+                                                        $delete = new Model();
+                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
+                                                        if($delete == true):
+                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
+                                                            echo "<script>location.href='accepted.php?id=aceite'</script>";
+                                                        else:
+                                                            echo "<script>window.alert('Operação falhou');</script>";
+                                                        endif;
+                                                    endif;
+                                                  ?>
+                                                  <!-- Eliminar -->
+                                              </div>
+                                          </div>
                                       </div>
                                     </div>
                                   </div>

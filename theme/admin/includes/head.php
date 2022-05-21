@@ -89,6 +89,10 @@
             width: 1100px;
             overflow: hidden;
         }
+
+        .form-control-lg {
+            height: 3.8rem;
+        }
     </style>
 </head>
 <body>

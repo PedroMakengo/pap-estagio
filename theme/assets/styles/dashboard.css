@@ -22,3 +22,8 @@ body {
 .sidebar-dark a i {
     color: white !important;
 }
+
+
+.form-control-lg {
+    height: 3.8rem;
+    }

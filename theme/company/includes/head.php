@@ -71,10 +71,14 @@
         }
 
         h1, h2, h3, h4, h5, h6,p,
-        a,
+        a, label,
         table thead th,
         table tbody td {
           font-family: Poppins !important;
+        }
+
+        .form-control-lg {
+            height: 3.8rem;
         }
 
     </style>
