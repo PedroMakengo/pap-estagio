@@ -209,7 +209,19 @@
                                               <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                               <td><?= $mostrar['numero_candidatura'] ?></td>
                                               <td class="text-center">
-                                                <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                <?php
+                                                  // Verificando já pertenço à uma vaga
+                                                  $parametros = [":id" => $_SESSION['id'], ':estado' => 1];
+                                                  $buscandoMeusDadosNaCandidatura = new Model();
+                                                  $buscandoVagaJaExistente = $buscandoMeusDadosNaCandidatura->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                                  WHERE id_aluno=:id AND estado_candidatura=:estado", $parametros);
+                                                  if($buscandoVagaJaExistente):?>
+                                                    <button class="btn btn-sm btn-danger" disabled>Inscrever-se</button>
+                                                  <?php
+                                                  else:?>
+                                                    <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                  <?php
+                                                  endif;?>
                                               </td>
                                           </tr>
                                           <?php endforeach;?>

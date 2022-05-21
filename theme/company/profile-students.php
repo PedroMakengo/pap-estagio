@@ -104,6 +104,19 @@
                                     ?>
                                   </form>
                                 </div>
+
+                                <!-- Mostrar apenas quando o aluno inserir a declaração -->
+                                <?php
+
+                                ?>
+                                <div class="card">
+                                  <h5 class="card-header"><strong>Declaração de Estágio</strong></h5>
+                                  <div class="card-body p-4">
+                                      <p>Para visualizar a declaração de efeito de estágio <a href="#" class="text-primary">clique aqui</a></p>
+                                  </div>
+                                </div>
+                                <!-- Mostrar apenas quando o aluno inserir a declaração -->
+
                             </div>
 
                             <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
