@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="../assets/styles/dashboard.css">
     <link rel="stylesheet" href="../assets/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
     <link href="../assets/css/font-face.css" rel="stylesheet" media="all" />
+    <script src="../assets/scripts/sweetalert.min.js"></script>
     <title>Meu estágio</title>
 
     <style>

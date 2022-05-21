@@ -133,7 +133,7 @@
                                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Candidaturas</a>
                                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Estagiários</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-atribuir" role="tab" aria-controls="nav-profile" aria-selected="false">Atribuir tarefa</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-atribuir" role="tab" aria-controls="nav-profile" aria-selected="false">Tarefas</a>
                                       </div>
                                     </nav>
                                   </div>
@@ -256,9 +256,9 @@
                                                                     <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>&candidatura=<?= $mostrar['id_candidatura'] ?>" class="btn btn-sm btn-primary">
                                                                       <i class="fas fa-eye"></i>
                                                                     </a>
-                                                                    <!-- <button title="Desativar o estágio" class="btn btn-sm btn-primary">
-                                                                      <i class="fas fa-trash"></i>
-                                                                    </button> -->
+                                                                    <a href="atribuir-tarefa.php" title="Atribuir tarefa o estágio" class="btn btn-sm btn-success">
+                                                                      <i class="fas fa-book"></i>
+                                                                    </a>
                                                                   </td>
                                                               </tr>
                                                             <?php

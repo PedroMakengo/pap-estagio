@@ -224,8 +224,8 @@
                                         WHERE id_aluno=:id", $parametros);
                                         foreach($dadoUsuarioListagem as $mostrar):
                                       ?>
-                                      <img src="../assets/images/profile/<?= $mostrar['foto'] ?>"
-                                      style="width: 80px; height: 80px; margin: 0 auto; border-radius: 50%; border: 2px solid #1f6febe6;
+                                      <img src="../assets/storage/study/<?= $mostrar['foto'] ?>"
+                                      style="width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;
                                       ">
                                     <ul class="mt-2">
                                         <li class="mb-2">Nome <span class="badge badge-primary"><?= $mostrar['nome'] ?></span></li>
@@ -238,11 +238,61 @@
                                 </div>
                               </div>
                               <div class="card p-4 mt-2">
-                                <h1 class="h6">Efetuar o pedido de declaração para estágio</h1>
-                                <div class="mt-4">
-                                  <a href="declaracao.php" target="__blank" class="btn btn-primary  col-lg-12">Fazer</a>
+                                <?php
+                                  // Verificar se existe uma declaração com os meus dados
+                                  $parametros = [":id" => $_SESSION["id"]];
+                                  $buscandoDeclaracao = new Model();
+                                  $buscandoMinhaDeclaracao = $buscandoDeclaracao->EXE_QUERY("SELECT * FROM tb_emissao_declaracao WHERE id_aluno=:id", $parametros);
+                                  if($buscandoMinhaDeclaracao):?>
+                                    <div class="mt-4">
+                                      <a href="#" target="__blank" class="btn btn-primary col-lg-12">Visualizar Declaração</a>
+                                    </div>
+                                  <?php
+                                  else: ?>
+                                    <h1 class="h6">Pedido de Declaração</h1>
+                                    <div class="mt-4">
+                                      <a href="#" data-toggle="modal" data-target=".bd-example-modal-xl" target="__blank" class="btn btn-primary col-lg-12">Fazer</a>
+                                    </div>
+                                <?php
+                                  endif; ?>
+                              </div>
+
+                              <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Efetuar o pedido de declaração</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form method="POST">
+                                          <div class="row">
+                                            <div class="col-lg-12 form-group">
+                                              <button type="submit" class="btn btn-primary col-lg-12" name="adicionar_declaracao">Emitir Declaração</button>
+
+                                              <?php
+                                                if(isset($_POST['adicionar_declaracao'])):
+                                                  echo '<script>
+                                                      swal({
+                                                        title: "Operação efetuado com sucesso!",
+                                                        text: "A tua operação foi efetuada com sucesso",
+                                                        icon: "success",
+                                                        button: "Fechar!",
+                                                      })
+                                                    </script>';
+                                                endif;
+                                              ?>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                  </div>
                                 </div>
                               </div>
+
+
                             </div>
                         </div>
                     </div>
