@@ -150,59 +150,58 @@
                         <div class="row">
                             <!-- Painel de Atividades -->
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+
                               <div class="card p-4">
                                 <h1 class="h6 mb-4">Minhas tarefas</h1>
-                                <div class="table-responsive">
-                                  <table class="table" id="dataMinhaTarefa">
-                                    <thead>
-                                      <tr>
-                                        <th>#</th>
-                                        <th>Empresa</th>
-                                        <th>Data de Entrega</th>
-                                        <th>Arquivo</th>
-                                        <th>Tema</th>
-                                        <th>Acções</th>
-                                      </tr>
-                                    </thead>
+                                <table class="table" id="dataMinhaTarefa">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Empresa</th>
+                                      <th>Data de Entrega</th>
+                                      <th>Arquivo</th>
+                                      <th>Tema</th>
+                                      <th>Acções</th>
+                                    </tr>
+                                  </thead>
 
-                                    <tbody>
-                                      <!-- Pegar dados sobre tarefa -->
-                                      <?php
-                                        $parametros = [":id" => $_SESSION['id']];
-                                        $buscandoMinhasTarefasRelacionadasAminhaVaga = new Model();
-                                        $todasAsMinhasTarefasPorExecutar = $buscandoMinhasTarefasRelacionadasAminhaVaga->EXE_QUERY("SELECT * FROM tb_atribuir_tarefa
-                                        INNER JOIN tb_empresa ON tb_atribuir_tarefa.id_empresa=tb_empresa.id_empresa
-                                        WHERE id_aluno=:id", $parametros);
-                                        if($todasAsMinhasTarefasPorExecutar):
-                                          foreach($todasAsMinhasTarefasPorExecutar as $mostrar):?>
-                                            <tr>
-                                              <td><?= $mostrar['id_atribuir_tarefa'] ?></td>
-                                              <td><?= $mostrar['nome_empresa'] ?></td>
-                                              <td><?= $mostrar['data_entrega'] ?></td>
-                                              <td><a href="<?= $mostrar['data_entrega'] ?>">Arquivo</a></td>
-                                              <td><?= $mostrar['tema'] ?></td>
-                                              <td>
-                                                <a href="detalhe-tarefa.php?id=<?= $mostrar['id_atribuir_tarefa'] ?>" class="btn btn-primary btn-sm">
-                                                  <i class="fas fa-eye"></i>
-                                                </a>
-                                              </td>
-                                            </tr>
-                                          <?php
-                                          endforeach;
-                                        else: ?>
+                                  <tbody>
+                                    <!-- Pegar dados sobre tarefa -->
+                                    <?php
+                                      $parametros = [":id" => $_SESSION['id']];
+                                      $buscandoMinhasTarefasRelacionadasAminhaVaga = new Model();
+                                      $todasAsMinhasTarefasPorExecutar = $buscandoMinhasTarefasRelacionadasAminhaVaga->EXE_QUERY("SELECT * FROM tb_atribuir_tarefa
+                                      INNER JOIN tb_empresa ON tb_atribuir_tarefa.id_empresa=tb_empresa.id_empresa
+                                      WHERE id_aluno=:id", $parametros);
+                                      if($todasAsMinhasTarefasPorExecutar):
+                                        foreach($todasAsMinhasTarefasPorExecutar as $mostrar):?>
                                           <tr>
-                                            <td colspan="7" class="bg-warning p-2 text-white text-center">Não existe</td>
+                                            <td><?= $mostrar['id_atribuir_tarefa'] ?></td>
+                                            <td><?= $mostrar['nome_empresa'] ?></td>
+                                            <td><?= $mostrar['data_entrega'] ?></td>
+                                            <td><a href="<?= $mostrar['data_entrega'] ?>">Arquivo</a></td>
+                                            <td><?= $mostrar['tema'] ?></td>
+                                            <td>
+                                              <a href="detalhe-tarefa.php?id=<?= $mostrar['id_atribuir_tarefa'] ?>" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye"></i>
+                                              </a>
+                                            </td>
                                           </tr>
-                                          <?php
-                                        endif;
-                                      ?>
-                                      <tr>
-                                        <td></td>
-                                      </tr>
-                                      <!-- Pegar dados sobre tarefa -->
-                                    </tbody>
-                                  </table>
-                                </div>
+                                        <?php
+                                        endforeach;
+                                      else: ?>
+                                        <tr>
+                                          <td colspan="7" class="bg-warning p-2 text-white text-center">Não existe</td>
+                                        </tr>
+                                        <?php
+                                      endif;
+                                    ?>
+                                    <tr>
+                                      <td></td>
+                                    </tr>
+                                    <!-- Pegar dados sobre tarefa -->
+                                  </tbody>
+                                </table>
                               </div>
 
                               <div class="card p-4">
@@ -211,13 +210,14 @@
                                     <h2 class="h6">Meus relatórios</h2>
                                   </div>
                                   <div class="col-lg-6 text-right">
-                                    <button class="btn btn-primary btn-sm" >Adicionar relatório</button>
+                                    <button class="btn btn-primary btn-sm">Adicionar relatório</button>
                                   </div>
                                 </div>
+
                                 <table class="table">
                                   <thead>
                                     <tr>
-                                      <th>Id</th>
+                                      <th>#</th>
                                       <th>Arquivo</th>
                                       <th>Estado</th>
                                       <th>Valor do Relatório</th>
@@ -250,6 +250,7 @@
                                   </tbody>
                                 </table>
                               </div>
+
                             </div>
                             <!-- Painel de Atividades -->
 
@@ -376,6 +377,11 @@
                                                                   button: "Fechar!",
                                                                 })
                                                               </script>';
+                                                        echo '<script>
+                                                                setTimeout(function() {
+                                                                    window.location.href="meuestagio.php?id=meuestagio";
+                                                                }, 2000)
+                                                            </script>';
                                                       endif;
                                                     endif;
                                                   ?>
@@ -406,6 +412,7 @@
         <!-- Modal de declaração  -->
     </div>
 
-    <!-- Footer -->
-    <?php require  "includes/footer.php" ?>
-    <!-- Footer -->
+
+<!-- Footer -->
+<?php require __DIR__ . "./includes/footer.php" ?>
+<!-- Footer -->
