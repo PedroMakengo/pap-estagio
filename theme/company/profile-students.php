@@ -71,8 +71,8 @@
                                       WHERE id_aluno=:idAluno AND id_candidatura=:idCandidatura AND estado_candidatura=1", $parametros);
                                       if($candidaturaAceite):
                                      ?>
-                                      <button class="col-lg-12 btn btn-info">
-                                        Candidatura aceite...
+                                      <button class="col-lg-12 btn btn-info" disabled>
+                                        Estagiário
                                       </button>
                                      <?php
                                      else:?>
@@ -108,13 +108,23 @@
                                 <!-- Mostrar apenas quando o aluno inserir a declaração -->
                                 <?php
 
-                                ?>
-                                <div class="card">
-                                  <h5 class="card-header"><strong>Declaração de Estágio</strong></h5>
-                                  <div class="card-body p-4">
-                                      <p>Para visualizar a declaração de efeito de estágio <a href="#" class="text-primary">clique aqui</a></p>
-                                  </div>
-                                </div>
+                                  $parametros = [":id" => $_GET['id']];
+                                  $buscandoDadosDeclaracao = new Model();
+                                  $buscandoDeclaracao = $buscandoDadosDeclaracao->EXE_QUERY("SELECT * FROM tb_emissao_declaracao WHERE
+                                  id_aluno=:id", $parametros);
+
+                                  if($buscandoDeclaracao):?>
+                                    <div class="card">
+                                      <h5 class="card-header"><strong>Declaração de Estágio</strong></h5>
+                                      <div class="card-body p-4">
+                                          <p>Para visualizar a declaração de efeito de estágio <a href="#" class="text-primary">clique aqui</a></p>
+                                      </div>
+                                    </div>
+                                  <?php
+                                  else:?>
+
+                                  <?php
+                                  endif;?>
                                 <!-- Mostrar apenas quando o aluno inserir a declaração -->
 
                             </div>
