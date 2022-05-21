@@ -10,9 +10,18 @@
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item dropdown notification"></li>
                     <li class="nav-item dropdown nav-user">
+                        <?php
+                            $parametros = [":id" => $_SESSION['id']];
+                            $buscandoAlunoDados = new Model();
+                            $buscando = $buscandoAlunoDados->EXE_QUERY("SELECT * FROM tb_aluno WHERE id_aluno=:id", $parametros);
+                            foreach($buscando as $mostrar):
+                                $fotoUsuario = $mostrar['foto'];
+                            endforeach;
+                        ?>
+
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="../assets/storage/study/<?= $_SESSION['foto'] ?>" alt=""
+                                src="../assets/storage/study/<?= $fotoUsuario ?>" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">

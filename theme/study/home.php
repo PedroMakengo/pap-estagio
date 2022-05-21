@@ -134,13 +134,17 @@
                                     endif;
                                     echo '<script>
                                       swal({
-                                        title: "Opps!",
-                                        text: "Já existe um usuário com este e-mail",
-                                        icon: "error",
+                                        title: "Operação efetuada com sucesso!",
+                                        text: "Os seus dados foram atualizados com sucesso",
+                                        icon: "success",
                                         button: "Fechar!",
                                       })
                                     </script>';
-                                    echo "<script>location.href='home.php?id=home'</script>";
+                                    echo '<script>
+                                            setTimeout(function() {
+                                                window.location.href="home.php?id=home";
+                                            }, 2000)
+                                        </script>';
                                   endif;
                                 endif;
                               ?>

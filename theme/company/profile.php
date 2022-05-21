@@ -185,23 +185,23 @@
                                               foreach ($edita as $mostrar):?>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">E-mail</label>
-                                                  <input type="email" class="form-control" name="email" value="<?=$mostrar['email_empresa'] ?>" />
+                                                  <input type="email" class="form-control form-control-lg" name="email" value="<?=$mostrar['email_empresa'] ?>" />
                                                 </div>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">Empresa</label>
-                                                  <input type="text" class="form-control" name="nome" value="<?= $mostrar['nome_empresa'] ?>" />
+                                                  <input type="text" class="form-control form-control-lg" name="nome" value="<?= $mostrar['nome_empresa'] ?>" />
                                                 </div>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">Responsável da Empresa</label>
-                                                  <input type="text" class="form-control" name="responsavel" value="<?= $mostrar['responsavel_empresa'] ?>">
+                                                  <input type="text" class="form-control form-control-lg" name="responsavel" value="<?= $mostrar['responsavel_empresa'] ?>">
                                                 </div>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">Nif</label>
-                                                  <input type="text" class="form-control" name="nif" value="<?= $mostrar['nif'] ?>">
+                                                  <input type="text" class="form-control form-control-lg" name="nif" value="<?= $mostrar['nif'] ?>">
                                                 </div>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">Localização</label>
-                                                  <input type="text" class="form-control" name="localizacao" value="<?= $mostrar['localizacao'] ?>">
+                                                  <input type="text" class="form-control form-control-lg" name="localizacao" value="<?= $mostrar['localizacao'] ?>">
                                                 </div>
                                                 <div class="col-lg-6 form-group">
                                                   <label for="">Contacto</label>
@@ -209,12 +209,12 @@
                                                 </div>
                                                 <div class="col-lg-12 form-group">
                                                   <label for="">Area de atuação</label>
-                                                  <input type="text" class="form-control" name="area" value="<?= $mostrar['area_atuacao'] ?>">
+                                                  <input type="text" class="form-control form-control-lg" name="area" value="<?= $mostrar['area_atuacao'] ?>">
                                                 </div>
                                               <?php
                                               endforeach;?>
                                             <div class="col-lg-4 form-group">
-                                              <input type="submit" class="form-control btn-primary" name="editar" value="Atualizar">
+                                              <input type="submit" class="form-control btn-primary form-control-lg" name="editar" value="Atualizar">
                                             </div>
                                           </div>
                                         </form>

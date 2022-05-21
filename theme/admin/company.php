@@ -89,7 +89,11 @@
                                                                     button: "Fechar",
                                                                     })
                                                                 </script>';
-                                                            echo "<script>location.href='company.php?id=company'</script>";
+                                                                echo '<script>
+                                                                setTimeout(function() {
+                                                                    window.location.href="company.php?id=company";
+                                                                }, 2000)
+                                                            </script>';
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";
                                                         endif;

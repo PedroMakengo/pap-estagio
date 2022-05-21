@@ -177,9 +177,6 @@
                                                               <a href="vacancy.php?action=delete&id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
                                                                 <i class="fas fa-trash"></i>
                                                               </a>
-                                                              <a href="#id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">
-                                                                <i class="fas fa-edit"></i>
-                                                              </a>
                                                             </td>
                                                         </tr>
                                                         <?php endforeach;?>
@@ -204,8 +201,19 @@
                                                     $delete = new Model();
                                                     $delete->EXE_NON_QUERY("DELETE FROM tb_vaga_estagio WHERE id_vaga_estagio=:id", $parametros);
                                                     if($delete == true):
-                                                        echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                        echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                                                        echo '<script>
+                                                              swal({
+                                                              title: "Dado Eliminado!",
+                                                              text: "Operação Efetuada com sucesso",
+                                                              icon: "success",
+                                                              button: "Fechar",
+                                                              })
+                                                          </script>';
+                                                          echo '<script>
+                                                          setTimeout(function() {
+                                                              window.location.href="vacancy.php?id=vaga";
+                                                          }, 2000)
+                                                      </script>';
                                                     else:
                                                         echo "<script>window.alert('Operação falhou');</script>";
                                                     endif;

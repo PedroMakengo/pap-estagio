@@ -207,8 +207,19 @@
                                                         $delete = new Model();
                                                         $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
                                                         if($delete == true):
-                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                            echo "<script>location.href='accepted.php?id=aceite'</script>";
+                                                          echo '<script>
+                                                                  swal({
+                                                                  title: "Dados Eliminado!",
+                                                                  text: "Operação Efetuada com sucesso",
+                                                                  icon: "success",
+                                                                  button: "Fechar",
+                                                                  })
+                                                              </script>';
+                                                              echo '<script>
+                                                              setTimeout(function() {
+                                                                  window.location.href="accepted.php?id=aceite";
+                                                              }, 2000)
+                                                          </script>';
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";
                                                         endif;
@@ -284,8 +295,19 @@
                                                         $delete = new Model();
                                                         $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
                                                         if($delete == true):
-                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                            echo "<script>location.href='accepted.php?id=aceite'</script>";
+                                                          echo '<script>
+                                                                swal({
+                                                                title: "Dados Eliminado!",
+                                                                text: "Operação Efetuada com sucesso",
+                                                                icon: "success",
+                                                                button: "Fechar",
+                                                                })
+                                                            </script>';
+                                                            echo '<script>
+                                                            setTimeout(function() {
+                                                                window.location.href="accepted.php?id=aceite";
+                                                            }, 2000)
+                                                        </script>';
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";
                                                         endif;
@@ -372,8 +394,19 @@
                                                         $delete = new Model();
                                                         $delete->EXE_NON_QUERY("DELETE FROM tb_candidatura_vaga WHERE id_candidatura=:id", $parametros);
                                                         if($delete == true):
-                                                            echo "<script>window.alert('Apagado com sucesso');</script>";
-                                                            echo "<script>location.href='accepted.php?id=aceite'</script>";
+                                                              echo '<script>
+                                                                  swal({
+                                                                  title: "Dados Eliminado!",
+                                                                  text: "Operação Efetuada com sucesso",
+                                                                  icon: "success",
+                                                                  button: "Fechar",
+                                                                  })
+                                                              </script>';
+                                                              echo '<script>
+                                                              setTimeout(function() {
+                                                                  window.location.href="accepted.php?id=aceite";
+                                                              }, 2000)
+                                                          </script>';
                                                         else:
                                                             echo "<script>window.alert('Operação falhou');</script>";
                                                         endif;

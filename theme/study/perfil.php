@@ -238,16 +238,17 @@
                                           <label for="">Foto</label>
                                           <input type="file" class="form-control" name="foto">
                                         </div>
-                                        <div class="form-group col-lg-12">
+                                        <div class="form-group col-lg-6">
                                           <label for="#">Escola Frequenta</label>
                                           <input type="text" name="escola_frequenta" value="<?= $mostrar['escola_frequenta'] ?>" placeholder="Escola que frequenta" class="form-control form-control-lg" />
                                         </div>
+                                        <div class="form-group col-lg-6">
+                                          <label for="#">Palavra-passe</label>
+                                          <input type="text" name="senha"  placeholder="" class="form-control form-control-lg" />
+                                        </div>
                                       </div>
-                                  <?php endforeach;
-                                    endif;
-                                  ?>
 
-                                  <div class="row">
+                                      <div class="row">
                                     <div class="form-group col-lg-4">
                                       <input type="submit" name="atualizarPerfil" value="Atualizar os dados" class="bg-primary btn">
                                     </div>
@@ -265,7 +266,8 @@
 
                                         // Pegando a foto
                                         $target        = "../assets/storage/study/" . basename($_FILES['foto']['name']);
-                                        $foto          = $_FILES['foto']['name'];
+                                        $senha         = $_POST['senha'] === '' ? $mostrar['senha'] : md5(md5($_POST['senha']));
+                                        $foto          = $_FILES['foto']['name'] === '' ? $mostrar['foto'] : $_FILES['foto']['name'];
 
 
                                         // Procurar saber se o número de processo adicionado já existe no banco de dados e é diferente
@@ -279,12 +281,14 @@
                                           ":foto"     => $foto,
                                           ":tel"      => $contacto,
                                           ":escola"   => $escola,
+                                          ":senha"    => $senha,
                                           ":id"       => $_SESSION['id']
                                         ];
 
                                         $updateUsuario = new Model();
                                         $updateUsuario->EXE_NON_QUERY("UPDATE tb_aluno SET
                                           nome=:nome,
+                                          senha=:senha,
                                           email=:email,
                                           sexo=:sexo,
                                           numero_processo=:processo,
@@ -300,10 +304,27 @@
                                           else:
                                               $sms = "Não foi possível fazer o upload";
                                           endif;
-                                          echo "<script>location.href='perfil.php?id=perfil'</script>";
+                                            echo '<script>
+                                                  swal({
+                                                    title: "Operação efetuada com sucesso!",
+                                                    text: "Os seus dados foram atualizados com sucesso",
+                                                    icon: "success",
+                                                    button: "Fechar!",
+                                                  })
+                                                </script>';
+                                            echo '<script>
+                                                setTimeout(function() {
+                                                    window.location.href="perfil.php?id=perfil";
+                                                }, 2000)
+                                            </script>';
                                         endif;
                                     endif;
                                   ?>
+                                  <?php endforeach;
+                                    endif;
+                                  ?>
+
+
                                 </form>
                               </div>
                             </div>

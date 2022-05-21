@@ -78,7 +78,7 @@
         }
 
         .form-control-lg {
-            height: 3.8rem;
+            height: 3.4rem;
         }
 
     </style>

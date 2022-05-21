@@ -80,6 +80,9 @@
             padding: 0;
             list-style: none;
         }
+        .form-control-lg {
+            height: 3.8rem;
+        }
     </style>
 
 </head>

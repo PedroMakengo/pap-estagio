@@ -147,22 +147,48 @@
 
                     <div class="ecommerce-widget">
                         <div class="row">
+                            <!-- Painel de Atividades -->
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                               <div class="card p-4">
-                                <h1 class="h6 mb-4">Sobre o meu estágio</h1>
+                                <h1 class="h6 mb-4">Minhas tarefas</h1>
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>Empresa</th>
+                                        <th>Data de Entrega</th>
+                                        <th>Arquivo Enviado</th>
+                                        <th>Tema</th>
+                                        <th>Acções</th>
+                                      </tr>
+                                    </thead>
 
-                                <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th>Id</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
+                                    <tbody>
+                                      <!-- Pegar dados sobre tarefa -->
+                                      <?php
+                                        $parametros = [":id" => $_SESSION['id']];
+                                        $buscandoMinhasTarefasRelacionadasAminhaVaga = new Model();
+                                        $todasAsMinhasTarefasPorExecutar = $buscandoMinhasTarefasRelacionadasAminhaVaga->EXE_QUERY("SELECT * FROM tb_atribuir_tarefa WHERE id_aluno=:id", $parametros);
+                                        if($todasAsMinhasTarefasPorExecutar):
+                                          foreach($todasAsMinhasTarefasPorExecutar as $mostrar):?>
 
-                                  <tbody>
-                                    <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe</td>
-                                  </tbody>
-                                </table>
+                                          <?php
+                                          endforeach;
+                                        else: ?>
+                                          <tr>
+                                            <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe</td>
+                                          </tr>
+                                          <?php
+                                        endif;
+                                      ?>
+                                      <tr>
+                                        <td></td>
+                                      </tr>
+                                      <!-- Pegar dados sobre tarefa -->
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
 
                               <div class="card p-4">
@@ -211,22 +237,14 @@
                                 </table>
                               </div>
                             </div>
+                            <!-- Painel de Atividades -->
+
+
+                            <!-- Painel de Estágio -->
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                               <div class="card p-4">
                                 <h1 class="h6 text-center">Perfil do meu estágio</h1>
-                                <?php
 
-                                  $parametros = [":id" => $_SESSION['id'], ":estado" => 1];
-                                  $buscandoEstagioMedico = new Model();
-                                  $buscandoEstagio = $buscandoEstagioMedico->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
-                                  INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
-                                  INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
-                                  WHERE id_aluno=:id AND estado_candidatura=:estado", $parametros);
-                                  foreach($buscandoEstagio as $mostrar):
-                                    $idEmpresa     = $mostrar['id_empresa'];
-                                    $minha_empresa = $mostrar['nome_empresa'];
-                                  endforeach;
-                                ?>
 
                                 <div class="mt-4">
                                    <!-- Selecionar os dados do usuário no banco de dados -->
@@ -247,85 +265,118 @@
                                         <li class="mb-2">Nº Processo <span class="badge badge-primary"><?= $mostrar['numero_processo'] ?></span></li>
                                         <li class="mb-2">E-mail <span class="badge badge-primary"><?= $mostrar['email'] ?></span></li>
                                         <hr>
-                                        <div class="mt-2">Empresa: <strong class="badge badge-primary"><?= $minha_empresa ?></strong> </div>
+                                        <?php
+                                          $parametros = [":id" => $_SESSION['id'], ":estado" => 1];
+                                          $buscandoEstagioMedico = new Model();
+                                          $buscandoEstagio = $buscandoEstagioMedico->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                          INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                          INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                          WHERE id_aluno=:id AND estado_candidatura=:estado", $parametros);
+                                          if($buscandoEstagio):
+                                            foreach($buscandoEstagio as $mostrar):
+                                              $idEmpresa     = $mostrar['id_empresa'];
+                                              $minha_empresa = $mostrar['nome_empresa'];
+                                            endforeach;
+                                            ?>
+                                            <div class="mt-2">Empresa: <strong class="badge badge-primary"><?= $minha_empresa ?></strong> </div>
+                                            <?php
+                                            else:
+                                              ?>
+                                              <div class="mt-2">Empresa: <strong class="badge badge-warning text-white">Nenhuma empresa vinculada</strong> </div>
+                                            <?php
+                                          endif;
+                                        ?>
                                     </ul>
                                     <?php
                                         endforeach;
                                       ?>
                                 </div>
                               </div>
-                              <div class="card p-4 mt-2">
-                                <?php
-                                  // Verificar se existe uma declaração com os meus dados
-                                  $parametros = [":id" => $_SESSION["id"]];
-                                  $buscandoDeclaracao = new Model();
-                                  $buscandoMinhaDeclaracao = $buscandoDeclaracao->EXE_QUERY("SELECT * FROM tb_emissao_declaracao WHERE id_aluno=:id", $parametros);
-                                  if($buscandoMinhaDeclaracao):?>
-                                    <div class="mt-4">
-                                      <a href="declaracao.php?id=<?= $_SESSION["id"] ?>" target="__blank" class="btn btn-primary col-lg-12">Visualizar Declaração</a>
-                                    </div>
-                                  <?php
-                                  else: ?>
-                                    <h1 class="h6">Pedido de Declaração</h1>
-                                    <div class="mt-4">
-                                      <a href="#" data-toggle="modal" data-target=".bd-example-modal-xl" target="__blank" class="btn btn-primary col-lg-12">Fazer</a>
-                                    </div>
-                                <?php
-                                  endif; ?>
-                              </div>
 
-                              <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Efetuar o pedido de declaração</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <form method="POST">
-                                          <div class="row">
-                                            <div class="col-lg-12 form-group">
-                                              <button type="submit" class="btn btn-primary col-lg-12" name="adicionar_declaracao">Emitir Declaração</button>
 
-                                              <?php
-                                                if(isset($_POST['adicionar_declaracao'])):
-
-                                                  $parametros = [
-                                                    ":id" => $_SESSION['id'],
-                                                    ":idEmpresa" => $idEmpresa,
-                                                    ":estado"    => 0
-                                                  ];
-
-                                                  $inserir = new Model();
-                                                  $inserir->EXE_NON_QUERY("INSERT INTO tb_emissao_declaracao
-                                                  (id_aluno, id_empresa, data_emissao, estado_emissao)
-                                                  VALUES
-                                                  (:id, :idEmpresa, now(), :estado) ", $parametros);
-
-                                                  if($inserir):
-                                                    echo '<script>
-                                                            swal({
-                                                              title: "Operação efetuado com sucesso!",
-                                                              text: "A tua operação foi efetuada com sucesso",
-                                                              icon: "success",
-                                                              button: "Fechar!",
-                                                            })
-                                                          </script>';
-                                                  endif;
-                                                endif;
-                                              ?>
-                                            </div>
-                                          </div>
-                                        </form>
-                                      </div>
+                              <?php
+                                 $parametros = [":id" => $_SESSION['id'], ":estado" => 1];
+                                 $buscandoEstagioMedico = new Model();
+                                 $buscandoEstagio = $buscandoEstagioMedico->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
+                                 INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
+                                 INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
+                                 WHERE id_aluno=:id AND estado_candidatura=:estado", $parametros);
+                                 if($buscandoEstagio):?>
+                                  <!-- Aparecer apenas quando tiver empresa -->
+                                  <div class="card p-4 mt-2">
+                                    <?php
+                                      // Verificar se existe uma declaração com os meus dados
+                                      $parametros = [":id" => $_SESSION["id"]];
+                                      $buscandoDeclaracao = new Model();
+                                      $buscandoMinhaDeclaracao = $buscandoDeclaracao->EXE_QUERY("SELECT * FROM tb_emissao_declaracao WHERE id_aluno=:id", $parametros);
+                                      if($buscandoMinhaDeclaracao):?>
+                                        <div class="mt-4">
+                                          <a href="declaracao.php?id=<?= $_SESSION["id"] ?>" target="__blank" class="btn btn-primary col-lg-12">Visualizar Declaração</a>
+                                        </div>
+                                      <?php
+                                      else: ?>
+                                        <h1 class="h6">Pedido de Declaração</h1>
+                                        <div class="mt-4">
+                                          <a href="#" data-toggle="modal" data-target=".bd-example-modal-xl" target="__blank" class="btn btn-primary col-lg-12">Fazer</a>
+                                        </div>
+                                    <?php
+                                      endif; ?>
                                   </div>
-                                </div>
-                              </div>
 
+                                  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Efetuar o pedido de declaração</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form method="POST">
+                                              <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                  <button type="submit" class="btn btn-primary col-lg-12" name="adicionar_declaracao">Emitir Declaração</button>
 
+                                                  <?php
+                                                    if(isset($_POST['adicionar_declaracao'])):
+
+                                                      $parametros = [
+                                                        ":id" => $_SESSION['id'],
+                                                        ":idEmpresa" => $idEmpresa,
+                                                        ":estado"    => 0
+                                                      ];
+
+                                                      $inserir = new Model();
+                                                      $inserir->EXE_NON_QUERY("INSERT INTO tb_emissao_declaracao
+                                                      (id_aluno, id_empresa, data_emissao, estado_emissao)
+                                                      VALUES
+                                                      (:id, :idEmpresa, now(), :estado) ", $parametros);
+
+                                                      if($inserir):
+                                                        echo '<script>
+                                                                swal({
+                                                                  title: "Operação efetuado com sucesso!",
+                                                                  text: "A tua operação foi efetuada com sucesso",
+                                                                  icon: "success",
+                                                                  button: "Fechar!",
+                                                                })
+                                                              </script>';
+                                                      endif;
+                                                    endif;
+                                                  ?>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Aparecer apenas quando tiver empresa -->
+                                <?php
+                                endif;?>
                             </div>
+                            <!-- Painel de Estágio -->
                         </div>
                     </div>
                     <?php endif; ?>
