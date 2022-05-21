@@ -210,7 +210,7 @@
                                     <h2 class="h6">Meus relatórios</h2>
                                   </div>
                                   <div class="col-lg-6 text-right">
-                                    <button class="btn btn-primary btn-sm">Adicionar relatório</button>
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-xl">Adicionar relatório</button>
                                   </div>
                                 </div>
 
@@ -250,6 +250,84 @@
                                   </tbody>
                                 </table>
                               </div>
+
+                              <!-- Modal Relatório -->
+
+                              <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Adicionar Relatório</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                      <form method="POST">
+                                        <div class="row">
+                                          <div class="col-lg-12 form-group">
+                                            <label for="">Arquivo <small class="text-warning">(Relatório pdf)</small> </label>
+                                            <input type="file" name="foto" class="form-control form-control-lg">
+                                          </div>
+
+                                          <div class="form-group col-lg-6">
+                                            <input type="submit" name="adicionar_relatorio" value="Enviar Relatório" class="btn btn-primary form-control form-control-lg"/>
+                                          </div>
+
+                                          <?php
+                                            if(isset($_POST['adicionar_relatorio'])):
+
+                                              $target        = "../assets/storage/curriculo/" . basename($_FILES['foto']['name']);
+                                              $foto          = $_FILES['foto']['name'];
+
+                                              $parametros = [
+                                                ":id" => $_SESSION['id'],
+                                                ":arquivo" => $foto,
+                                                ":estado"  => 0,
+                                                ":valor"   => 0,
+                                              ];
+
+                                              $inserir = new Model();
+                                              $inserir->EXE_NON_QUERY("INSERT INTO tb_relatorio_estagio
+                                              (
+                                                id_aluno,
+                                                arquivo_entrega,
+                                                estado_relatorio,
+                                                valor_relatorio,
+                                                data_registro_relatorio
+                                              ) VALUES (:id, :arquivo, :estado, :valor, now()) ", $parametros);
+
+                                              if($inserir):
+                                                if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)):
+                                                    $sms = "Uploaded feito com sucesso";
+                                                else:
+                                                    $sms = "Não foi possível fazer o upload";
+                                                endif;
+                                                  echo '<script>
+                                                        swal({
+                                                          title: "Operação efetuada com sucesso!",
+                                                          text: "Inserção efetuada com sucesso",
+                                                          icon: "success",
+                                                          button: "Fechar!",
+                                                        })
+                                                      </script>';
+                                                  echo '<script>
+                                                          setTimeout(function() {
+                                                            window.location.href="meuestagio.php?id=meuestagio";
+                                                          }, 2000)
+                                                      </script>';
+                                              endif;
+                                            endif;
+                                          ?>
+                                        </div>
+                                      </form>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Modal Relatório -->
 
                             </div>
                             <!-- Painel de Atividades -->

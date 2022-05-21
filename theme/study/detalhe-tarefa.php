@@ -160,6 +160,8 @@
                           $tema = $mostrar['tema'];
                           $descricao_tarefa = $mostrar['descricao_tarefa'];
                           $dataEntrega = $mostrar['data_entrega'];
+                          $dataAtiva   = $mostrar['data_entregada'];
+                          $arquivo     = $mostrar['arquivo_tarefa_enviado'];
                           $responsavel = $mostrar['nome'];
                           $estado      = $mostrar['estado_tarefa'] === '0' ? "<span class='text-warning'>Processando</span>" : "<span class='text-success'>Aprovado</span>";
                         endforeach;
@@ -193,9 +195,11 @@
                             <div class="card-body p-4">
                               <p><?= $descricao_tarefa ?></p>
                               <hr>
-                              <p>Data de Entrega <strong><?= $dataEntrega ?></strong> </p>
+                              <p>Data de Entrega: <strong><?= $dataEntrega ?></strong> </p>
                               <hr>
-                              <p>Estado: <?=  $estado  ?></p>
+                              <p>Estado: <strong><?=  $estado  ?></strong></p>
+                              <hr>
+                              <p>Data Submetida: <strong><?= $dataAtiva ?></strong></p>
                             </div>
                           </div>
 
@@ -203,6 +207,8 @@
                             <h5 class="card-header"><strong>Arquivos</strong></h5>
                             <div class="card-body p-4">
                               <a href="">Abrir arquivo da Tarefa</a>
+                              <hr>
+                              <a href="">Meu arquivo submetido</a>
                             </div>
                           </div>
 
@@ -214,6 +220,7 @@
                           </div>
                         </div>
 
+                        <?php if($arquivo === ''): ?>
                         <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                           <div class="card">
                             <h5 class="card-header"><strong>Enviar tarefa</strong></h5>
@@ -272,7 +279,7 @@
                                         echo '<script>
                                               swal({
                                                 title: "Operação efetuada com sucesso!",
-                                                text: "Os seus dados foram atualizados com sucesso",
+                                                text: "Inserção efetuada com sucesso",
                                                 icon: "success",
                                                 button: "Fechar!",
                                               })
@@ -289,6 +296,13 @@
                             </div>
                           </div>
                         </div>
+                        <?php else: ?>
+                        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
+                          <div class="card bg-success text-white p-4 text-center">
+                            <p>Tarefa efuatada com sucesso</p>
+                          </div>
+                        </div>
+                        <?php endif;?>
                       </div>
                     </div>
                     <?php endif; ?>
