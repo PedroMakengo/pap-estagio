@@ -260,7 +260,7 @@
                                                           ?>
                                                               <tr>
                                                                   <td><?= $mostrar['id_candidatura'] ?></td>
-                                                                  <td><?= $mostrar['nome'] ?></td>
+                                                                  <td><a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>"><?= $mostrar['nome'] ?></a></td>
                                                                   <td><?= $mostrar['area_atuacao_vaga'] ?> </td>
                                                                   <td><?= $mostrar['motivacao_candidatura'] ?></td>
                                                                   <td><?= $mostrar['data_registro_candidatura'] ?></td>
@@ -359,15 +359,45 @@
                                                                   <td class="text-center">
                                                                     <!-- Atualizar tarefa -->
                                                                     <form method="POST">
-                                                                      <button title="Verificar o estado da tarefa" name="<?= $submeter_tarefa = 'adicionar_estado_tarefa' . $mostrar['id_atribuir_tarefa'] ?>" class="btn btn-sm btn-success">
-                                                                        <i class="fas fa-check"></i>
-                                                                      </button>
+                                                                      <?php if($mostrar['estado_tarefa'] === '0'):?>
+                                                                              <button title="Verificar o estado da tarefa" name="<?= $submeter_tarefa = 'adicionar_estado_tarefa' . $mostrar['id_atribuir_tarefa'] ?>" class="btn btn-sm btn-primary">
+                                                                                <i class="fas fa-check"></i>
+                                                                              </button>
+                                                                              <?php
+                                                                                if(isset($_POST[$submeter_tarefa])):
 
-                                                                      <?php
-                                                                        if(isset($_POST[$submeter_tarefa])):
-                                                                          echo "<script>window.alert('Funcionando')</script>";
-                                                                        endif;
-                                                                      ?>
+                                                                                  $parametros = [
+                                                                                    ":id"  => $mostrar['id_atribuir_tarefa'],
+                                                                                    ":estado"  => 1
+                                                                                  ];
+
+                                                                                  $atualizarEstadoTarefa = new Model();
+                                                                                  $atualizarEstadoTarefa->EXE_NON_QUERY("UPDATE tb_atribuir_tarefa SET
+                                                                                    estado_tarefa=:estado
+                                                                                    WHERE
+                                                                                    id_atribuir_tarefa=:id
+                                                                                  ", $parametros);
+
+                                                                                  echo '<script>
+                                                                                          swal({
+                                                                                            title: "Operação efetuado com sucesso!",
+                                                                                            text: "A tua operação foi efetuada com sucesso",
+                                                                                            icon: "success",
+                                                                                            button: "Fechar!",
+                                                                                          })
+                                                                                        </script>';
+                                                                                    echo '<script>
+                                                                                        setTimeout(function() {
+                                                                                            window.location.href="accepted.php?id=aceite";
+                                                                                        }, 2000)
+                                                                                    </script>';
+                                                                                endif;
+                                                                              ?>
+                                                                      <?php else: ?>
+                                                                        <button class="btn btn-sm btn-success" disabled title="Tarefa aprovada">
+                                                                          <i class="fas fa-check"></i>
+                                                                        </button>
+                                                                      <?php endif;?>
                                                                     </form>
                                                                     <!-- Atualizar tarefa -->
                                                                   </td>

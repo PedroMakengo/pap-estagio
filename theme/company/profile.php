@@ -175,7 +175,7 @@
                               <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                                   <div class="card shadow">
                                       <div class="card-body p-4">
-                                        <form method="post">
+                                        <form method="post" enctype="multipart/form-data">
                                           <div class="row">
                                             <?php
                                               $parametros = [":id" => $_SESSION['id']];
@@ -207,60 +207,92 @@
                                                   <label for="">Contacto</label>
                                                   <input type="tel" maxlength="9" class="form-control" name="contacto" value="<?= $mostrar['contacto'] ?>">
                                                 </div>
-                                                <div class="col-lg-12 form-group">
+                                                <div class="col-lg-6 form-group">
                                                   <label for="">Area de atuação</label>
                                                   <input type="text" class="form-control form-control-lg" name="area" value="<?= $mostrar['area_atuacao'] ?>">
                                                 </div>
+                                                <div class="col-lg-6 form-group">
+                                                  <label for="">Palavra Passe</label>
+                                                  <input type="password" class="form-control form-control-lg" name="senha" >
+                                                </div>
+                                                <div class="col-lg-12 form-group">
+                                                  <label for="">Foto</label>
+                                                  <input type="file" class="form-control form-control-lg" name="foto" >
+                                                </div>
+
+                                                <div class="col-lg-4 form-group">
+                                                  <input type="submit" class="form-control btn-primary form-control-lg" name="editar" value="Atualizar">
+                                                </div>
+                                                <!-- Editar Perfil -->
+                                                <?php
+                                                  if(isset($_POST['editar'])):
+
+                                                    $nome         = $_POST['nome'];
+                                                    $responsavel  = $_POST['responsavel'];
+                                                    $nif          = $_POST['nif'];
+                                                    $localizacao  = $_POST['localizacao'];
+                                                    $area         = $_POST['area'];
+                                                    $contacto     = $_POST['contacto'];
+                                                    $email        = $_POST['email'];
+
+                                                    $target        = "../assets/images/profile/" . basename($_FILES['foto']['name']);
+                                                    $senha         = $_POST['senha'] === '' ? $mostrar['senha_empresa'] : md5(md5($_POST['senha']));
+                                                    $foto          = $_FILES['foto']['name'] === '' ? $mostrar['foto'] : $_FILES['foto']['name'];
+
+                                                    $parametros = [
+                                                      ":nome"     => $nome,
+                                                      ":email"    => $email,
+                                                      ":gps"      => $localizacao,
+                                                      ":ceo"      => $responsavel,
+                                                      ":area"     => $area,
+                                                      ":tel"      => $contacto,
+                                                      ":nif"      => $nif,
+                                                      ":foto"     => $foto,
+                                                      ":senha"    => $senha,
+                                                      ":id"       => $_SESSION['id']
+                                                    ];
+                                                    $atualizarPerfil = new Model();
+                                                    $atualizarPerfil->EXE_NON_QUERY("UPDATE tb_empresa SET
+                                                      nome_empresa=:nome,
+                                                      senha_empresa=:senha,
+                                                      email_empresa=:email,
+                                                      foto=:foto,
+                                                      area_atuacao=:area,
+                                                      responsavel_empresa=:ceo,
+                                                      contacto=:tel,
+                                                      localizacao=:gps,
+                                                      nif=:nif
+                                                      WHERE
+                                                      id_empresa=:id
+                                                    ", $parametros);
+
+                                                    if($atualizarPerfil):
+                                                      if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)):
+                                                        $sms = "Uploaded feito com sucesso";
+                                                      else:
+                                                          $sms = "Não foi possível fazer o upload";
+                                                      endif;
+                                                      echo '<script>
+                                                            swal({
+                                                              title: "Operação efetuada com sucesso!",
+                                                              text: "Os seus dados foram atualizados com sucesso",
+                                                              icon: "success",
+                                                              button: "Fechar!",
+                                                            })
+                                                          </script>';
+                                                      echo '<script>
+                                                          setTimeout(function() {
+                                                              window.location.href="profile.php?id=perfil";
+                                                          }, 2000)
+                                                      </script>';
+                                                    endif;
+                                                  endif;
+                                                  ?>
+                                                <!-- Editar Perfil -->
                                               <?php
                                               endforeach;?>
-                                            <div class="col-lg-4 form-group">
-                                              <input type="submit" class="form-control btn-primary form-control-lg" name="editar" value="Atualizar">
-                                            </div>
                                           </div>
                                         </form>
-
-                                        <!-- Editar Perfil -->
-                                        <?php
-
-                                        if(isset($_POST['editar'])):
-
-                                          $nome         = $_POST['nome'];
-                                          $responsavel  = $_POST['responsavel'];
-                                          $nif          = $_POST['nif'];
-                                          $localizacao  = $_POST['localizacao'];
-                                          $area         = $_POST['area'];
-                                          $contacto     = $_POST['contacto'];
-                                          $email        = $_POST['email'];
-
-                                          $parametros = [
-                                            ":nome"     => $nome,
-                                            ":email"    => $email,
-                                            ":gps"      => $localizacao,
-                                            ":ceo"      => $responsavel,
-                                            ":area"     => $area,
-                                            ":tel"      => $contacto,
-                                            ":nif"      => $nif,
-                                            ":id"       => $_SESSION['id']
-                                          ];
-                                          $atualizarPerfil = new Model();
-                                          $atualizarPerfil->EXE_NON_QUERY("UPDATE tb_empresa SET
-                                            nome_empresa=:nome,
-                                            email_empresa=:email,
-                                            area_atuacao=:area,
-                                            responsavel_empresa=:ceo,
-                                            contacto=:tel,
-                                            localizacao=:gps,
-                                            nif=:nif
-                                            WHERE
-                                            id_empresa=:id
-                                          ", $parametros);
-
-                                            if($atualizarPerfil):
-                                              echo "<script>location.href='profile.php?id=perfil'</script>";
-                                            endif;
-                                          endif;
-                                          ?>
-                                        <!-- Editar Perfil -->
                                       </div>
                                   </div>
                               </div>

@@ -117,7 +117,7 @@
                                     <div class="card">
                                       <h5 class="card-header"><strong>Declaração de Estágio</strong></h5>
                                       <div class="card-body p-4">
-                                          <p>Para visualizar a declaração de efeito de estágio <a href="#" class="text-primary">clique aqui</a></p>
+                                          <p>Para visualizar a declaração de efeito de estágio <a href="../study/declaracao.php?id=<?= $_GET['id']?>" target="_blank" class="text-primary">clique aqui</a></p>
                                       </div>
                                     </div>
                                   <?php
@@ -126,7 +126,6 @@
                                   <?php
                                   endif;?>
                                 <!-- Mostrar apenas quando o aluno inserir a declaração -->
-
                             </div>
 
                             <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
@@ -185,36 +184,27 @@
         $(function() {
           var lineChart = document.getElementById("alunoChart").getContext("2d");
           var myLineChart = new Chart(lineChart, {
-          type: "bar",
+          type: "pie",
           data: {
               labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
+              "Tarefas Aprovadas",
+              "Tarefas Em Processo",
+              "Relatórios Submetidos",
               ],
               datasets: [
               {
                   label: "Atividades registradas",
-                  borderColor: "#1f6feb",
-                  pointBorderColor: "#1f6feb",
-                  pointBackgroundColor: "#1f6feb",
+                  borderColor: "#fff",
+                  pointBorderColor: "#fff",
+                  pointBackgroundColor: "#fff",
                   pointBorderWidth: 2,
                   pointHoverRadius: 4,
                   pointHoverBorderWidth: 1,
                   pointRadius: 4,
-                  backgroundColor: "transparent",
+                  backgroundColor: ["#1f6fe", "#000", "red"],
                   fill: true,
                   borderWidth: 2,
-                  data: <?=  json_encode($atividadeGrafico) ?>,
+                  data: [3, 5, 10],
               },
               ],
           },
