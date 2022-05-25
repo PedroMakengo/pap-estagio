@@ -92,7 +92,7 @@
                                               ":nome"     => $nome,
                                               ":email"    => $email,
                                               ":area"     => $area,
-                                              ":ceo"      => $area,
+                                              ":ceo"      => $ceo,
                                               ":tel"      => $tel,
                                               ":gps"      => $gps,
                                               ":nif"      => $nif,
@@ -112,7 +112,20 @@
                                             ", $parametros);
 
                                             if($atualizarDadosInserir):
-                                              echo "<script>location.href='home.php?id=$idEmpresa'</script>";
+                                            echo '<script>
+                                                    swal({
+                                                    title: "Operação efetuada com sucesso!",
+                                                    text: "Os seus dados foram atualizados com sucesso",
+                                                    icon: "success",
+                                                    button: "Fechar!",
+                                                    })
+                                                </script>';
+                                            echo '<script>
+                                                setTimeout(function() {
+                                                    window.location.href="home.php?id=home";
+                                                }, 2000)
+                                            </script>';
+                                            //   echo "<script>location.href='home.php?id=$idEmpresa'</script>";
                                             endif;
                                           endif;
                                         ?>

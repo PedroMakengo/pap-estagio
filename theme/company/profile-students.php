@@ -70,12 +70,18 @@
                                       $candidaturaAceite = $candidatura->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
                                       WHERE id_aluno=:idAluno AND id_candidatura=:idCandidatura AND estado_candidatura=1", $parametros);
                                       if($candidaturaAceite):
+                                        foreach($candidaturaAceite as $mostrar):
+                                          $curriculo = $mostrar['curriculo'];
+                                        endforeach;
                                      ?>
                                       <button class="col-lg-12 btn btn-info" disabled>
                                         Estagiário
                                       </button>
                                      <?php
                                      else:?>
+                                      <div class="mt-2 mb-2 text-center">
+                                        <a href="../assets/storage/curriculo/<?= $curriculo ?>">Verificar o curriculo</a>
+                                      </div>
                                       <button name="atualizar_candidatura" class="col-lg-12 btn btn-primary">
                                         Aceitar a candidatura
                                       </button>

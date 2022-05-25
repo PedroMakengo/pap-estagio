@@ -291,8 +291,7 @@
 
                 <div class="col-lg-6 form-group">
                   <label for="">Grau academico</label>
-                  <select name="grau_academico" id="" class="form-control form-control-lg">
-                    <option value="Médio da Concluído">Médio Concluído</option>
+                  <input type="text" disabled value="Médio Concluído" class="form-control form-control-lg">
                   </select>
                 </div>
 
@@ -319,8 +318,7 @@
                     ":estado"       => 0,
                     ":num_resta"    => $quantidadeCandidatos,
                     ":competencias" => $competencias,
-                    ":linguas"      => $linguas,
-                    ":ensino"       => $grau
+                    ":linguas"      => $linguas
                   ];
 
                   $inserirVagaMinha = new Model();
@@ -351,7 +349,20 @@
                      :ensino
                   ) ", $parametros);
                    if($inserirVagaMinha):
-                    echo "<script>location.href='vacancy.php?id=vaga'</script>";
+                    echo '<script>
+                            swal({
+                            title: "Operação efetuada com sucesso!",
+                            text: "Os seus dados foram atualizados com sucesso",
+                            icon: "success",
+                            button: "Fechar!",
+                            })
+                        </script>';
+                    echo '<script>
+                        setTimeout(function() {
+                            window.location.href="vacancy.php?id=vacancy";
+                        }, 2000)
+                    </script>';
+                    // echo "<script>location.href='vacancy.php?id=vaga'</script>";
                    endif;
                 endif;
               ?>
