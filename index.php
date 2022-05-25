@@ -1,5 +1,9 @@
   <!-- HEAD -->
-   <?php require 'public/head.php'; ?>
+   <?php
+      require 'source/Config.php';
+      require 'source/Model.php';
+      require 'public/head.php';
+   ?>
   <!-- HEAD -->
 
   <!-- BODY -->
@@ -192,18 +196,37 @@
         </div>
 
         <div class="stats">
+
           <div class="stat">
-            <h3>+3.5000</h3>
+            <h3>
+            <?php
+              $buscandoDadosStat = new Model();
+              $buscando = $buscandoDadosStat->EXE_QUERY("SELECT * FROM tb_empresa");
+              echo count($buscando);
+            ?>
+            </h3>
             <p>Empresas registradas</p>
           </div>
 
           <div class="stat">
-            <h3>+15</h3>
-            <p>Estagiários</p>
+            <h3>
+            <?php
+              $candidatos = new Model();
+              $contadorCandidatos = $candidatos->EXE_QUERY("SELECT * FROM tb_candidatura_vaga");
+              echo count($contadorCandidatos);
+            ?>
+            </h3>
+            <p>Candidatos</p>
           </div>
 
           <div class="stat">
-            <h3>+10</h3>
+            <h3>
+            <?php
+              $vagaContador = new Model();
+              $vaga = $vagaContador->EXE_QUERY("SELECT * FROM tb_vaga_estagio");
+              echo count($vaga);
+            ?>
+            </h3>
             <p>Total de vagas</p>
           </div>
         </div>

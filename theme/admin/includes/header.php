@@ -9,9 +9,17 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
                 <li class="nav-item dropdown nav-user">
+                    <?php
+                      $parametros = [":id" => $_SESSION['id']];
+                      $buscandoEsperando = new Model();
+                      $buscandoImagem = $buscandoEsperando->EXE_QUERY("SELECT * FROM tb_admin WHERE id_admin=:id", $parametros);
+                      foreach($buscandoImagem as $mostrar):
+                        $fotoImagem = $mostrar['foto_admin'];
+                      endforeach;
+                    ?>
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                            src="../assets/images/profile/<?= $_SESSION['foto'] ?>" alt=""
+                            src="../assets/images/profile/<?= $fotoImagem ?>" alt=""
                             class="user-avatar-md rounded-circle"></a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                         aria-labelledby="navbarDropdownMenuLink2">
@@ -74,6 +82,11 @@
                   <li class="nav-item">
                       <a class="nav-link <?= $_GET['id'] == 'estatistica' ? 'active' : '' ?>" href="estatistica.php?id=estatistica">
                         <i class="fas fa-f fa-chart-pie"></i>Estátisticas
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link <?= $_GET['id'] == 'perfil' ? 'active' : '' ?>" href="perfil.php?id=perfil">
+                        <i class="fas fa-user-circle"></i>Perfil
                      </a>
                   </li>
                   <li class="nav-item">

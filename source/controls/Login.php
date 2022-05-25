@@ -3,7 +3,20 @@
   if(isset($_POST['login'])):
     // Pegar os dados enviado apartir do front-end
     if(empty($_POST['email']) && empty($_POST['password'])):
-      echo "<script>window.alert('Por favor preenche todos os campos')</script>";
+      echo '<script>
+                swal({
+                  title: "Opps!",
+                  text: "Preencha todos os campos",
+                  icon: "error",
+                  button: "Fechar!",
+                })
+            </script>';
+        echo '<script>
+            setTimeout(function() {
+                window.location.href="login.php";
+            }, 2000)
+        </script>';
+      // echo "<script>window.alert('Por favor preenche todos os campos')</script>";
     else:
       $email = $_POST['email'];
       $pass  = $_POST['password'];

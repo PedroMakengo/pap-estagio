@@ -69,19 +69,12 @@
                                       $candidatura = new Model();
                                       $candidaturaAceite = $candidatura->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
                                       WHERE id_aluno=:idAluno AND id_candidatura=:idCandidatura AND estado_candidatura=1", $parametros);
-                                      if($candidaturaAceite):
-                                        foreach($candidaturaAceite as $mostrar):
-                                          $curriculo = $mostrar['curriculo'];
-                                        endforeach;
-                                     ?>
+                                      if($candidaturaAceite): ?>
                                       <button class="col-lg-12 btn btn-info" disabled>
                                         Estagiário
                                       </button>
                                      <?php
                                      else:?>
-                                      <div class="mt-2 mb-2 text-center">
-                                        <a href="../assets/storage/curriculo/<?= $curriculo ?>">Verificar o curriculo</a>
-                                      </div>
                                       <button name="atualizar_candidatura" class="col-lg-12 btn btn-primary">
                                         Aceitar a candidatura
                                       </button>
@@ -157,6 +150,24 @@
                                               <hr>
                                               <h5>E-mail: <strong><?= $email ?></strong></h5>
                                             </div>
+
+                                            <div class="col-lg-12">
+                                              <hr>
+                                              <?php
+                                                  $parametros = [":id" => $_GET['id']];
+                                                  $buscandoCurriculo = $buscarProfileEstudante->EXE_QUERY("SELECT * FROM tb_candidatura_vaga WHERE id_aluno=:id", $parametros);
+                                                  if($buscandoCurriculo):
+                                                    foreach($buscandoCurriculo as $mostrar):
+                                                      $curriculo = $mostrar['curriculo'];
+                                                    endforeach;
+                                                    ?>
+                                                      <h5>Curriculo: <a href="../assets/storage/curriculo/<?= $curriculo ?>">Abrir curriculo</a></h5>
+                                                    <?php
+                                                  else:
+
+                                                  endif;
+                                                ?>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -185,7 +196,8 @@
     <!-- Footer -->
     <?php require __DIR__ . "./includes/footer.php" ?>
     <!-- Footer -->
-    <?php require '../admin/includes/grafico-atividades.php' ?>
+    <?php require "includes/grafico-atividades.php" ?>
+
     <script>
         $(function() {
           var lineChart = document.getElementById("alunoChart").getContext("2d");
@@ -210,7 +222,7 @@
                   backgroundColor: ["#1f6fe", "#000", "red"],
                   fill: true,
                   borderWidth: 2,
-                  data: [3, 5, 10],
+                  data: <?= json_encode($dataAtividade) ?>,
               },
               ],
           },

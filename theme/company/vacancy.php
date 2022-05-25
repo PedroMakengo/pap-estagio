@@ -268,7 +268,7 @@
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Quantidade de Candidatos</label>
-                  <input type="number" name="qt_candidatos" class="form-control form-control-lg" />
+                  <input type="text" pattern="[0-9]" name="qt_candidatos" class="form-control form-control-lg" />
                 </div>
                 <div class="col-lg-6 form-group">
                   <label for="">Atividades por realizar</label>
@@ -291,7 +291,7 @@
 
                 <div class="col-lg-6 form-group">
                   <label for="">Grau academico</label>
-                  <input type="text" disabled value="Médio Concluído" class="form-control form-control-lg">
+                  <input type="text" disabled name="grau_academico" value="Médio Concluído" class="form-control form-control-lg">
                   </select>
                 </div>
 
@@ -302,10 +302,9 @@
               <?php
 
                 if(isset($_POST['adicionar_vaga'])):
-                  $quantidadeCandidatos = $_POST['qt_candidatos'];
+                  $numero_quantidade = $_POST['qt_candidatos'];
                   $area_atuacao = $_POST['area_atuacao'];
 
-                  $grau         = $_POST['grau_academico'];
                   $linguas      = $_POST['linguas'];
                   $competencias = $_POST['competencias'];
                   $atividades   = $_POST['atividades'];
@@ -313,12 +312,13 @@
                   $parametros = [
                     ":id_empresa"   => $_SESSION['id'],
                     ":area"         => $area_atuacao,
-                    ":quantidade"   => $quantidadeCandidatos,
-                    ":atividades"   => $atividades,
+                    ":numero"       => $numero_quantidade,
                     ":estado"       => 0,
-                    ":num_resta"    => $quantidadeCandidatos,
+                    ":numero_restante_candidatura" => $numero_quantidade,
+                    ":atividades"   => $atividades,
                     ":competencias" => $competencias,
-                    ":linguas"      => $linguas
+                    ":linguas"      => $linguas,
+                    ":ensino"       => "Médio Concluído"
                   ];
 
                   $inserirVagaMinha = new Model();
@@ -339,14 +339,14 @@
                   (
                     :id_empresa,
                     :area,
-                    :quantidade,
-                     now(),
-                     :estado,
-                     :num_resta,
-                     :atividades,
-                     :competencias,
-                     :linguas,
-                     :ensino
+                    :numero,
+                    now(),
+                    :estado,
+                    :numero_restante_candidatura,
+                    :atividades,
+                    :competencias,
+                    :linguas,
+                    :ensino
                   ) ", $parametros);
                    if($inserirVagaMinha):
                     echo '<script>

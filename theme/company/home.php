@@ -56,7 +56,7 @@
                                           </div>
                                           <div class="col-lg-4 form-group">
                                             <label for="">Contacto</label>
-                                            <input type="tel" name="tel" value="<?= $mostrar['contacto'] ?>" class="form-control form-control-lg" />
+                                            <input type="tel" name="tel" maxlength="9" value="<?= $mostrar['contacto'] ?>" class="form-control form-control-lg" />
                                           </div>
                                           <div class="col-lg-4 form-group">
                                             <label for="">Responsável</label>
@@ -188,8 +188,8 @@
                                                     $totalEstudanteMinhaEmpresa = new Model();
                                                     $totalEstagio = $totalEstudanteMinhaEmpresa->EXE_QUERY("SELECT * FROM tb_candidatura_vaga
                                                     INNER JOIN tb_vaga_estagio ON tb_candidatura_vaga.id_vaga_estagio=tb_vaga_estagio.id_vaga_estagio
-                                                    INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa
-                                                    WHERE tb_empresa.id_empresa=:id", $parametros);
+                                                    INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno
+                                                    WHERE tb_vaga_estagio.id_empresa=:id AND estado_candidatura=1", $parametros);
                                                     echo count($totalEstagio);
                                                 ?>
                                                 <!-- Contar quantas empresas estão no sistema -->
@@ -206,7 +206,7 @@
                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="text-muted">Estagiários Sexo (M)</h5>
+                                            <h5 class="text-muted">Candidatos Sexo (M)</h5>
                                             <div class="metric-value d-inline-block">
                                                 <h1 class="mb-1">
                                                 <!-- Contar quantas empresas estão no sistema -->
@@ -233,7 +233,7 @@
                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="text-muted">Estagiários Sexo (F)</h5>
+                                            <h5 class="text-muted">Candidatos Sexo (F)</h5>
                                             <div class="metric-value d-inline-block">
                                                 <h1 class="mb-1">
                                                   <?php

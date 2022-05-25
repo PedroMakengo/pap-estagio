@@ -131,7 +131,7 @@
                                   <div class="bg-white border p-4">
                                     <nav>
                                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Candidaturas</a>
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Candidatos</a>
                                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Estagiários</a>
                                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-atribuir" role="tab" aria-controls="nav-profile" aria-selected="false">Tarefas</a>
                                       </div>
@@ -189,7 +189,7 @@
                                                               endforeach;
                                                             else:?>
                                                                 <tr>
-                                                                  <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe estagiários dentro da tua empresaa</td>
+                                                                  <td colspan="12" class="bg-warning p-2 text-white text-center">Não existe candidatos neste momento</td>
                                                                 </tr>
                                                             <?php
                                                             endif;
@@ -352,7 +352,12 @@
                                                                   <td><?= $mostrar['id_atribuir_tarefa'] ?></td>
                                                                   <td><?= $mostrar['nome'] ?></td>
                                                                   <td><?= $mostrar['tema'] ?> </td>
-                                                                  <td><a href="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_enviado'] ?>" taregt="_blank">Tarefa Enviada</a></td>
+                                                                  <td>
+                                                                    <a href="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_enviado'] ?>" taregt="_blank">Tarefa Enviada</a>
+                                                                    <!-- <object data="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_enviado'] ?>" type="application/pdf">
+                                                                        <p>Tarefa Enviada</p>
+                                                                    </object> -->
+                                                                  </td>
                                                                   <td><a href="../assets/storage/curriculo/<?= $mostrar['arquivo_tarefa_recibo'] ?>" taregt="_blank">Tarefa Recebida</a></td>
                                                                   <td><?= $mostrar['data_entrega'] ?></td>
                                                                   <td><?= $mostrar['data_entregada'] ?></td>
