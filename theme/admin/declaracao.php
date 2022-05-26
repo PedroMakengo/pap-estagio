@@ -127,7 +127,7 @@
                                     <div class="card">
                                       <div class="card-body p-0">
                                         <div class="table-responsive">
-                                            <table class="table" id="dataTableEstagio">
+                                            <table class="table" id="dataDeclaracao">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
@@ -155,7 +155,7 @@
                                                               <td><?= $mostrar['data_emissao'] ?></td>
                                                               <td><?= $mostrar['estado_emissao'] === "0" ? "<span class='text-warning'>Processando</span>" : "<span class='text-success'>Aceite</span>" ?></td>
                                                               <td class="text-center">
-                                                                <a href="#" class="btn btn-primary btn-sm">
+                                                                <a target="_blank" href="../study/declaracao.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-primary btn-sm">
                                                                   <i class="fas fa-eye"></i>
                                                                 </a>
                                                               </td>
