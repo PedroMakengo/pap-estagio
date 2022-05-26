@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Maio-2022 às 13:26
+-- Tempo de geração: 25-Maio-2022 às 22:47
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.3.33
 
@@ -40,7 +40,7 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nome_admin`, `email_admin`, `senha_admin`, `foto_admin`) VALUES
-(1, 'Mauro Bengue', 'maurobengue@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', 'mauro.png'),
+(1, 'Mauro Bengue', 'maurobengue@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', 'positive-black-adult-man-makes-yes-gesture-clenches-fists-feels-like-champion-or-winner-wears-casual-black-t-shirt-isolated-over-vivid-orange-wall.jpg'),
 (2, 'Eduardo Jamba', 'jamba123@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', 'mauro.png');
 
 -- --------------------------------------------------------
@@ -68,10 +68,16 @@ CREATE TABLE `tb_aluno` (
 --
 
 INSERT INTO `tb_aluno` (`id_aluno`, `nome`, `numero_processo`, `email`, `senha`, `foto`, `sexo`, `contacto`, `estado_aluno`, `escola_frequenta`, `data_registro_aluno`) VALUES
-(1, 'Mauro Bongue', '0', 'maurob@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'jamba.png', 'M', 930128232, 0, '', '2022-01-16 15:56:37'),
 (2, 'Eduardo Jamba', '1902', 'jamba@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'create-2.jpg', 'M', 921502912, 0, '', '2022-01-16 15:58:47'),
 (20, 'Mario Domingos António', '12416', 'mariodomingos@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'blithesome-student-green-t-shirt-posing-with-laptop-indoor-photo-amazed-male-freelancer-isolated.jpg', 'M', 9210000, NULL, 'ITEL - Instituto Nacional de Telecomunicações', NULL),
-(21, 'Amadeu Augusto', '0', 'amadeuaugusto@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', NULL, NULL, NULL, NULL, '', NULL);
+(21, 'Amadeu Augusto', '443', 'amadeuaugusto@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '4.jpg', 'M', 9210000, NULL, '', NULL),
+(22, 'Rogerio Martins', '10042', 'rogeriomartins@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'estudante-africano.webp', 'M', 92150222, NULL, '', NULL),
+(23, 'Márcio Mateus', '9301', 'marcio@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '', 'M', 9210000, NULL, '', NULL),
+(24, 'Ana Maria ', '018363', 'ana@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'positive-black-adult-man-makes-yes-gesture-clenches-fists-feels-like-champion-or-winner-wears-casual-black-t-shirt-isolated-over-vivid-orange-wall.jpg', 'F', 921000038, NULL, '', NULL),
+(25, 'Vitor Miguel', '5200', 'vitormiguel@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'african-student-in-red-attire-posing-with-interested-smile-good-humoured-black-man-in-glasses-holding-books-and-expressing-happiness.jpg', 'M', 9210000, NULL, '', NULL),
+(26, 'Manuel dos Santos', '0', 'manuelsantos@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', NULL, NULL, NULL, NULL, '', NULL),
+(29, 'Jonas', '0', 'jonas@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', NULL, NULL, 0, 0, 'Nenhuma', '2022-05-25 17:45:58'),
+(30, 'Antónia Eduardo', '0', 'antoniaeduardo@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', NULL, NULL, 0, 0, '', '2022-05-25 17:46:40');
 
 -- --------------------------------------------------------
 
@@ -86,7 +92,7 @@ CREATE TABLE `tb_atribuir_tarefa` (
   `data_entrega` date DEFAULT NULL,
   `data_entregada` date DEFAULT NULL,
   `arquivo_tarefa_enviado` varchar(500) DEFAULT NULL,
-  `arquivo_tarefa_recibo` varchar(500) DEFAULT NULL,
+  `arquivo_tarefa_recibo` varchar(500) DEFAULT '0',
   `tema` varchar(50) NOT NULL,
   `descricao_tarefa` text DEFAULT NULL,
   `estado_tarefa` int(1) NOT NULL,
@@ -98,7 +104,10 @@ CREATE TABLE `tb_atribuir_tarefa` (
 --
 
 INSERT INTO `tb_atribuir_tarefa` (`id_atribuir_tarefa`, `id_empresa`, `id_aluno`, `data_entrega`, `data_entregada`, `arquivo_tarefa_enviado`, `arquivo_tarefa_recibo`, `tema`, `descricao_tarefa`, `estado_tarefa`, `data_registro_tarefa`) VALUES
-(8, 3, 20, '2023-06-20', '2040-02-20', 'cv ndonge.pdf', 'cv ndonge.pdf', 'Criar uma caderneta Online', 'Testando', 1, '2022-05-21 17:05:11');
+(8, 3, 20, '2023-06-20', '2040-02-20', 'cv ndonge.pdf', 'cv ndonge.pdf', 'Criar uma caderneta Online', 'Testando', 1, '2022-05-21 17:05:11'),
+(10, 3, 24, '2022-04-02', '2022-04-20', 'cv ndonge.pdf', 'cv ndonge.pdf', 'Teste', 'gfafa', 1, '2022-05-25 16:59:17'),
+(11, 3, 24, '2022-02-20', NULL, 'cv ndonge.pdf', '0', 'Entregar', 'Terminando tudo', 0, '2022-05-25 17:07:30'),
+(12, 3, 25, '2022-06-29', '2022-06-30', 'cv ndonge.pdf', 'cv ndonge.pdf', 'Trabalhar no relatório de venda semanal', 'Tens que ser sério ao trabalhar nesta atividade', 1, '2022-05-25 17:22:32');
 
 -- --------------------------------------------------------
 
@@ -121,7 +130,9 @@ CREATE TABLE `tb_candidatura_vaga` (
 --
 
 INSERT INTO `tb_candidatura_vaga` (`id_candidatura`, `id_aluno`, `id_vaga_estagio`, `data_registro_candidatura`, `estado_candidatura`, `motivacao_candidatura`, `curriculo`) VALUES
-(14, 20, 6, '2022-05-21 17:01:51', 1, 'Testando', 'cv ndonge.pdf');
+(20, 23, 7, '2022-05-25 16:49:13', 1, 'asdhf', 'cv ndonge.pdf'),
+(21, 24, 7, '2022-05-25 16:51:19', 1, 'FDFA', ''),
+(22, 25, 28, '2022-05-25 17:19:52', 1, 'Estou muito interessado nesta vaga', 'cv ndonge.pdf');
 
 -- --------------------------------------------------------
 
@@ -142,7 +153,9 @@ CREATE TABLE `tb_emissao_declaracao` (
 --
 
 INSERT INTO `tb_emissao_declaracao` (`id_declaracao`, `id_aluno`, `id_empresa`, `data_emissao`, `estado_emissao`) VALUES
-(2, 20, 3, '2022-05-21 17:29:24', 0);
+(2, 20, 3, '2022-05-21 17:29:24', 0),
+(3, 24, 3, '2022-05-25 16:55:31', 0),
+(4, 25, 3, '2022-05-25 17:21:06', 0);
 
 -- --------------------------------------------------------
 
@@ -169,9 +182,9 @@ CREATE TABLE `tb_empresa` (
 --
 
 INSERT INTO `tb_empresa` (`id_empresa`, `nome_empresa`, `email_empresa`, `senha_empresa`, `nif`, `localizacao`, `contacto`, `data_registro_empresa`, `responsavel_empresa`, `foto`, `area_atuacao`) VALUES
-(2, 'Ellonet Company', 'ellonet@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', '11124284222', 'Mutamba', '000000000', '2022-01-22 07:09:28', 'Eloyme Samuel', 'company.png', 'TI'),
-(3, 'Sistec', 'sistec@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', '3000', 'Mutamba', '9210000', '2022-01-22 07:10:48', 'Freelancer', 'positive-black-adult-man-makes-yes-gesture-clenches-fists-feels-like-champion-or-winner-wears-casual-black-t-shirt-isolated-over-vivid-orange-wall.jpg', 'Freelancer'),
-(8, 'Marketing Host', 'marketinghost@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '10420028232', 'Luanda, Viana', '932001110', '2022-05-24 08:12:00', 'António Vicente', '8.png', 'Marketing Digital');
+(3, 'Sistec', 'sistec@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', '3000', 'Mutamba', '9210000', '2022-01-22 07:10:48', 'Freelancer', 'positive-black-adult-man-makes-yes-gesture-clenches-fists-feels-like-champion-or-winner-wears-casual-black-t-shirt-isolated-over-vivid-orange-wall.jpg', 'Testando'),
+(8, 'Marketing Host', 'marketinghost@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '10420028232', 'Luanda, Viana', '932001110', '2022-05-24 08:12:00', 'António Vicente', '8.png', 'Marketing Digital'),
+(9, 'KiamySoft', 'kiamysoft@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', '1143430', 'Mutamba', '921502171', '2022-05-25 16:08:10', 'Eduardo Jamba', 'testando-foto.png', 'Testando');
 
 -- --------------------------------------------------------
 
@@ -193,7 +206,9 @@ CREATE TABLE `tb_relatorio_estagio` (
 --
 
 INSERT INTO `tb_relatorio_estagio` (`id_relatorio`, `id_aluno`, `arquivo_entrega`, `estado_relatorio`, `valor_relatorio`, `data_registro_relatorio`) VALUES
-(1, 20, NULL, 0, 0, '2022-05-21 19:55:50');
+(1, 20, NULL, 0, 0, '2022-05-21 19:55:50'),
+(2, 24, NULL, 0, 0, '2022-05-25 16:54:49'),
+(3, 25, NULL, 0, 0, '2022-05-25 17:24:15');
 
 -- --------------------------------------------------------
 
@@ -220,11 +235,11 @@ CREATE TABLE `tb_vaga_estagio` (
 --
 
 INSERT INTO `tb_vaga_estagio` (`id_vaga_estagio`, `id_empresa`, `area_atuacao_vaga`, `numero_candidatura`, `data_registro_vaga`, `estado_vaga`, `numero_restante_candidatura`, `atividades_por_realizar`, `competencias`, `linguas`, `ensino`) VALUES
-(3, 2, 'Técnico de Redes', 5, '2022-02-21 02:19:24', 0, 5, '', '', '', ''),
-(6, 3, 'Atendimento', 2, '2022-02-22 07:14:02', 0, 0, '', '', '', ''),
-(7, 3, 'Vendendor de Imóveis', 2, '2022-04-18 14:33:23', 0, 2, 'Testa', 'Teste', 'Inglês, Português e Francês', 'Teste'),
+(6, 3, 'Atendimento', 2, '2022-02-22 07:14:02', 0, 2, '', '', '', ''),
+(7, 3, 'Vendendor de Imóveis', 2, '2022-04-18 14:33:23', 0, 0, 'Testa', 'Teste', 'Inglês, Português e Francês', 'Teste'),
 (19, 8, 'Atendimento', 2, '2022-05-24 08:21:57', 0, 2, 'Atender diferentes usuários \r\nMelhorar o fluxo de atendimento\r\n', 'Comunicativo\r\nHumilde \r\nDedicado', 'Inglês', 'Médio da Concluído'),
-(20, 8, 'Novo Departamento', 1, '2022-05-24 08:22:41', 0, 1, 'Trabalhando ', 'Ora', 'Português', 'Médio da Concluído');
+(20, 8, 'Novo Departamento', 1, '2022-05-24 08:22:41', 0, 1, 'Trabalhando ', 'Ora', 'Português', 'Médio da Concluído'),
+(28, 3, 'Vendas de Equipamentos Electrónicos', 2, '2022-05-25 17:15:15', 0, 1, 'TFAFAFA', 'FAFAFA', 'Português', 'Médio Concluído');
 
 --
 -- Índices para tabelas despejadas
@@ -300,43 +315,43 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT de tabela `tb_aluno`
 --
 ALTER TABLE `tb_aluno`
-  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `tb_atribuir_tarefa`
 --
 ALTER TABLE `tb_atribuir_tarefa`
-  MODIFY `id_atribuir_tarefa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_atribuir_tarefa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tb_candidatura_vaga`
 --
 ALTER TABLE `tb_candidatura_vaga`
-  MODIFY `id_candidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_candidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `tb_emissao_declaracao`
 --
 ALTER TABLE `tb_emissao_declaracao`
-  MODIFY `id_declaracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_declaracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tb_empresa`
 --
 ALTER TABLE `tb_empresa`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_relatorio_estagio`
 --
 ALTER TABLE `tb_relatorio_estagio`
-  MODIFY `id_relatorio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_relatorio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vaga_estagio`
 --
 ALTER TABLE `tb_vaga_estagio`
-  MODIFY `id_vaga_estagio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_vaga_estagio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Restrições para despejos de tabelas

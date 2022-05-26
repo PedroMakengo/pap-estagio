@@ -59,46 +59,53 @@
                                                           <tr>
                                                               <td><?= $mostrar['id_declaracao'] ?></td>
                                                               <td><?= $mostrar['nome'] ?></td>
-                                                              <td><?= $mostrar['nome'] ?></td>
+                                                              <td><?= $mostrar['nome_empresa'] ?></td>
                                                               <td><?= $mostrar['data_emissao'] ?></td>
                                                               <td><?= $mostrar['estado_emissao'] === "0" ? 'Processando' : 'Aceite' ?></td>
                                                               <td class="text-center">
-                                                                <form method="POST">
-                                                                  <button name="<?= $submeter_validacao = "enviar".$mostrar['id_declaracao'] ?>" class="btn btn-sm btn-primary">
+                                                                <?php if($mostrar['estado_emissao'] === "0"): ?>
+                                                                  <form method="POST">
+                                                                    <button name="<?= $submeter_validacao = "enviar".$mostrar['id_declaracao'] ?>" class="btn btn-sm btn-primary">
+                                                                      <i class="fas fa-check"></i>
+                                                                    </button>
+                                                                    <?php
+                                                                      if(isset($_POST[$submeter_validacao])):
+
+
+                                                                        $parametros = [
+                                                                          ":id" => $mostrar['id_declaracao'],
+                                                                          ":estado" => 1
+                                                                        ];
+
+                                                                        $updateDeclaracao = new Model();
+                                                                        $updateDeclaracao->EXE_NON_QUERY("UPDATE tb_emissao_declaracao SET
+                                                                          estado_emissao=:estado
+                                                                          WHERE id_declaracao=:id
+                                                                        ", $parametros);
+
+                                                                        if($updateDeclaracao):
+                                                                          echo '<script>
+                                                                                  swal({
+                                                                                  title: "Operação efetuada com sucesso!",
+                                                                                  text: "Estado atualizado com sucesso",
+                                                                                  icon: "success",
+                                                                                  button: "Fechar",
+                                                                                  })
+                                                                              </script>';
+                                                                          echo '<script>
+                                                                                    setTimeout(function() {
+                                                                                        window.location.href="declaracao.php?id=declaracao";
+                                                                                    }, 2000)
+                                                                                </script>';
+                                                                        endif;
+                                                                      endif;
+                                                                    ?>
+                                                                  </form>
+                                                                <?php else: ?>
+                                                                  <button disabled class="btn btn-sm bg-warning">
                                                                     <i class="fas fa-check"></i>
                                                                   </button>
-                                                                  <?php
-                                                                    if(isset($_POST[$submeter_validacao])):
-
-                                                                      $parametros = [
-                                                                        ":id" => $mostrar['id_declaracao'],
-                                                                        ":estado" => 1
-                                                                      ];
-
-                                                                      $updateDeclaracao = new Model();
-                                                                      $updateDeclaracao->EXE_NON_QUERY("UPDATE tb_emissao_declaracao SET
-                                                                        estado_emissao=:estado,
-                                                                        WHERE id_declaracao=:id
-                                                                      ", $parametros);
-
-                                                                      if($updateDeclaracao):
-                                                                        echo '<script>
-                                                                                swal({
-                                                                                title: "Operação efetuada com sucesso!",
-                                                                                text: "Estado atualizado com sucesso",
-                                                                                icon: "success",
-                                                                                button: "Fechar",
-                                                                                })
-                                                                            </script>';
-                                                                        echo '<script>
-                                                                                  setTimeout(function() {
-                                                                                      window.location.href="declaracao.php?id=declaracao";
-                                                                                  }, 2000)
-                                                                              </script>';
-                                                                      endif;
-                                                                    endif;
-                                                                  ?>
-                                                                </form>
+                                                                <?php endif; ?>
                                                               </td>
                                                           </tr>
                                                         <?php
@@ -110,36 +117,6 @@
                                                       <?php
                                                       endif;?>
                                                 </tbody>
-
-                                                <!-- Eliminar Pedido de Declaração -->
-                                                  <?php
-                                                    if (isset($_GET['action']) && $_GET['action'] == 'delete'):
-                                                        $id = $_GET['id'];
-                                                        $parametros  =[
-                                                            ":id"=>$id
-                                                        ];
-                                                        $delete = new Model();
-                                                        $delete->EXE_NON_QUERY("DELETE FROM tb_empresa WHERE id_empresa=:id", $parametros);
-                                                        if($delete == true):
-                                                            echo '<script>
-                                                                    swal({
-                                                                    title: "Dado Eliminado!",
-                                                                    text: "Operação Efetuada com sucesso",
-                                                                    icon: "success",
-                                                                    button: "Fechar",
-                                                                    })
-                                                                </script>';
-                                                            echo '<script>
-                                                                      setTimeout(function() {
-                                                                          window.location.href="declaracao.php?id=declaracao";
-                                                                      }, 2000)
-                                                                  </script>';
-                                                        else:
-                                                            echo "<script>window.alert('Operação falhou');</script>";
-                                                        endif;
-                                                    endif;
-                                                ?>
-                                                <!-- Eliminar Pedido de Declaração -->
                                             </table>
                                         </div>
                                       </div>
@@ -174,51 +151,13 @@
                                                           <tr>
                                                               <td><?= $mostrar['id_declaracao'] ?></td>
                                                               <td><?= $mostrar['nome'] ?></td>
-                                                              <td><?= $mostrar['nome'] ?></td>
+                                                              <td><?= $mostrar['nome_empresa'] ?></td>
                                                               <td><?= $mostrar['data_emissao'] ?></td>
                                                               <td><?= $mostrar['estado_emissao'] === "0" ? "<span class='text-warning'>Processando</span>" : "<span class='text-success'>Aceite</span>" ?></td>
                                                               <td class="text-center">
-                                                                <form method="POST">
-                                                                  <?php if($mostrar['estado_emissao'] === '0'): ?>
-                                                                      <button name="<?= $submeter_validacao = "enviar".$mostrar['id_declaracao'] ?>" class="btn btn-sm btn-primary">
-                                                                        <i class="fas fa-check"></i>
-                                                                      </button>
-                                                                      <?php
-                                                                        if(isset($_POST[$submeter_validacao])):
-
-                                                                          $parametros = [
-                                                                            ":estado" => 1,
-                                                                            ":declaracao" => $mostrar['id_declaracao']
-                                                                          ];
-
-                                                                          $atualizarDeclaracao = new Model();
-                                                                          $atualizarDeclaracao->EXE_NON_QUERY(
-                                                                            "UPDATE tb_emissao_declaracao
-                                                                            SET estado_emissao=:estado WHERE id_declaracao=:declaracao", $parametros);
-
-                                                                          if($atualizarDeclaracao):
-                                                                            echo '<script>
-                                                                                    swal({
-                                                                                    title: "Operação efetuada com sucesso!",
-                                                                                    text: "Estado atualizado com sucesso",
-                                                                                    icon: "success",
-                                                                                    button: "Fechar",
-                                                                                    })
-                                                                                </script>';
-                                                                            echo '<script>
-                                                                                      setTimeout(function() {
-                                                                                          window.location.href="declaracao.php?id=declaracao";
-                                                                                      }, 2000)
-                                                                                  </script>';
-                                                                          endif;
-                                                                        endif;
-                                                                      ?>
-                                                                  <?php else: ?>
-                                                                    <a href="#" class="btn btn-sm btn-primary">
-                                                                      <i class="fas fa-eye"></i>
-                                                                    </a>
-                                                                  <?php endif; ?>
-                                                                </form>
+                                                                <a href="#" class="btn btn-primary btn-sm">
+                                                                  <i class="fas fa-eye"></i>
+                                                                </a>
                                                               </td>
                                                           </tr>
                                                         <?php

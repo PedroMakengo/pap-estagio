@@ -171,8 +171,8 @@
                                                             <td><?= $mostrar['id_vaga_estagio'] ?></td>
                                                             <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                             <td><?= $mostrar['numero_candidatura'] ?></td>
-                                                            <td><?= $mostrar['numero_candidatura'] ?></td>
-                                                            <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
+                                                            <td><?= $mostrar['numero_restante_candidatura'] ?></td>
+                                                            <td><?= $mostrar['numero_restante_candidatura'] === '0' ?  'Fechado' :  'Aberto' ?></td>
                                                             <td class="text-center">
                                                               <a href="vacancy.php?action=delete&id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-danger">
                                                                 <i class="fas fa-trash"></i>

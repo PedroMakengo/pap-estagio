@@ -246,9 +246,6 @@
                                             <a href="meuestagio.php?id=<?= $mostrar['id_relatorio'] ?>&action=delete" class="btn btn-sm bg-danger text-white">
                                               <i class="fas fa-trash"></i>
                                             </a>
-                                            <a href="#" class="btn btn-sm bg-primary text-white">
-                                              <i class="fas fa-eye"></i>
-                                            </a>
                                           </td>
                                         </tr>
                                     <?php
@@ -452,13 +449,13 @@
                                       else: ?>
                                         <h1 class="h6">Pedido de Declaração</h1>
                                         <div class="mt-4">
-                                          <a href="#" data-toggle="modal" data-target=".bd-example-modal-xl" target="__blank" class="btn btn-primary col-lg-12">Fazer</a>
+                                          <a href="#" data-toggle="modal" data-target=".modal_declaracao" target="__blank" class="btn btn-primary col-lg-12">Fazer</a>
                                         </div>
                                     <?php
                                       endif; ?>
                                   </div>
 
-                                  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                  <div class="modal fade modal_declaracao" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
                                       <div class="modal-content">
                                           <div class="modal-header">

@@ -32,7 +32,7 @@
                                                         <th class="border-0">E-mail</th>
                                                         <th class="border-0">Contacto</th>
                                                         <th class="border-0">Numero de Processo</th>
-                                                        <th class="border-0">Data de registro</th>
+                                                        <!-- <th class="border-0">Data de registro</th> -->
                                                         <th class="border-0">Acções</th>
                                                     </tr>
                                                 </thead>
@@ -48,7 +48,7 @@
                                                             <td><?= $mostrar['email'] ?></td>
                                                             <td><?= $mostrar['contacto'] ?></td>
                                                             <td><?= $mostrar['numero_processo'] ?></td>
-                                                            <td><?= $mostrar['data_registro_aluno'] ?></td>
+                                                            <!-- <td><?= $mostrar['data_registro_aluno'] ?></td> -->
                                                             <td>
                                                                 <a href="profile-students.php?id=<?= $mostrar['id_aluno'] ?>" class="btn btn-sm btn-primary">
                                                                   <i class="fas fa-eye"></i>

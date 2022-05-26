@@ -219,7 +219,11 @@
                                                     <button class="btn btn-sm btn-danger" disabled>Inscrever-se</button>
                                                   <?php
                                                   else:?>
-                                                    <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                    <?php if((int)$mostrar['numero_restante_candidatura'] > 0): ?>
+                                                      <a href="candidatura_vaga.php?id=<?= $mostrar['id_vaga_estagio'] ?>" class="btn btn-sm btn-primary">Inscrever-se</a>
+                                                      <?php else: ?>
+                                                      <button class="btn btn-sm btn-danger" disabled>Atingiu o limite</button>
+                                                    <?php endif; ?>
                                                   <?php
                                                   endif;?>
                                               </td>

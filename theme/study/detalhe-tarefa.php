@@ -161,7 +161,7 @@
                           $descricao_tarefa = $mostrar['descricao_tarefa'];
                           $dataEntrega = $mostrar['data_entrega'];
                           $dataAtiva   = $mostrar['data_entregada'];
-                          $arquivo     = $mostrar['arquivo_tarefa_enviado'];
+                          $arquivo     = $mostrar['arquivo_tarefa_recibo'];
                           $responsavel = $mostrar['nome'];
                           $estado      = $mostrar['estado_tarefa'] === '0' ? "<span class='text-warning'>Processando</span>" : "<span class='text-success'>Aprovado</span>";
                         endforeach;
@@ -220,7 +220,8 @@
                           </div>
                         </div>
 
-                        <?php if($arquivo === ''): ?>
+                        <?php if($arquivo === "0"): ?>
+
                         <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                           <div class="card">
                             <h5 class="card-header"><strong>Enviar tarefa</strong></h5>
@@ -296,12 +297,15 @@
                             </div>
                           </div>
                         </div>
+
                         <?php else: ?>
+
                         <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                           <div class="card bg-success text-white p-4 text-center">
                             <p>Tarefa efuatada com sucesso</p>
                           </div>
                         </div>
+
                         <?php endif;?>
                       </div>
                     </div>

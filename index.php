@@ -263,8 +263,7 @@
               <!-- Colocar o svg -->
               <h3>Divulgação de vagas</h3>
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim.
+               Uma forma eficiente e clara de divulgar as vagas para os estudantes do ensino médio e autocapacitar-los.
               </p>
             </div>
 
@@ -289,8 +288,8 @@
               <!-- Colocar o svg -->
               <h3>Eficiência</h3>
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim.
+               Tornarmos eficiente a forma como os estudantes migram para o ambiente de trabalho
+               dando assim à muitos uma experiência de trabalho.
               </p>
             </div>
 
@@ -315,8 +314,8 @@
               <!-- Colocar o svg -->
               <h3>Oportunidade</h3>
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim.
+                Momentos oportunos para diferentes categorias e diferentes tipos de estudantes, apenas
+                uma forma de ajudar os nossos alunos.
               </p>
             </div>
           </div>
@@ -334,11 +333,9 @@
 
           <div class="content">
             <p>
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim. Amet minim mollit
-              non deserunt ullamco est sit aliqua dolor do amet sint. Velit
-              officia consequat duis enim. Amet minim mollit non deserunt
-              ullamco est sit aliqua dolor do amet sint.
+             Estamos aqui para facilitar o modo de interação entre as entidades empresas e escolas e
+             mostrando para os nossos estudante como pode ser aproveitado o ambiente de trabalho,
+             melhorando 100% a visão das empresas para com as instituições de ensino.s
             </p>
           </div>
         </div>

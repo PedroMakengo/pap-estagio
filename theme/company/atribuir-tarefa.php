@@ -209,7 +209,7 @@
                                         ":dataEntrega" => $data_entrega,
                                         ":dataEntregada"   => NULL,
                                         ":arquivoE"    => $foto,
-                                        ":arquivoR"    => NULL,
+                                        ":arquivoR"    => 0,
                                         ":tema"        => $tema,
                                         ":descricao"   => $descricao,
                                         ":tarefa" => 0

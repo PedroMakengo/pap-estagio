@@ -262,23 +262,36 @@
                               else:
                             ?>
                                 <div class="card rounded p-4">
+                                  <?php
+
+                                    $parametros = [":id" => $_SESSION['id']];
+                                    $buscandoDadosUsuario = new Model();
+                                    $buscandoDados = $buscandoDadosUsuario->EXE_QUERY("SELECT * FROM tb_aluno WHERE id_aluno=:id", $parametros);
+                                    foreach($buscandoDados as $mostrar):
+                                      $nomeUsuario = $mostrar['nome'];
+                                      $sexoUsuario = $mostrar['sexo'] === "M" ? 'Masculino': 'Femenino';
+                                      $emailUsuario = $mostrar['email'];
+                                      $contactoUsuario = $mostrar['contacto'];
+                                    endforeach;
+
+                                  ?>
                                   <form method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                       <div class="col-lg-6 form-group">
                                           <label for="">Nome Completo</label>
-                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['nome'] ?>" />
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $nomeUsuario ?>" />
                                       </div>
                                       <div class="col-lg-6 form-group">
                                           <label for="">Genero</label>
-                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['sexo'] == 'M' ? 'Masculino' : 'Femenino' ?>" />
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $sexoUsuario ?>" />
                                       </div>
                                       <div class="col-lg-6 form-group">
                                           <label for="">E-mail</label>
-                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['email'] ?>" />
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $emailUsuario ?>" />
                                       </div>
                                       <div class="col-lg-6 form-group">
                                           <label for="">Contacto</label>
-                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $_SESSION['contacto'] ?>" />
+                                          <input type="text" class="form-control form-control-lg" disabled value="<?= $contactoUsuario ?>" />
                                       </div>
                                       <div class="col-lg-12 form-group">
                                           <label for="">Currículo</label>
@@ -288,6 +301,7 @@
                                         <label for="">Solicitação da Candidatura</label>
                                         <textarea name="message" class="form-control form-control-lg"></textarea>
                                       </div>
+
                                       <div class="col-lg-4">
                                         <input type="submit" name="candidatura_vaga" value="Solicitar de Vaga" class="btn btn-primary form-control form-control-lg">
                                       </div>
@@ -296,37 +310,79 @@
                                       if(isset($_POST['candidatura_vaga'])):
                                         $idEstagioSelecionado = $_GET['id'];
 
-                                        $target        = "../assets/storage/curriculo/" . basename($_FILES['foto']['name']);
-                                        $curriculo     = $_FILES['foto']['name'];
+                                        // BuscandoOnumeroDeVagasDisponiveis
+                                        $parametros = [":id" => $idEstagioSelecionado];
+                                        $buscandoNumeroDeVagasDisponiveis = new Model();
+                                        $buscandoNumero = $buscandoNumeroDeVagasDisponiveis->EXE_QUERY("SELECT * FROM tb_vaga_estagio WHERE id_vaga_estagio=:id", $parametros);
 
-                                        $parametros = [
-                                          ":idAluno"    => $_SESSION['id'],
-                                          ":idEstagio"  => $idEstagioSelecionado,
-                                          ":mensagem"   => $_POST['message'],
-                                          ":curriculo"  => $curriculo
-                                        ];
+                                        foreach ($buscandoNumero as $mostrar):
+                                          $numeroRestante = $mostrar['numero_restante_candidatura'];
+                                        endforeach;
 
-                                        $candidaturaInserir = new Model();
-                                        $candidaturaInserir->EXE_NON_QUERY("INSERT INTO tb_candidatura_vaga
-                                        (id_aluno, id_vaga_estagio, data_registro_candidatura, estado_candidatura, motivacao_candidatura, curriculo)
-                                        VALUES (:idAluno, :idEstagio, now(), 0, :mensagem, :curriculo) ", $parametros);
+                                        if((int)$numeroRestante > 0):
 
-                                        if($candidaturaInserir):
-                                          if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)):
-                                              $sms = "Uploaded feito com sucesso";
-                                          else:
-                                              $sms = "Não foi possível fazer o upload";
+
+                                          // echo (int)$numeroRestante - 1;
+                                          // Atualizar o campo
+                                          $numero_disponivel = (int)$numeroRestante - 1;
+                                          $parametros = [
+                                            ":id"   => $_GET['id'],
+                                            ":numero" => $numero_disponivel
+                                          ];
+
+                                          $atualizarCampo = new Model();
+                                          $atualizarCampo->EXE_NON_QUERY("UPDATE tb_vaga_estagio SET
+                                          numero_restante_candidatura=:numero
+                                          WHERE id_vaga_estagio=:id", $parametros);
+                                          // Atualizar o campo
+
+
+                                          // INSERIR A MINHA CANDIDATURA
+                                          $target        = "../assets/storage/curriculo/" . basename($_FILES['foto']['name']);
+                                          $curriculo     = $_FILES['foto']['name'];
+
+                                          $parametros = [
+                                            ":idAluno"    => $_SESSION['id'],
+                                            ":idEstagio"  => $idEstagioSelecionado,
+                                            ":mensagem"   => $_POST['message'],
+                                            ":curriculo"  => $curriculo
+                                          ];
+
+                                          $candidaturaInserir = new Model();
+                                          $candidaturaInserir->EXE_NON_QUERY("INSERT INTO tb_candidatura_vaga
+                                          (id_aluno, id_vaga_estagio, data_registro_candidatura, estado_candidatura, motivacao_candidatura, curriculo)
+                                          VALUES (:idAluno, :idEstagio, now(), 0, :mensagem, :curriculo) ", $parametros);
+
+                                          if($candidaturaInserir):
+                                            if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)):
+                                                $sms = "Uploaded feito com sucesso";
+                                            else:
+                                                $sms = "Não foi possível fazer o upload";
+                                            endif;
+                                            echo '<script>
+                                                    swal({
+                                                      title: "Operação efetuado com sucesso!",
+                                                      text: "A tua operação foi efetuada com sucesso",
+                                                      icon: "success",
+                                                      button: "Fechar!",
+                                                    })
+                                                  </script>';
+                                            echo "<script>location.href=`candidatura_vaga.php?id=$idEstagioSelecionado`</script>";
                                           endif;
+
+                                          // INSERIR A MINHA CANDIDATURA
+                                        else:
                                           echo '<script>
                                                   swal({
-                                                    title: "Operação efetuado com sucesso!",
-                                                    text: "A tua operação foi efetuada com sucesso",
+                                                    title: "Opps",
+                                                    text: "Essa vaga foi fechada",
                                                     icon: "success",
                                                     button: "Fechar!",
                                                   })
                                                 </script>';
-                                          echo "<script>location.href=`candidatura_vaga.php?id=$idEstagioSelecionado`</script>";
                                         endif;
+
+
                                       endif;
                                     ?>
                                   </form>
