@@ -200,8 +200,8 @@
                                                     <td><a href="#"><?= $mostrar['nome_empresa'] ?></a></td>
                                                     <td><?= $mostrar['area_atuacao_vaga'] ?></td>
                                                     <td><?= $mostrar['numero_candidatura'] ?></td>
+                                                    <td><?= $mostrar['numero_restante_candidatura'] === '0' ?  '<span class="text-info">Aberto</span>' :  '<span class="text-primary">Fechado</span>' ?></td>
                                                     <td><?= $mostrar['data_registro_vaga'] ?></td>
-                                                    <td><?= $mostrar['estado_vaga'] == 0 ?  'Aberto' :  'Fechado' ?></td>
                                                     <td class="text-center">
                                                     <?php
                                                       // Verificando já pertenço à uma vaga
